@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Matters to Me Now - Pre-Order Now | Dr. Anderson Uvie-Emegbo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #ffffff;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #3498db;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.5" fill="%23d4af37" opacity="0.1"/><circle cx="75" cy="75" r="0.5" fill="%23d4af37" opacity="0.1"/><circle cx="50" cy="10" r="0.3" fill="%23d4af37" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.4rem;
+            color: #6c757d;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .availability-badge {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .book-cover {
+            position: relative;
+            text-align: center;
+            animation: fadeInRight 1s ease-out 0.5s both;
+        }
+
+        .book-image {
+            max-width: 350px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .book-image:hover {
+            transform: perspective(1000px) rotateY(-10deg) rotateX(2deg) scale(1.05);
+        }
+
+        .countdown {
+            background: #ffffff;
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            animation: pulse 2s infinite;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown h3 {
+            color: #d4af37;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .timer-unit {
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .timer-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .timer-label {
+            font-size: 0.8rem;
+            color: #d4af37;
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            color: #ffffff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        .amazon-button {
+            background: linear-gradient(45deg, #ff9500, #ffb84d);
+            font-size: 1.2rem;
+            padding: 18px 40px;
+        }
+
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            border-radius: 2px;
+        }
+
+        .pre-order-banner {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .pre-order-counter {
+            background: #ffffff;
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #d4af37;
+            display: block;
+        }
+
+        .full-synopsis {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 40px 0;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .synopsis-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+            color: #495057;
+        }
+
+        .chapter-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .chapter-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #d4af37;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .chapter-item h4 {
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid #e9ecef;
+            position: relative;
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #d4af37;
+            opacity: 0.5;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #495057;
+        }
+
+        .testimonial-author {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .testimonial-title {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .sponsorship {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.05) 0%, #ffffff 100%);
+            border-radius: 25px;
+            padding: 60px;
+            margin: 60px 0;
+            border: 2px solid #dc143c;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .sponsorship h3 {
+            font-size: 2rem;
+            color: #dc143c;
+            margin-bottom: 25px;
+        }
+
+        .final-days-badge {
+            background: linear-gradient(45deg, #dc143c, #ff4757);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+        }
+
+        .sponsorship-highlight {
+            background: rgba(220, 20, 60, 0.05);
+            border-left: 4px solid #dc143c;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .launch-event {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05) 0%, #ffffff 100%);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 60px 0;
+            border: 2px solid #8a2be2;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .launch-event h3 {
+            color: #8a2be2;
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .event-item {
+            background: rgba(138, 43, 226, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .event-item i {
+            color: #8a2be2;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .email-form {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            display: flex;
+            gap: 15px;
+            max-width: 500px;
+            margin: 30px auto 0;
+            flex-wrap: wrap;
+        }
+
+        .form-group input {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #495057;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder {
+            color: #6c757d;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .author-bio {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: center;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .author-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #d4af37;
+        }
+
+        .bonus-highlight {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 50px;
+            min-height: 400px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #ecf0f1;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: #bdc3c7;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #e74c3c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #34495e;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #e74c3c;
+            transform: translateY(-2px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 12px 24px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #c0392b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .author-bio {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+            
+            .form-group input {
+                min-width: auto;
+            }
+
+            .event-details {
+                grid-template-columns: 1fr;
+            }
+
+            .book-image {
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Dr. Anderson Uvie-Emegbo</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="coaching.html" class="nav-link">Executive Coaching</a></li>
+                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneurship</a></li>
+                <li><a href="academia.html" class="nav-link">Academia</a></li>
+                <li><a href="books.html" class="nav-link">Books</a></li>
+                <li><a href="insights.html" class="nav-link">Insights</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Pre-Order Banner -->
+    <div class="pre-order-banner">
+        <i class="fas fa-gift"></i> PRE-ORDER NOW AVAILABLE! Get your copy and exclusive bonus chapter instantly!
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="availability-badge">
+                        <i class="fas fa-check-circle"></i> Available for Pre-Order!
+                    </div>
+                    <h1>What Matters to Me Now</h1>
+                    <p class="subtitle">A Journey of Reflection and Purpose</p>
+                    <p><strong>Launching March 2025</strong> - A contemplative exploration of priorities, purpose, and authentic living by Dr. Anderson Uvie-Emegbo</p>
+                    
+                    <div class="countdown">
+                        <h3><i class="fas fa-rocket"></i> Official Launch & Shipping Begins:</h3>
+                        <div class="timer">
+                            <div class="timer-unit">
+                                <span class="timer-number" id="launch-days">120</span>
+                                <span class="timer-label">Days</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-number" id="launch-hours">8</span>
+                                <span class="timer-label">Hours</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-number" id="launch-minutes">45</span>
+                                <span class="timer-label">Minutes</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-number" id="launch-seconds">30</span>
+                                <span class="timer-label">Seconds</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="cta-button amazon-button">
+                        <i class="fab fa-amazon"></i> Pre-Order on Amazon
+                    </a>
+                </div>
+                
+                <div class="book-cover">
+                    <img src="what-matters-to-me-now-cover.jpg" alt="What Matters to Me Now Book Cover" class="book-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Order Incentive Counter -->
+    <section class="section">
+        <div class="container">
+            <div class="pre-order-counter">
+                <h3 style="color: #d4af37; margin-bottom: 15px;">
+                    <i class="fas fa-chart-line"></i> Pre-Orders and Counting!
+                </h3>
+                <span class="counter-number" id="order-counter">856</span>
+                <p style="color: #6c757d; margin-top: 10px;">Join hundreds of readers who have already secured their copy</p>
+            </div>
+            
+            <div class="bonus-highlight">
+                <h3 style="margin-bottom: 15px;"><i class="fas fa-gift"></i> Pre-Order Exclusive Bonus!</h3>
+                <p style="font-size: 1.1rem;"><strong>Pre-order now and get immediate access to a digital bonus chapter:</strong> "The Questions That Changed Everything" - An intimate exploration of the pivotal moments that shaped Dr. Anderson's understanding of what truly matters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Synopsis -->
+    <section class="section">
+        <div class="container">
+            <h2>Inside "What Matters to Me Now"</h2>
+            <div class="full-synopsis">
+                <div class="synopsis-content">
+                    <p><strong>"What Matters to Me Now"</strong> is a profound meditation on the evolution of priorities across a life lived with intention. In this deeply personal yet universally resonant work, Dr. Anderson Uvie-Emegbo takes readers on a journey through the shifting landscapes of what we value, why we value it, and how these valuations shape our choices and ultimately our lives.</p>
+                    
+                    <p>Drawing from decades of experience across medicine, finance, academia, and entrepreneurship, Anderson explores how our definitions of success, fulfillment, and impact evolve as we grow. Each chapter examines a different facet of this evolution - from the ambitions of youth to the wisdom of experience, from material pursuits to spiritual awakening, from individual achievement to collective impact.</p>
+                    
+                    <p>This is not merely a philosophical treatise, but a practical guide for anyone standing at a crossroads, questioning their path, or seeking to align their actions with their deepest values. Through stories, insights, and reflective exercises, readers are invited to examine their own priorities and discover what truly matters to them now, in this moment of their unique journey.</p>
+                </div>
+                
+                <h3 style="color: #2c3e50; margin: 40px 0 20px 0; text-align: center;">Key Themes & Reflections</h3>
+                <div class="chapter-highlights">
+                    <div class="chapter-item">
+                        <h4><i class="fas fa-compass"></i> Evolving Values</h4>
+                        <p>How our priorities shift as we grow and learn from life's experiences</p>
+                    </div>
+                    <div class="chapter-item">
+                        <h4><i class="fas fa-balance-scale"></i> Success Redefined</h4>
+                        <p>Moving beyond traditional metrics to authentic measures of fulfillment</p>
+                    </div>
+                    <div class="chapter-item">
+                        <h4><i class="fas fa-clock"></i> Time as Currency</h4>
+                        <p>Understanding how to invest our most precious resource wisely</p>
+                    </div>
+                    <div class="chapter-item">
+                        <h4><i class="fas fa-heart"></i> Relationships First</h4>
+                        <p>The central role of human connection in a meaningful life</p>
+                    </div>
+                    <div class="chapter-item">
+                        <h4><i class="fas fa-leaf"></i> Legacy Thinking</h4>
+                        <p>Building something that outlasts us and serves future generations</p>
+                    </div>
+                    <div class="chapter-item">
+                        <h4><i class="fas fa-mountain"></i> Present Moment</h4>
+                        <p>Finding peace and purpose in the here and now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Praise -->
+    <section class="section">
+        <div class="container">
+            <h2>What Early Readers Are Saying</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">A beautifully written reflection on life's deepest questions. Anderson's insights will resonate with anyone seeking to live more intentionally and authentically.</p>
+                    <div class="testimonial-author">Dr. Elena Rodriguez</div>
+                    <div class="testimonial-title">Professor of Philosophy, Stanford University</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">This book arrived at the perfect moment in my life. Anderson's wisdom about evolving priorities helped me navigate a major career transition with clarity and confidence.</p>
+                    <div class="testimonial-author">James Mitchell</div>
+                    <div class="testimonial-title">Former CEO turned Social Entrepreneur</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">Profound yet practical, contemplative yet actionable. This is the kind of book that changes how you see yourself and your place in the world.</p>
+                    <div class="testimonial-author">Dr. Aminah Hassan</div>
+                    <div class="testimonial-title">Life Coach & Bestselling Author</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">Anderson writes with the wisdom of someone who has lived fully and reflected deeply. Every page offers insights that will stay with you long after you finish reading.</p>
+                    <div class="testimonial-author">Prof. Robert Chen</div>
+                    <div class="testimonial-title">Director, Center for Mindful Leadership, Harvard</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Sign-up -->
+    <section class="section">
+        <div class="container">
+            <div class="email-form">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">Stay Updated on the Launch</h3>
+                <p style="color: #6c757d; margin-bottom: 30px;">Be the first to know when "What Matters to Me Now" becomes available and receive exclusive content from Dr. Anderson.</p>
+                <div class="form-group">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="cta-button">
+                        <i class="fas fa-bell"></i> Notify Me
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Professional Focus</h3>
+                    <p>Executive coaching, leadership development, and business transformation across healthcare, finance, education, and entrepreneurship sectors.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Medium"><i class="fab fa-medium-m"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="coaching.html">Executive Coaching</a></li>
+                        <li><a href="academia.html">Academic Programs</a></li>
+                        <li><a href="entrepreneurship.html">Venco Africa</a></li>
+                        <li><a href="books.html">Published Works</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Global Reach</h3>
+                    <ul>
+                        <li>80+ Countries Served</li>
+                        <li>1000+ Executives Coached</li>
+                        <li>Nova Business School</li>
+                        <li>International Speaker</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Stay Connected</h3>
+                    <p>Subscribe for insights on leadership, innovation, and business transformation.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dr. Anderson Uvie-Emegbo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const launchDate = new Date('2025-03-01T00:00:00Z');
+            const now = new Date();
+            const timeDiff = launchDate.getTime() - now.getTime();
+            
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            
+            document.getElementById('launch-days').textContent = days;
+            document.getElementById('launch-hours').textContent = hours;
+            document.getElementById('launch-minutes').textContent = minutes;
+            document.getElementById('launch-seconds').textContent = seconds;
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Order counter animation
+        function animateCounter() {
+            const counter = document.getElementById('order-counter');
+            const target = 856;
+            let current = 0;
+            const increment = target / 100;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                counter.textContent = Math.floor(current).toLocaleString();
+            }, 20);
+        }
+
+        // Start counter animation when page loads
+        window.addEventListener('load', animateCounter);
+
+        // Footer newsletter form submission
+        document.querySelector('.newsletter-form button').addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = document.querySelector('.newsletter-form input').value;
+            if (email) {
+                alert('Thank you for subscribing! You will receive our latest insights and updates.');
+                document.querySelector('.newsletter-form input').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+
+        // Email form submission
+        document.querySelector('.form-group button').addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = document.querySelector('.form-group input').value;
+            if (email) {
+                alert('Thank you! You will be notified as soon as "What Matters to Me Now" is available.');
+                document.querySelector('.form-group input').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
+</body>
+</html>

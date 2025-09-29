@@ -1,0 +1,2471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Coach | Entrepreneur | Educator | Author</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #3498db;
+        }
+        
+        /* Page Sections */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* Homepage Styles */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff" fill-opacity="0.1" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #666;
+            border: 5px solid rgba(255,255,255,0.3);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .placeholder-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Key Pillars */
+        .pillars {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .pillars h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pillar-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .pillar-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .pillar-card h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        /* Bio Section */
+        .bio {
+            padding: 80px 0;
+        }
+        
+        .bio-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .stats {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3498db;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .bio-text h2 {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .bio-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Testimonial */
+        .testimonial {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial blockquote {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #3498db;
+            border: 2px solid #3498db;
+        }
+        
+        .btn-secondary:hover {
+            background: #3498db;
+            color: white;
+        }
+        
+        /* About Page */
+        .timeline {
+            padding: 80px 0;
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        .timeline-year {
+            color: #3498db;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .press-logos {
+            padding: 60px 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .logo-item {
+            padding: 1rem 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: #666;
+        }
+        
+        /* Coaching Page */
+        .coaching-philosophy {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .philosophy-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .philosophy-card h3 {
+            color: #2d3748;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .philosophy-card p {
+            color: #718096;
+        }
+        
+        .process-steps {
+            padding: 80px 0;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+        
+        /* Entrepreneurship Page */
+        .mission {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .problem-solution {
+            padding: 80px 0;
+        }
+        
+        .ps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .ps-card {
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .problem-card {
+            background: #fff5f5;
+            border-left: 5px solid #e53e3e;
+        }
+        
+        .solution-card {
+            background: #f0fff4;
+            border-left: 5px solid #38a169;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 60px 0;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #3498db;
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Academia Page */
+        .programs {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .program-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Books Page */
+        .books-hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .author-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #666;
+            border: 8px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .books-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .books-hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .library-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .library-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        
+        .book-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .book-cover {
+            width: 180px;
+            height: 270px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .book-cover::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 5px;
+        }
+        
+        .book-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .book-tagline {
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .book-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .status-published {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-coming-soon {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .authors-note {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .note-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .note-content h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .note-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .note-signature {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .endorsements-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .endorsements-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+        
+        .endorsements-carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        
+        .endorsement-slide {
+            background: white;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .endorsement-slide.active {
+            display: block;
+        }
+        
+        .endorsement-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .endorser-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .endorser-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .endorser-details h4 {
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+        
+        .endorser-details p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        .carousel-controls {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            display: inline-block;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: #3498db;
+        }
+        
+        .newsletter-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .newsletter-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .newsletter-btn {
+            padding: 15px 30px;
+            background: white;
+            color: #3498db;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Insights Page */
+        .insights-hero {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .insights-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .insights-hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .blog-categories {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .blog-categories h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .category-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .category-card p {
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+        
+        .article-count {
+            color: #27ae60;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .featured-publications {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .featured-publications h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+        
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .publication-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .publication-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin: 0 auto 1rem;
+        }
+        
+        .publication-card h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-card p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        .media-appearances {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .media-appearances h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+        
+        .media-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .media-item {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .media-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .media-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .media-content h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .media-content p {
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+        
+        .media-date {
+            color: #95a5a6;
+            font-size: 0.8rem;
+        }
+        
+        /* Contact Page */
+        .contact-hero {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .contact-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .contact-hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-content {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form h3 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #8e44ad;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details h4 {
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-details p {
+            color: #718096;
+        }
+        
+        .contact-details a {
+            color: #8e44ad;
+            text-decoration: none;
+        }
+        
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+        
+        .office-locations {
+            margin-top: 2rem;
+        }
+        
+        .office-locations h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .office-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .office-item h5 {
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+        
+        .office-item p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            margin-top: 2rem;
+        }
+        
+        .social-links h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 50px;
+            min-height: 400px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #ecf0f1;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: #bdc3c7;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #e74c3c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #e74c3c;
+            transform: translateY(-2px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 12px 24px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #c0392b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            text-align: center;
+            color: #bdc3c7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .bio-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .ps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .newsletter-input {
+                width: 100%;
+            }
+            
+            .endorsement-slide {
+                padding: 2rem 1.5rem;
+            }
+            
+            .endorsement-text {
+                font-size: 1.1rem;
+            }
+            
+            .endorser-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .books-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+            }
+            
+            .book-cover {
+                height: 280px;
+            }
+            
+            .books-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .author-photo {
+                width: 200px;
+                height: 200px;
+                font-size: 4rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+            
+            .footer-newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Dr. Anderson Uvie-Emegbo</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="coaching.html" class="nav-link">Executive Coaching</a></li>
+                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneurship</a></li>
+                <li><a href="academia.html" class="nav-link">Academia</a></li>
+                <li><a href="books.html" class="nav-link">Books</a></li>
+                <li><a href="insights.html" class="nav-link">Insights</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Homepage -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content fade-in-up">
+                    <div class="hero-photo">
+                        <img src="dr-anderson-headshot.jpg" alt="Dr. Anderson Uvie-Emegbo Professional Headshot">
+                    </div>
+                    <h1>Dr. Anderson Uvie-Emegbo</h1>
+                    <p class="tagline">Executive Coach, Entrepreneur, Educator, and Author</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pillars">
+            <div class="container">
+                <h2>Key Pillars</h2>
+                <div class="pillars-grid">
+                    <div class="pillar-card" onclick="location.href='coaching.html'">
+                        <div class="pillar-icon">🎯</div>
+                        <h3>Executive Coaching</h3>
+                        <p>Transforming leaders through personalized coaching and strategic guidance</p>
+                    </div>
+                    <div class="pillar-card" onclick="location.href='entrepreneurship.html'">
+                        <div class="pillar-icon">🚀</div>
+                        <h3>Venco Africa</h3>
+                        <p>Redefining urban living through innovative entrepreneurship</p>
+                    </div>
+                    <div class="pillar-card" onclick="location.href='academia.html'">
+                        <div class="pillar-icon">🎓</div>
+                        <h3>Nova Business School</h3>
+                        <p>Delivering world-class business education and corporate training</p>
+                    </div>
+                    <div class="pillar-card" onclick="location.href='books.html'">
+                        <div class="pillar-icon">📚</div>
+                        <h3>Books & Insights</h3>
+                        <p>Sharing knowledge through published works and thought leadership</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bio">
+            <div class="container">
+                <div class="bio-content">
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">10M+</div>
+                            <div class="stat-label">Content Views</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">80+</div>
+                            <div class="stat-label">Countries Taught</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">Co-Founder</div>
+                            <div class="stat-label">of Venco</div>
+                        </div>
+                    </div>
+                    <div class="bio-text">
+                        <h2>About Me</h2>
+                        <p>With a unique blend of medical training, banking expertise, and academic leadership, I bring a multifaceted approach to executive coaching and business transformation. My journey from healthcare to finance, and ultimately to education and entrepreneurship, has equipped me with deep insights into leadership, strategy, and innovation.</p>
+                        <p>As VP, Academic Director & COO at Nova Business School and Co-Founder of Venco Africa, I'm passionate about developing leaders who can navigate complexity and drive meaningful change. My work spans continents, touching the lives of executives, entrepreneurs, and students across 80+ countries.</p>
+                        <p>Through personalized coaching, innovative educational programs, and entrepreneurial ventures, I help leaders unlock their potential and create lasting impact in their organizations and communities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial">
+            <div class="container">
+                <div class="testimonial-content">
+                    <blockquote>"Working with [Your Name] has been transformational for both my leadership style and our company's performance. His unique blend of strategic insight and practical wisdom helped us navigate our most challenging growth phase successfully."</blockquote>
+                    <div class="testimonial-author">- CEO, Fortune 500 Company</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Transform Your Leadership?</h2>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Schedule a Consultation</a>
+                    <a href="coaching.html" class="btn btn-secondary">Explore My Programs</a>
+                    <a href="#" class="btn btn-secondary">Read My Insights</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section class="hero" style="padding: 120px 0 80px;">
+            <div class="container">
+                <h1>About Me</h1>
+                <p class="tagline">A Journey from Medicine to Leadership Excellence</p>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <div class="container">
+                <div class="timeline-container">
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-year">Medicine Era</div>
+                        <h3>Medical Training & Practice</h3>
+                        <p>Started my career in healthcare, developing a deep understanding of human psychology, critical decision-making under pressure, and the importance of empathy in leadership.</p>
+                    </div>
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-year">Banking Transition</div>
+                        <h3>Financial Services Leadership</h3>
+                        <p>Transitioned into banking where I gained expertise in strategic planning, risk management, and leading high-performance teams in complex financial environments.</p>
+                    </div>
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-year">CEIBS Experience</div>
+                        <h3>China Europe International Business School</h3>
+                        <p>Expanded global perspective through work with CEIBS, developing cross-cultural leadership capabilities and understanding of international business dynamics.</p>
+                    </div>
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-year">Current Focus</div>
+                        <h3>Nova Business School & Venco Africa</h3>
+                        <p>Now leading academic initiatives at Nova Business School while co-founding Venco Africa, combining education, entrepreneurship, and executive coaching to create comprehensive leadership development solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="press-logos">
+            <div class="container">
+                <h2>Featured In</h2>
+                <div class="logos-grid">
+                    <div class="logo-item">Vanguard</div>
+                    <div class="logo-item">Punch Newspapers</div>
+                    <div class="logo-item">INMA</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Executive Coaching Page -->
+    <div id="coaching" class="page">
+        <section class="hero" style="padding: 120px 0 80px;">
+            <div class="container">
+                <h1>Executive Coaching</h1>
+                <p class="tagline">Transforming Leaders, Transforming Organizations</p>
+            </div>
+        </section>
+
+        <section class="coaching-philosophy">
+            <div class="container">
+                <h2>My Coaching Philosophy</h2>
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <h3>Holistic Leadership</h3>
+                        <p>I believe effective leadership encompasses emotional intelligence, strategic thinking, and authentic communication. My approach addresses the whole person, not just professional skills.</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <h3>Practical Application</h3>
+                        <p>Every coaching session is designed to provide actionable insights that can be immediately implemented in your leadership role, driving real results for you and your organization.</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <h3>Sustainable Growth</h3>
+                        <p>Rather than quick fixes, I focus on building lasting capabilities that will serve you throughout your career, creating sustainable leadership excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-steps">
+            <div class="container">
+                <h2>The Coaching Process</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Discovery Call</h3>
+                        <p>We'll explore your challenges, goals, and determine if we're a good fit for working together.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Assessment</h3>
+                        <p>Comprehensive evaluation of your leadership style, strengths, and development opportunities.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Strategy Design</h3>
+                        <p>Creation of a personalized development plan aligned with your specific objectives.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Implementation</h3>
+                        <p>Regular coaching sessions with practical exercises and real-world application.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Elevate Your Leadership?</h2>
+                <a href="#" class="btn btn-primary">Book a Discovery Call</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Entrepreneurship Page -->
+    <div id="entrepreneurship" class="page">
+        <section class="mission">
+            <div class="container">
+                <h1>Venco Africa</h1>
+                <p class="tagline" style="font-size: 1.5rem; margin-top: 1rem;">"Redefining Urban Living"</p>
+                <p style="font-size: 1.2rem; margin-top: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">Our mission is to transform how people experience urban life through innovative technology solutions that connect communities, streamline services, and enhance quality of life.</p>
+            </div>
+        </section>
+
+        <section class="problem-solution">
+            <div class="container">
+                <div class="ps-grid">
+                    <div class="ps-card problem-card">
+                        <h3>The Problem</h3>
+                        <p>Urban living in Africa faces significant challenges: fragmented services, lack of community connection, inefficient resource allocation, and limited access to quality amenities.</p>
+                    </div>
+                    <div class="ps-card solution-card">
+                        <h3>The Solution</h3>
+                        <p>Venco Africa creates an integrated platform that connects residents, service providers, and community resources through innovative technology.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 80px 0;">
+            <div class="container">
+                <h2>Key Platform Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🏠</div>
+                        <h3>Community Hub</h3>
+                        <p>Connect with neighbors and local businesses</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔧</div>
+                        <h3>Service Marketplace</h3>
+                        <p>Access vetted service providers instantly</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>Smart Notifications</h3>
+                        <p>Stay updated on community events and services</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💳</div>
+                        <h3>Integrated Payments</h3>
+                        <p>Seamless transactions for all platform services</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Discover the Future of Urban Living</h2>
+                <a href="https://venco.africa" class="btn btn-primary" target="_blank">Learn More</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Academia Page -->
+    <div id="academia" class="page">
+        <section class="hero" style="padding: 120px 0 80px;">
+            <div class="container">
+                <h1>Nova Business School</h1>
+                <p class="tagline">Shaping Tomorrow's Business Leaders</p>
+            </div>
+        </section>
+
+        <section class="programs">
+            <div class="container">
+                <h2>Key Programs I Lead</h2>
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <h3>Driving Growth in the Digital Age</h3>
+                        <p>Flagship executive program focusing on digital transformation, innovation leadership, and sustainable growth strategies for the modern business environment.</p>
+                    </div>
+                    <div class="program-card">
+                        <h3>Executive Leadership Intensive</h3>
+                        <p>Comprehensive leadership development program designed for senior executives looking to enhance their strategic thinking and leadership capabilities.</p>
+                    </div>
+                    <div class="program-card">
+                        <h3>Custom Corporate Training</h3>
+                        <p>Bespoke training solutions designed specifically for organizational needs, delivering targeted skill development and strategic alignment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Advance Your Career with World-Class Education</h2>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">View Programmes</a>
+                    <a href="#" class="btn btn-secondary">Corporate Training</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Books Page -->
+    <div id="books" class="page">
+        <!-- Author Hero Section -->
+        <section class="books-hero">
+            <div class="container">
+                <div class="author-photo">
+                    <img src="dr-anderson-headshot.jpg" alt="Dr. Anderson Uvie-Emegbo Professional Headshot">
+                </div>
+                <h1>Published Works</h1>
+                <p class="subtitle">Insights from decades of leadership experience, distilled into practical wisdom for today's business leaders and entrepreneurs.</p>
+            </div>
+        </section>
+
+        <!-- The Library Section -->
+        <section class="library-section">
+            <div class="container">
+                <h2>The Library</h2>
+                <div class="books-grid">
+                    <div class="book-card" onclick="window.open('the-gift.html', '_blank')">
+                        <div class="book-cover">
+                            <img src="images/the-gift-cover.jpg" alt="The Gift Book Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.parentElement.innerHTML='🎁'; this.parentElement.style.fontSize='4rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+                        </div>
+                        <h3 class="book-title">The Gift</h3>
+                        <p class="book-tagline">"The Story I Was Once Too Afraid to Tell"</p>
+                        <span class="book-status status-coming-soon">Coming 2025</span>
+                    </div>
+                    
+                    <div class="book-card" onclick="openBookPage('leadership-excellence')">
+                        <div class="book-cover">📘</div>
+                        <h3 class="book-title">Leadership Excellence in the Digital Age</h3>
+                        <p class="book-tagline">"Navigating complexity with clarity and purpose"</p>
+                        <span class="book-status status-published">Available Now</span>
+                    </div>
+                    
+                    <div class="book-card" onclick="openBookPage('entrepreneurial-mindset')">
+                        <div class="book-cover">🚀</div>
+                        <h3 class="book-title">The Entrepreneurial Mindset</h3>
+                        <p class="book-tagline">"From healthcare to fintech: A journey of transformation"</p>
+                        <span class="book-status status-published">Available Now</span>
+                    </div>
+                    
+                    <div class="book-card" onclick="openBookPage('coaching-frameworks')">
+                        <div class="book-cover">🎯</div>
+                        <h3 class="book-title">Executive Coaching Frameworks</h3>
+                        <p class="book-tagline">"Proven methodologies for leadership development"</p>
+                        <span class="book-status status-published">Available Now</span>
+                    </div>
+                    
+                    <div class="book-card" onclick="openBookPage('african-innovation')">
+                        <div class="book-cover">🌍</div>
+                        <h3 class="book-title">Innovation in African Markets</h3>
+                        <p class="book-tagline">"Building sustainable businesses across the continent"</p>
+                        <span class="book-status status-coming-soon">Coming 2026</span>
+                    </div>
+                    
+                    <div class="book-card" onclick="openBookPage('digital-transformation')">
+                        <div class="book-cover">💻</div>
+                        <h3 class="book-title">Digital Transformation Playbook</h3>
+                        <p class="book-tagline">"A practical guide for legacy organizations"</p>
+                        <span class="book-status status-coming-soon">Coming 2026</span>
+                    </div>
+                    
+                    <div class="book-card" onclick="openBookPage('global-leadership')">
+                        <div class="book-cover">🌐</div>
+                        <h3 class="book-title">Global Leadership Perspectives</h3>
+                        <p class="book-tagline">"Insights from 80+ countries and diverse cultures"</p>
+                        <span class="book-status status-coming-soon">Coming 2027</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Author's Note Section -->
+        <section class="authors-note">
+            <div class="container">
+                <div class="note-content">
+                    <h2>Author's Note</h2>
+                    <p class="note-text">
+                        "Writing has always been my way of crystallizing the lessons learned from each chapter of my journey. From the precision required in medical practice to the strategic thinking demanded in banking, from the innovation mindset needed in entrepreneurship to the wisdom required for effective coaching—each experience has shaped my perspective on leadership and success.
+                    </p>
+                    <p class="note-text">
+                        I write not just to share knowledge, but to create practical tools that leaders can use immediately. Every framework, every case study, every insight in my books comes from real-world application. My hope is that these works serve as both mirror and map—helping you see your current capabilities clearly while charting a path to even greater impact.
+                    </p>
+                    <p class="note-text">
+                        Leadership is not a destination; it's a continuous journey of growth, adaptation, and service to others. Through these books, I invite you to join me on that journey."
+                    </p>
+                    <p class="note-signature">— Dr. Anderson Uvie-Emegbo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Endorsements Carousel -->
+        <section class="endorsements-section">
+            <div class="container">
+                <h2>What Leaders Are Saying</h2>
+                <div class="endorsements-carousel">
+                    <div class="endorsement-slide active">
+                        <p class="endorsement-text">"A masterclass in modern leadership. This book should be required reading for every C-suite executive navigating digital transformation."</p>
+                        <div class="endorser-info">
+                            <div class="endorser-photo">MJ</div>
+                            <div class="endorser-details">
+                                <h4>Dr. Michael Johnson</h4>
+                                <p>CEO, Global Tech Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="endorsement-slide">
+                        <p class="endorsement-text">"Practical wisdom that bridges the gap between traditional business education and the realities of today's entrepreneurial landscape."</p>
+                        <div class="endorser-info">
+                            <div class="endorser-photo">SA</div>
+                            <div class="endorser-details">
+                                <h4>Sarah Anderson</h4>
+                                <p>Founder, Innovation Capital</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="endorsement-slide">
+                        <p class="endorsement-text">"An authentic voice that combines deep experience with actionable insights. These frameworks have transformed how our leadership team operates."</p>
+                        <div class="endorser-info">
+                            <div class="endorser-photo">DK</div>
+                            <div class="endorser-details">
+                                <h4>David Kim</h4>
+                                <p>Managing Director, Fortune 500 Company</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="endorsement-slide">
+                        <p class="endorsement-text">"A rare combination of academic rigor and practical application. Essential reading for anyone serious about leadership development."</p>
+                        <div class="endorser-info">
+                            <div class="endorser-photo">ER</div>
+                            <div class="endorser-details">
+                                <h4>Prof. Elizabeth Roberts</h4>
+                                <p>Harvard Business School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-controls">
+                    <span class="carousel-dot active" onclick="showEndorsement(0)"></span>
+                    <span class="carousel-dot" onclick="showEndorsement(1)"></span>
+                    <span class="carousel-dot" onclick="showEndorsement(2)"></span>
+                    <span class="carousel-dot" onclick="showEndorsement(3)"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Be the first to know about new book releases, exclusive insights, and special offers.</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Insights Page -->
+    <div id="insights" class="page">
+        <!-- Insights Hero Section -->
+        <section class="insights-hero">
+            <div class="container">
+                <h1>Insights & Thought Leadership</h1>
+                <p class="subtitle">Exploring the intersection of leadership, innovation, and business transformation through research, analysis, and real-world experience.</p>
+            </div>
+        </section>
+
+        <!-- Blog Categories Section -->
+        <section class="blog-categories">
+            <div class="container">
+                <h2>Featured Categories</h2>
+                <div class="categories-grid">
+                    <div class="category-card" onclick="openCategory('digital-transformation')">
+                        <div class="category-icon">💻</div>
+                        <h3>Digital Transformation</h3>
+                        <p>Strategic insights on navigating digital disruption, technology adoption, and organizational change in the modern business landscape.</p>
+                        <span class="article-count">12 Articles</span>
+                    </div>
+                    
+                    <div class="category-card" onclick="openCategory('leadership')">
+                        <div class="category-icon">🎯</div>
+                        <h3>Leadership Excellence</h3>
+                        <p>Practical frameworks for executive leadership, team development, and creating high-performance organizational cultures.</p>
+                        <span class="article-count">18 Articles</span>
+                    </div>
+                    
+                    <div class="category-card" onclick="openCategory('african-business')">
+                        <div class="category-icon">🌍</div>
+                        <h3>African Business</h3>
+                        <p>Market insights, emerging opportunities, and success strategies for businesses operating across the African continent.</p>
+                        <span class="article-count">15 Articles</span>
+                    </div>
+                    
+                    <div class="category-card" onclick="openCategory('innovation')">
+                        <div class="category-icon">💡</div>
+                        <h3>Innovation & Entrepreneurship</h3>
+                        <p>Exploring innovation methodologies, startup ecosystems, and entrepreneurial mindsets that drive business growth.</p>
+                        <span class="article-count">14 Articles</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Publications Section -->
+        <section class="featured-publications">
+            <div class="container">
+                <h2>Featured Publications</h2>
+                <div class="publications-grid">
+                    <div class="publication-card" onclick="openPublication('vanguard')">
+                        <div class="publication-logo">📰</div>
+                        <h4>Vanguard Newspapers</h4>
+                        <p>Regular contributor on business leadership and economic development</p>
+                    </div>
+                    
+                    <div class="publication-card" onclick="openPublication('punch')">
+                        <div class="publication-logo">📄</div>
+                        <h4>Punch Newspapers</h4>
+                        <p>Featured columnist on entrepreneurship and innovation in Africa</p>
+                    </div>
+                    
+                    <div class="publication-card" onclick="openPublication('inma')">
+                        <div class="publication-logo">🌐</div>
+                        <h4>INMA Global</h4>
+                        <p>Contributing author on digital transformation and media innovation</p>
+                    </div>
+                    
+                    <div class="publication-card" onclick="openPublication('business-day')">
+                        <div class="publication-logo">💼</div>
+                        <h4>BusinessDay</h4>
+                        <p>Expert commentary on financial services and business strategy</p>
+                    </div>
+                    
+                    <div class="publication-card" onclick="openPublication('forbes-africa')">
+                        <div class="publication-logo">🏆</div>
+                        <h4>Forbes Africa</h4>
+                        <p>Insights on leadership development and executive coaching</p>
+                    </div>
+                    
+                    <div class="publication-card" onclick="openPublication('harvard-review')">
+                        <div class="publication-logo">🎓</div>
+                        <h4>Harvard Business Review</h4>
+                        <p>Research contributions on global leadership and organizational change</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Appearances Section -->
+        <section class="media-appearances">
+            <div class="container">
+                <h2>Media Appearances</h2>
+                <div class="media-list">
+                    <div class="media-item" onclick="openMedia('leadership-podcast')">
+                        <div class="media-icon">🎙️</div>
+                        <div class="media-content">
+                            <h4>The Leadership Edge Podcast</h4>
+                            <p>"Transforming Organizations Through Executive Coaching"</p>
+                            <span class="media-date">August 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="media-item" onclick="openMedia('cnbc-africa')">
+                        <div class="media-icon">📺</div>
+                        <div class="media-content">
+                            <h4>CNBC Africa Business Interview</h4>
+                            <p>"The Future of African Entrepreneurship and Innovation"</p>
+                            <span class="media-date">July 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="media-item" onclick="openMedia('techpoint-africa')">
+                        <div class="media-icon">🎧</div>
+                        <div class="media-content">
+                            <h4>Techpoint Africa Podcast</h4>
+                            <p>"Digital Transformation in Traditional Industries"</p>
+                            <span class="media-date">June 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="media-item" onclick="openMedia('business-morning')">
+                        <div class="media-icon">📻</div>
+                        <div class="media-content">
+                            <h4>Business Morning Show - Lagos FM</h4>
+                            <p>"Executive Leadership in Post-Pandemic Business Environment"</p>
+                            <span class="media-date">May 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="media-item" onclick="openMedia('education-summit')">
+                        <div class="media-icon">🎤</div>
+                        <div class="media-content">
+                            <h4>Global Education Summit Keynote</h4>
+                            <p>"The Future of Business Education in Africa"</p>
+                            <span class="media-date">April 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Informed</h2>
+                    <p>Subscribe to receive the latest insights, articles, and thought leadership directly in your inbox.</p>
+                    <form class="newsletter-form" onsubmit="subscribeInsightsNewsletter(event)">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Get In Touch</h1>
+                <p class="subtitle">Ready to transform your leadership journey? Let's start a conversation about how we can work together.</p>
+            </div>
+        </section>
+
+        <!-- Contact Content Section -->
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h3>Send Me a Message</h3>
+                        <form onsubmit="submitContactForm(event)">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company/Organization</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="inquiry-type">Type of Inquiry</label>
+                                <select id="inquiry-type" name="inquiry-type" required>
+                                    <option value="">Select inquiry type...</option>
+                                    <option value="coaching">Executive Coaching</option>
+                                    <option value="speaking">Speaking Engagement</option>
+                                    <option value="media">Media Interview</option>
+                                    <option value="partnership">Partnership Opportunity</option>
+                                    <option value="academic">Academic Collaboration</option>
+                                    <option value="consulting">Business Consulting</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Please provide details about your inquiry..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p><a href="mailto:hello@yourname.com">hello@yourname.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p><a href="https://linkedin.com/in/yourprofile" target="_blank">Connect on LinkedIn</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h4>Response Time</h4>
+                                <p>I typically respond within 24-48 hours</p>
+                            </div>
+                        </div>
+
+                        <!-- Office Locations -->
+                        <div class="office-locations">
+                            <h4>Office Locations</h4>
+                            <div class="office-item">
+                                <h5>Lagos, Nigeria</h5>
+                                <p>Primary office for West African operations and Nova Business School activities</p>
+                            </div>
+                            <div class="office-item">
+                                <h5>Accra, Ghana</h5>
+                                <p>Regional office for Venco Africa operations and client meetings</p>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Links -->
+                        <div class="social-links">
+                            <h4>Follow My Work</h4>
+                            <div class="social-icons">
+                                <a href="https://linkedin.com/in/yourprofile" class="social-icon" target="_blank">💼</a>
+                                <a href="https://twitter.com/yourhandle" class="social-icon" target="_blank">🐦</a>
+                                <a href="https://medium.com/@yourprofile" class="social-icon" target="_blank">📝</a>
+                                <a href="https://youtube.com/yourchannel" class="social-icon" target="_blank">📺</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Professional Focus</h3>
+                    <p>Executive coaching, leadership development, and business transformation across healthcare, finance, education, and entrepreneurship sectors.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Medium"><i class="fab fa-medium-m"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="coaching.html">Executive Coaching</a></li>
+                        <li><a href="academia.html">Academic Programs</a></li>
+                        <li><a href="entrepreneurship.html">Venco Africa</a></li>
+                        <li><a href="books.html">Published Works</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Global Reach</h3>
+                    <ul>
+                        <li>80+ Countries Served</li>
+                        <li>1000+ Executives Coached</li>
+                        <li>Nova Business School</li>
+                        <li>International Speaker</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Stay Connected</h3>
+                    <p>Subscribe for insights on leadership, innovation, and business transformation.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dr. Anderson Uvie-Emegbo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+            
+            // Update active navigation
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            const activeNavItem = document.querySelector(`[onclick="showPage('${pageId}')"]`);
+            if (activeNavItem) {
+                activeNavItem.classList.add('active');
+            }
+        }
+
+        // Smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            const animatedElements = document.querySelectorAll('.pillar-card, .philosophy-card, .program-card, .timeline-item, .step-card, .book-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Start endorsements carousel
+            startCarousel();
+        });
+
+        // Endorsements carousel functionality
+        let currentEndorsement = 0;
+        const endorsements = document.querySelectorAll('.endorsement-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function showEndorsement(index) {
+            // Hide all slides
+            endorsements.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show selected slide
+            if (endorsements[index]) {
+                endorsements[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentEndorsement = index;
+            }
+        }
+
+        function nextEndorsement() {
+            currentEndorsement = (currentEndorsement + 1) % endorsements.length;
+            showEndorsement(currentEndorsement);
+        }
+
+        function startCarousel() {
+            setInterval(nextEndorsement, 5000); // Change slide every 5 seconds
+        }
+
+        // Book page navigation
+        function openBookPage(bookId) {
+            // This would typically navigate to individual book pages
+            // For now, we'll show an alert with book info
+            const bookTitles = {
+                'leadership-excellence': 'Leadership Excellence in the Digital Age',
+                'entrepreneurial-mindset': 'The Entrepreneurial Mindset',
+                'coaching-frameworks': 'Executive Coaching Frameworks',
+                'african-innovation': 'Innovation in African Markets',
+                'digital-transformation': 'Digital Transformation Playbook',
+                'global-leadership': 'Global Leadership Perspectives'
+            };
+            
+            alert(`Coming soon: Individual page for "${bookTitles[bookId]}"`);
+        }
+
+        // Newsletter subscription
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('.newsletter-input').value;
+            
+            // Simple validation
+            if (email && email.includes('@')) {
+                alert(`Thank you for subscribing! We'll send updates to ${email}`);
+                event.target.reset();
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+
+        // Insights newsletter signup
+        function subscribeInsightsNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input').value;
+            
+            if (email && email.includes('@')) {
+                const button = event.target.querySelector('button');
+                const originalText = button.textContent;
+                button.textContent = 'Subscribed!';
+                button.style.backgroundColor = '#27ae60';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '';
+                    event.target.reset();
+                }, 2000);
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+
+        // Contact form submission
+        function submitContactForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            console.log('Contact form submission:', data);
+            
+            const button = event.target.querySelector('button');
+            const originalText = button.textContent;
+            button.textContent = 'Message Sent!';
+            button.style.backgroundColor = '#27ae60';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = '';
+                event.target.reset();
+                alert('Thank you for your message! I will get back to you within 24-48 hours.');
+            }, 2000);
+        }
+
+        // Insights page functions
+        function openCategory(category) {
+            console.log('Opening category:', category);
+            const categoryTitles = {
+                'digital-transformation': 'Digital Transformation',
+                'leadership': 'Leadership Excellence',
+                'african-business': 'African Business',
+                'innovation': 'Innovation & Entrepreneurship'
+            };
+            alert(`Opening ${categoryTitles[category]} category page`);
+        }
+
+        function openPublication(publication) {
+            console.log('Opening publication:', publication);
+            const publicationUrls = {
+                'vanguard': 'https://vanguardngr.com',
+                'punch': 'https://punchng.com',
+                'inma': 'https://inma.org',
+                'business-day': 'https://businessday.ng',
+                'forbes-africa': 'https://forbesafrica.com',
+                'harvard-review': 'https://hbr.org'
+            };
+            
+            if (publicationUrls[publication]) {
+                window.open(publicationUrls[publication], '_blank');
+            }
+        }
+
+        function openMedia(media) {
+            console.log('Opening media:', media);
+            const mediaDescriptions = {
+                'leadership-podcast': 'The Leadership Edge Podcast',
+                'cnbc-africa': 'CNBC Africa Business Interview',
+                'techpoint-africa': 'Techpoint Africa Podcast',
+                'business-morning': 'Business Morning Show',
+                'education-summit': 'Global Education Summit Keynote'
+            };
+            alert(`Playing: ${mediaDescriptions[media]}`);
+        }
+
+        // Footer newsletter form submission
+        document.querySelector('.newsletter-form button').addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = document.querySelector('.newsletter-form input').value;
+            
+            if (email && email.includes('@')) {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Subscribed!';
+                button.style.background = '#27ae60';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                    input.value = '';
+                    alert('Thank you for subscribing to our newsletter!');
+                }, 2000);
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home'); // Show home page by default
+            
+            // Start endorsements carousel
+            startCarousel();
+        });
+    </script>
+</body>
+</html>

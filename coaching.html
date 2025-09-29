@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Coaching - Dr. Anderson Uvie-Emegbo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-item a:hover,
+        .nav-item a.active {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 0 80px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Coaching Philosophy Section */
+        .coaching-philosophy {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .coaching-philosophy h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            font-size: 2.5rem;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .philosophy-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .philosophy-card h3 {
+            color: #3498db;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .philosophy-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Process Steps Section */
+        .coaching-process {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .coaching-process h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            font-size: 2.5rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #3498db, #667eea);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3498db, #667eea);
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .step-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .step-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Executive Focus Areas */
+        .executive-focus {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .executive-focus h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            font-size: 2.5rem;
+        }
+
+        .focus-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .focus-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .focus-card h3 {
+            color: #3498db;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .focus-card ul {
+            list-style: none;
+        }
+
+        .focus-card ul li {
+            padding: 8px 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+
+        .focus-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .focus-card ul li::before {
+            content: '✓';
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 50px;
+            min-height: 400px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: #ecf0f1;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #3498db;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #34495e;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #3498db;
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 14px;
+        }
+
+        .newsletter-form button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #2980b9;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            color: #95a5a6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Dr. Anderson Uvie-Emegbo</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="about.html">About</a></li>
+                <li class="nav-item"><a href="coaching.html" class="active">Executive Coaching</a></li>
+                <li class="nav-item"><a href="entrepreneurship.html">Entrepreneurship</a></li>
+                <li class="nav-item"><a href="academia.html">Academia</a></li>
+                <li class="nav-item"><a href="books.html">Books</a></li>
+                <li class="nav-item"><a href="insights.html">Insights</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Executive Coaching Excellence</h1>
+            <p class="tagline">Transforming leaders across 80+ countries with evidence-based methodologies</p>
+        </div>
+    </section>
+
+    <!-- Coaching Philosophy Section -->
+    <section class="coaching-philosophy">
+        <div class="container">
+            <h2>Coaching Philosophy</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h3>Evidence-Based Approach</h3>
+                    <p>Utilizing proven methodologies from behavioral science, neuroscience, and organizational psychology to create lasting transformation in leadership effectiveness.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3>Cultural Intelligence</h3>
+                    <p>Deep understanding of cross-cultural dynamics, enabling effective coaching across diverse global business environments and leadership contexts.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3>Holistic Development</h3>
+                    <p>Focusing on the complete leader - cognitive capabilities, emotional intelligence, strategic thinking, and authentic leadership presence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaching Process Section -->
+    <section class="coaching-process">
+        <div class="container">
+            <h2>Coaching Process</h2>
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Assessment & Discovery</h3>
+                    <p>Comprehensive 360-degree assessment including leadership competencies, behavioral patterns, and organizational context analysis.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Goal Setting & Planning</h3>
+                    <p>Collaborative development of specific, measurable objectives aligned with both personal growth and organizational strategic priorities.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Active Coaching Sessions</h3>
+                    <p>Structured coaching conversations using proven frameworks, practical exercises, and real-time leadership challenges as learning opportunities.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Implementation & Support</h3>
+                    <p>Ongoing guidance for applying new skills and behaviors in actual leadership scenarios with continuous feedback and adjustment.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Evaluation & Sustainability</h3>
+                    <p>Measuring progress against defined metrics and establishing systems for continued growth beyond the formal coaching engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Focus Areas -->
+    <section class="executive-focus">
+        <div class="container">
+            <h2>Executive Focus Areas</h2>
+            <div class="focus-areas">
+                <div class="focus-card">
+                    <h3>Strategic Leadership</h3>
+                    <ul>
+                        <li>Vision Development & Communication</li>
+                        <li>Strategic Thinking & Planning</li>
+                        <li>Change Management Leadership</li>
+                        <li>Innovation & Digital Transformation</li>
+                        <li>Market Analysis & Competitive Strategy</li>
+                    </ul>
+                </div>
+                <div class="focus-card">
+                    <h3>Team & Organizational Development</h3>
+                    <ul>
+                        <li>High-Performance Team Building</li>
+                        <li>Talent Development & Succession</li>
+                        <li>Culture Transformation</li>
+                        <li>Conflict Resolution & Mediation</li>
+                        <li>Communication & Influence Skills</li>
+                    </ul>
+                </div>
+                <div class="focus-card">
+                    <h3>Personal Leadership Mastery</h3>
+                    <ul>
+                        <li>Executive Presence & Gravitas</li>
+                        <li>Emotional Intelligence Development</li>
+                        <li>Decision-Making Under Pressure</li>
+                        <li>Work-Life Integration</li>
+                        <li>Authentic Leadership Style</li>
+                    </ul>
+                </div>
+                <div class="focus-card">
+                    <h3>Business Performance</h3>
+                    <ul>
+                        <li>Financial Leadership & Acumen</li>
+                        <li>Operational Excellence</li>
+                        <li>Stakeholder Management</li>
+                        <li>Board & Investor Relations</li>
+                        <li>Crisis Leadership & Recovery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Professional Focus</h3>
+                    <p>Executive coaching, leadership development, and business transformation across healthcare, finance, education, and entrepreneurship sectors.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Medium"><i class="fab fa-medium-m"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="coaching.html">Executive Coaching</a></li>
+                        <li><a href="academia.html">Academic Programs</a></li>
+                        <li><a href="entrepreneurship.html">Venco Africa</a></li>
+                        <li><a href="books.html">Published Works</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Global Reach</h3>
+                    <ul>
+                        <li>80+ Countries Served</li>
+                        <li>1000+ Executives Coached</li>
+                        <li>Nova Business School</li>
+                        <li>International Speaker</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Stay Connected</h3>
+                    <p>Subscribe for insights on leadership, innovation, and business transformation.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dr. Anderson Uvie-Emegbo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Footer newsletter form submission
+        document.querySelector('.newsletter-form button').addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = document.querySelector('.newsletter-form input').value;
+            if (email) {
+                alert('Thank you for subscribing! You will receive our latest insights and updates.');
+                document.querySelector('.newsletter-form input').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
+</body>
+</html>

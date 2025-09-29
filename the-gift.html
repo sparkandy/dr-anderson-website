@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gift - Coming Soon | Dr. Anderson Uvie-Emegbo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-item a:hover,
+        .nav-item a.active {
+            color: #3498db;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23d4af37" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23d4af37" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23d4af37" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.4rem;
+            color: #495057;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .book-cover {
+            position: relative;
+            text-align: center;
+            animation: fadeInRight 1s ease-out 0.5s both;
+        }
+
+        .book-image {
+            max-width: 350px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .book-image:hover {
+            transform: perspective(1000px) rotateY(-10deg) rotateX(2deg) scale(1.05);
+        }
+
+        .countdown {
+            background: rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        .countdown h3 {
+            color: #d4af37;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .timer-unit {
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .timer-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .timer-label {
+            font-size: 0.8rem;
+            color: #d4af37;
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            color: #333333;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            border-radius: 2px;
+        }
+
+        .problem-promise {
+            background: rgba(248, 249, 250, 0.8);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 40px 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .problem-promise .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .problem-promise h3 {
+            color: #d4af37;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #d4af37;
+            opacity: 0.5;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #333333;
+        }
+
+        .testimonial-author {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .testimonial-title {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .sponsorship {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(248, 249, 250, 0.8) 100%);
+            border-radius: 25px;
+            padding: 60px;
+            margin: 60px 0;
+            border: 2px solid #d4af37;
+            text-align: center;
+        }
+
+        .sponsorship h3 {
+            font-size: 2rem;
+            color: #d4af37;
+            margin-bottom: 25px;
+        }
+
+        .sponsorship-highlight {
+            background: rgba(212, 175, 55, 0.2);
+            border-left: 4px solid #d4af37;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .email-form {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            display: flex;
+            gap: 15px;
+            max-width: 500px;
+            margin: 30px auto 0;
+            flex-wrap: wrap;
+        }
+
+        .form-group input {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 10px;
+            background: #ffffff;
+            color: #333333;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(51, 51, 51, 0.7);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #d4af37;
+            background: #f8f9fa;
+        }
+
+        .author-bio {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: center;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .author-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #d4af37;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ecf0f1;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #d4af37;
+        }
+
+        .footer-section p {
+            color: #bdc3c7;
+            line-height: 1.6;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            color: #d4af37;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .footer-social-link:hover {
+            background: #d4af37;
+            color: #2c3e50;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: #95a5a6;
+            margin: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: #95a5a6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .problem-promise .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .author-bio {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+            
+            .form-group input {
+                min-width: auto;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Dr. Anderson Uvie-Emegbo</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="about.html">About</a></li>
+                <li class="nav-item"><a href="coaching.html">Executive Coaching</a></li>
+                <li class="nav-item"><a href="entrepreneurship.html">Entrepreneurship</a></li>
+                <li class="nav-item"><a href="academia.html">Academia</a></li>
+                <li class="nav-item"><a href="books.html" class="active">Books</a></li>
+                <li class="nav-item"><a href="insights.html">Insights</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>The Gift</h1>
+                    <p class="subtitle">The Story I Was Once Too Afraid to Tell</p>
+                    <p>A powerful memoir of silence, struggle, and ultimate self-reclamation by Dr. Anderson Uvie-Emegbo</p>
+                    
+                    <div class="countdown">
+                        <h3>Pre-Order Starts In:</h3>
+                        <div class="timer">
+                            <div class="timer-unit">
+                                <span class="timer-number" id="days">00</span>
+                                <span class="timer-label">Days</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-number" id="hours">00</span>
+                                <span class="timer-label">Hours</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-number" id="minutes">00</span>
+                                <span class="timer-label">Minutes</span>
+                            </div>
+                            <div class="timer-unit">
+                                <span class="timer-number" id="seconds">00</span>
+                                <span class="timer-label">Seconds</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#notify" class="cta-button">
+                        <i class="fas fa-bell"></i> Notify Me & Get Launch Discount
+                    </a>
+                </div>
+                
+                <div class="book-cover">
+                    <img src="the-gift-cover.jpg" alt="The Gift Book Cover by Dr. Anderson Uvie-Emegbo" class="book-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Promise -->
+    <section class="section">
+        <div class="container">
+            <div class="problem-promise">
+                <div class="grid">
+                    <div>
+                        <h3><i class="fas fa-exclamation-triangle"></i> The Challenge We Face</h3>
+                        <p>Too many leaders carry their deepest wounds in silence, believing vulnerability is weakness. This silence becomes a prison, limiting their impact and authentic connection with those they serve.</p>
+                    </div>
+                    <div>
+                        <h3><i class="fas fa-gift"></i> The Gift of Truth</h3>
+                        <p>Through raw honesty and profound courage, "The Gift" reveals how our deepest wounds can become the soil from which our greatest purpose grows. It's a roadmap from silence to self-reclamation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Praise -->
+    <section class="section">
+        <div class="container">
+            <h2>What Early Readers Are Saying</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">A powerful, courageous memoir—both deeply personal and universally human. Dr. Uvie-Emegbo's vulnerability becomes his strength, offering readers a blueprint for transformation.</p>
+                    <div class="testimonial-author">Dr. Sarah Mitchell</div>
+                    <div class="testimonial-title">Professor of Leadership Psychology, Harvard Business School</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">This isn't just a memoir—it's a masterclass in courage. Anderson shows us that our deepest pain can become our greatest gift to the world. Essential reading for any leader ready to step into authenticity.</p>
+                    <div class="testimonial-author">Marcus Johnson</div>
+                    <div class="testimonial-title">CEO, Global Impact Initiative</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">Rarely have I encountered such raw honesty paired with elegant prose. 'The Gift' will challenge you to examine your own silences and inspire you to find your voice. Absolutely transformative.</p>
+                    <div class="testimonial-author">Dr. Amara Okafor</div>
+                    <div class="testimonial-title">Bestselling Author & Leadership Coach</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">From Nigeria to global boardrooms, this journey of self-discovery offers profound insights for leaders everywhere. Anderson's story is both deeply personal and universally relevant.</p>
+                    <div class="testimonial-author">Prof. James Wellington</div>
+                    <div class="testimonial-title">Director, Center for Executive Leadership, Wharton</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsorship CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="sponsorship">
+                <h3>Support This Project & Empower Leaders</h3>
+                <p>Join us in bringing "The Gift" to leaders worldwide who need to hear this message of transformation. Your sponsorship doesn't just support a book—it supports a movement toward authentic leadership.</p>
+                
+                <div class="sponsorship-highlight">
+                    <p><strong><i class="fas fa-star"></i> Exclusive Sponsor Benefit:</strong> Sponsors can nominate individuals for Dr. Anderson Uvie-Emegbo's exclusive coaching program, extending the book's impact through personalized leadership development.</p>
+                </div>
+                
+                <div class="countdown" style="margin: 30px auto; max-width: 600px;">
+                    <h3>Sponsorship Deadline:</h3>
+                    <div class="timer">
+                        <div class="timer-unit">
+                            <span class="timer-number" id="sponsor-days">45</span>
+                            <span class="timer-label">Days</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-number" id="sponsor-hours">12</span>
+                            <span class="timer-label">Hours</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-number" id="sponsor-minutes">30</span>
+                            <span class="timer-label">Minutes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#" class="cta-button">
+                    <i class="fas fa-download"></i> Download Sponsorship Prospectus
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture -->
+    <section class="section" id="notify">
+        <div class="container">
+            <div class="email-form">
+                <h2>Stay Connected</h2>
+                <p>Be the first to know when "The Gift" is available and receive an exclusive launch discount code.</p>
+                
+                <form class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="cta-button">
+                        <i class="fas fa-envelope"></i> Get Updates
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Bio -->
+    <section class="section">
+        <div class="container">
+            <h2>About the Author</h2>
+            <div class="author-bio">
+                <img src="images/dr-anderson uvie-emegbo.png" alt="Dr. Anderson Uvie-Emegbo" class="author-photo">
+                <div>
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Dr. Anderson Uvie-Emegbo</h3>
+                    <p>Born in Warri, Nigeria, Dr. Anderson Uvie-Emegbo has traversed continents and contradictions on his journey from silence to voice. A medical doctor turned leadership expert, he has worked in corporate boardrooms and global classrooms, helping leaders discover their authentic power.</p>
+                    <br>
+                    <p>His unique perspective—shaped by childhood resilience, professional achievement, and profound personal transformation—offers readers both the clinical insight of a healer and the hard-won wisdom of someone who has walked through the fire of self-discovery.</p>
+                    <br>
+                    <p>Through his work, Dr. Uvie-Emegbo demonstrates that leadership isn't about perfection—it's about the courage to be real, vulnerable, and ultimately, transformative.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <h3>Dr. Anderson Uvie-Emegbo</h3>
+                    <p>Executive Coach, Entrepreneur, Educator, and Author. Transforming leaders through authentic storytelling and powerful coaching experiences.</p>
+                    <div class="footer-social-links">
+                        <a href="https://linkedin.com/in/yourprofile" class="footer-social-link" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/yourhandle" class="footer-social-link" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://medium.com/@yourprofile" class="footer-social-link" target="_blank" title="Medium">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                        <a href="https://youtube.com/yourchannel" class="footer-social-link" target="_blank" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Book Links -->
+                <div class="footer-section">
+                    <h3>More from Dr. Anderson Uvie-Emegbo</h3>
+                    <ul>
+                        <li><a href="books.html">All Books</a></li>
+                        <li><a href="coaching.html">Executive Coaching</a></li>
+                        <li><a href="insights.html">Insights & Articles</a></li>
+                        <li><a href="about.html">About Dr. Anderson Uvie-Emegbo</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div style="margin-top: 20px; padding: 15px; background: rgba(212, 175, 55, 0.1); border-radius: 8px;">
+                        <h4 style="color: #d4af37; margin-bottom: 10px; font-size: 1rem;">Pre-Order Updates</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 10px;">Get notified when "The Gift" is available</p>
+                        <a href="#notify" style="color: #d4af37; text-decoration: none; font-weight: 600;">Subscribe for Updates →</a>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Get In Touch</h3>
+                    <ul>
+                        <li><a href="mailto:hello@yourname.com">hello@yourname.com</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                        <li><a href="#">Sponsorship Opportunities</a></li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <h4 style="color: #d4af37; font-size: 1rem; margin-bottom: 10px;">Office Locations</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 8px;"><strong>Lagos, Nigeria</strong><br>Primary office</p>
+                        <p style="font-size: 0.9rem;"><strong>Accra, Ghana</strong><br>Regional office</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dr. Anderson Uvie-Emegbo. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="index.html">Back to Main Site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer for Pre-order
+        function updateCountdown() {
+            // Set the date we're counting down to (30 days from now)
+            const countDownDate = new Date().getTime() + (30 * 24 * 60 * 60 * 1000);
+            
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+            
+            if (distance < 0) {
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+            }
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+        
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! You\'ll be the first to know when "The Gift" is available.');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add some interactive elements
+        document.querySelectorAll('.testimonial').forEach(testimonial => {
+            testimonial.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            testimonial.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
