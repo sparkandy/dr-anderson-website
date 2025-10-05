@@ -81,74 +81,225 @@
         
         /* Homepage Styles */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
+            background: #f8f9fa;
+            color: #333;
+            padding: 20px 0;
             position: relative;
             overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff" fill-opacity="0.1" points="0,1000 1000,0 1000,1000"/></svg>');
-            background-size: cover;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: flex-start;
+            /* padding-top: 100px; */
+            padding-top: 50px;
         }
         
         .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+            /* height: 100%; */
+        }
+        
+        .book-item {
+            background: white;
+            border-radius: 20px;
+            padding: 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
             position: relative;
-            z-index: 2;
+            overflow: hidden;
+            height: 320px;
+            display: flex;
+            align-items: stretch;
+        }
+        
+        .book-item::before {
+            display: none;
+        }
+        
+        .book-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .book-content {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .book-cover-section {
+            flex: 0 0 170px;
+            background: #2c3e50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .book-cover-large {
+            width: 130px;
+            height: 195px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .book-cover-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .book-details {
+            flex: 1;
+            padding: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .book-header {
+            margin-bottom: 1.2rem;
+        }
+        
+        .book-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        .book-tagline {
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .book-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            border: none;
+        }
+        
+        .countdown-timer {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1rem;
+            border: 2px solid #f39c12;
+            position: relative;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #f39c12;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .countdown-unit {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .countdown-number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+        
+        .countdown-text {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        
+        .hero-right {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .hero-profile {
+            position: relative;
         }
         
         .hero-photo {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
+            /* width: 420px; */
+            /* height: 520px; */
+            height: 650px;
+            border-radius: 25px;
             background: #f0f0f0;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
             color: #666;
-            border: 5px solid rgba(255,255,255,0.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+            overflow: hidden;
         }
 
         .hero-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .placeholder-photo {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
             font-weight: 700;
+            color: #2c3e50;
+            line-height: 1.2;
         }
         
-        .hero .tagline {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
+            max-width: 380px;
+            margin: 0 auto;
         }
         
         /* Key Pillars */
@@ -1337,8 +1488,101 @@
                 display: none;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                padding: 10px 0;
+                min-height: calc(100vh - 80px);
+                align-items: flex-start;
+                padding-top: 90px;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                max-width: 100%;
+                padding: 0 1rem;
+                height: auto;
+            }
+            
+            .hero-left {
+                order: 2;
+                gap: 1rem;
+            }
+            
+            .hero-right {
+                order: 1;
+                height: auto;
+            }
+            
+            .hero-photo {
+                width: 300px;
+                height: 380px;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-title {
+                font-size: 1.9rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .hero-description {
+                font-size: 0.9rem;
+                max-width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            
+            .book-item {
+                height: auto;
+                min-height: 240px;
+                flex-direction: column;
+            }
+            
+            .book-content {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .book-cover-section {
+                flex: none;
+                height: 130px;
+                border-radius: 20px 20px 0 0;
+            }
+            
+            .book-cover-large {
+                width: 85px;
+                height: 130px;
+            }
+            
+            .book-details {
+                padding: 1.2rem;
+            }
+            
+            .book-title {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-timer {
+                padding: 0.8rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.1rem;
+            }
+            
+            .countdown-display {
+                gap: 0.8rem;
+            }
+            
+            .countdown-display {
+                gap: 0.5rem;
+            }
+            
+            .countdown-number {
+                font-size: 1rem;
             }
             
             .bio-content {
@@ -1444,11 +1688,11 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="coaching.html" class="nav-link">Executive Coaching</a></li>
-                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneurship</a></li>
-                <li><a href="academia.html" class="nav-link">Academia</a></li>
+                <li><a href="coaching.html" class="nav-link">Executive Coach</a></li>
+                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneur</a></li>
+                <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
                 <li><a href="books.html" class="nav-link">Books</a></li>
-                <li><a href="insights.html" class="nav-link">Insights</a></li>
+                <!-- <li><a href="insights.html" class="nav-link">Insights</a></li> -->
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -1457,13 +1701,96 @@
     <!-- Homepage -->
     <div id="home" class="page active">
         <section class="hero">
-            <div class="container">
-                <div class="hero-content fade-in-up">
-                    <div class="hero-photo">
-                        <img src="dr-anderson-headshot.jpg" alt="Dr. Anderson Uvie-Emegbo Professional Headshot">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <!-- The Gift Book -->
+                    <div class="book-item" onclick="window.open('the-gift.html', '_blank')">
+                        <div class="book-content">
+                            <div class="book-cover-section">
+                                <div class="book-cover-large">
+                                    <img src="images/The-Gift.jpg" alt="The Gift Book Cover" onerror="this.style.display='none'; this.parentElement.innerHTML='🎁'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white';">
+                                </div>
+                            </div>
+                            <div class="book-details">
+                                <div class="book-header">
+                                    <h3 class="book-title">The Gift</h3>
+                                    <p class="book-tagline">"The Story I Was Once Too Afraid to Tell"</p>
+                                    <span class="book-status">Coming 2025</span>
+                                </div>
+                                <div class="countdown-timer">
+                                    <div class="countdown-label">Pre-Order Starts In:</div>
+                                    <div class="countdown-display" id="gift-countdown">
+                                        <div class="countdown-unit">
+                                            <div class="countdown-number" id="gift-days">000</div>
+                                            <div class="countdown-text">Days</div>
+                                        </div>
+                                        <div class="countdown-unit">
+                                            <div class="countdown-number" id="gift-hours">00</div>
+                                            <div class="countdown-text">Hours</div>
+                                        </div>
+                                        <div class="countdown-unit">
+                                            <div class="countdown-number" id="gift-mins">00</div>
+                                            <div class="countdown-text">Minutes</div>
+                                        </div>
+                                        <div class="countdown-unit">
+                                            <div class="countdown-number" id="gift-secs">00</div>
+                                            <div class="countdown-text">Seconds</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h1>Dr. Anderson Uvie-Emegbo</h1>
-                    <p class="tagline">Executive Coach, Entrepreneur, Educator, and Author</p>
+
+                    <!-- What Matters to Me Now Book -->
+                    <div class="book-item" onclick="window.open('what-matters-to-me-now.html', '_blank')">
+                        <div class="book-content">
+                            <div class="book-cover-section">
+                                <div class="book-cover-large">
+                                    <img src="images/What-Matters-to-Me-Now-Cover.jpg" alt="What Matters to Me Now Book Cover" onerror="this.style.display='none'; this.parentElement.innerHTML='📖'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white';">
+                                </div>
+                            </div>
+                            <div class="book-details">
+                                <div class="book-header">
+                                    <h3 class="book-title">What Matters to Me Now</h3>
+                                    <p class="book-tagline">"Reflections on Leadership and Purpose"</p>
+                                    <span class="book-status">Coming 2025</span>
+                                </div>
+                                <div class="countdown-timer">
+                                    <div class="countdown-label">Pre-Order Starts In:</div>
+                                    <div class="countdown-display" id="matters-countdown">
+                                        <div class="countdown-unit">
+                                            <div class="countdown-number" id="matters-days">000</div>
+                                            <div class="countdown-text">Days</div>
+                                        </div>
+                                        <div class="countdown-unit">
+                                            <div class="countdown-number" id="matters-hours">00</div>
+                                            <div class="countdown-text">Hours</div>
+                                        </div>
+                                        <div class="countdown-unit">
+                                            <div class="countdown-number" id="matters-mins">00</div>
+                                            <div class="countdown-text">Minutes</div>
+                                        </div>
+                                        <div class="countdown-unit">
+                                            <div class="countdown-number" id="matters-secs">00</div>
+                                            <div class="countdown-text">Seconds</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="hero-profile">
+                        <div class="hero-photo">
+                            <img src="images/dr-anderson-uvie-emegbo-size.jpg" alt="Dr. Anderson Uvie-Emegbo Professional Photo">
+                        </div>
+                        <h1 class="hero-title">Dr. Anderson Uvie-Emegbo</h1>
+                        <p class="hero-tagline">Executive Coach | Entrepreneur | Educator | Author</p>
+                        <p class="hero-description">Build a business you love with the freedom and funds you desire. Whether you want to start freelancing, or learn how to make 6-figures as a creative entrepreneur, let's create a business that is kinder to you.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1512,6 +1839,10 @@
                             <div class="stat-number">Co-Founder</div>
                             <div class="stat-label">of Venco</div>
                         </div>
+                        <div class="stat-item">
+                            <div class="stat-number">Co-Founder</div>
+                            <div class="stat-label">of Nova Business School</div>
+                        </div>
                     </div>
                     <div class="bio-text">
                         <h2>About Me</h2>
@@ -1537,8 +1868,8 @@
                 <h2>Ready to Transform Your Leadership?</h2>
                 <div class="cta-buttons">
                     <a href="#" class="btn btn-primary">Schedule a Consultation</a>
-                    <a href="coaching.html" class="btn btn-secondary">Explore My Programs</a>
-                    <a href="#" class="btn btn-secondary">Read My Insights</a>
+                    <!-- <a href="coaching.html" class="btn btn-secondary">Explore My Programs</a>
+                    <a href="#" class="btn btn-secondary">Read My Insights</a> -->
                 </div>
             </div>
         </section>
@@ -2465,7 +2796,57 @@
             
             // Start endorsements carousel
             startCarousel();
+            
+            // Initialize countdown timers
+            initializeCountdowns();
         });
+
+        // Countdown Timer Functionality
+        function initializeCountdowns() {
+            // Set launch dates for the books (you can adjust these dates)
+            const giftLaunchDate = new Date('2025-12-31T00:00:00'); // The Gift launch date
+            const mattersLaunchDate = new Date('2025-06-30T00:00:00'); // What Matters to Me Now launch date
+            
+            // Update countdown every second
+            setInterval(() => {
+                updateCountdown('gift', giftLaunchDate);
+                updateCountdown('matters', mattersLaunchDate);
+            }, 1000);
+        }
+
+        function updateCountdown(bookType, targetDate) {
+            const now = new Date().getTime();
+            const timeLeft = targetDate.getTime() - now;
+            
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                // Update display
+                const daysElement = document.getElementById(`${bookType}-days`);
+                const hoursElement = document.getElementById(`${bookType}-hours`);
+                const minutesElement = document.getElementById(`${bookType}-mins`);
+                const secondsElement = document.getElementById(`${bookType}-secs`);
+                
+                if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
+                if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+                if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+                if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+            } else {
+                // Book has launched
+                const daysElement = document.getElementById(`${bookType}-days`);
+                const hoursElement = document.getElementById(`${bookType}-hours`);
+                const minutesElement = document.getElementById(`${bookType}-mins`);
+                const secondsElement = document.getElementById(`${bookType}-secs`);
+                
+                if (daysElement) daysElement.textContent = '00';
+                if (hoursElement) hoursElement.textContent = '00';
+                if (minutesElement) minutesElement.textContent = '00';
+                if (secondsElement) secondsElement.textContent = '00';
+            }
+        }
     </script>
 </body>
 </html>

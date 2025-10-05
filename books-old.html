@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Published Works - Books | Dr. Anderson Uvie-Emegbo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #3498db;
+        }
+
+        /* Books Hero Section */
+        .books-hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .author-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #666;
+            border: 8px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .books-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .books-hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Library Section */
+        .library-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .library-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        
+        .book-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .book-cover {
+            width: 180px;
+            height: 270px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .book-cover::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 5px;
+        }
+        
+        .book-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .book-tagline {
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .book-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .status-published {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-coming-soon {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        /* Author's Note Section */
+        .authors-note {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .note-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .note-content h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .note-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .note-signature {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        /* Endorsements Section */
+        .endorsements-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .endorsements-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+        
+        .endorsements-carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        
+        .endorsement-slide {
+            background: white;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .endorsement-slide.active {
+            display: block;
+        }
+        
+        .endorsement-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .endorser-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .endorser-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .endorser-details h4 {
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+        
+        .endorser-details p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        .carousel-controls {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            display: inline-block;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: #3498db;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 50px;
+            min-height: 400px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #ecf0f1;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: #bdc3c7;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #e74c3c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #34495e;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #e74c3c;
+            transform: translateY(-2px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 12px 24px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #c0392b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .books-hero h1 {
+                font-size: 2rem;
+            }
+
+            .author-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .endorsement-slide {
+                padding: 2rem;
+            }
+
+            .endorser-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Dr. Anderson Uvie-Emegbo</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="coaching.html" class="nav-link">Executive Coach</a></li>
+                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneur</a></li>
+                <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
+                <li><a href="books.html" class="nav-link active">Books</a></li>
+                <!-- <li><a href="insights.html" class="nav-link">Insights</a></li> -->
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Author Hero Section -->
+    <section class="books-hero">
+        <div class="container">
+            <div class="author-photo">👨‍💼</div>
+            <h1>Published Works</h1>
+            <p class="subtitle">Insights from decades of leadership experience, distilled into practical wisdom for today's business leaders and entrepreneurs.</p>
+        </div>
+    </section>
+
+    <!-- The Library Section -->
+    <section class="library-section">
+        <div class="container">
+            <h2>The Library</h2>
+            <div class="books-grid">
+                <div class="book-card" onclick="window.open('the-gift.html', '_blank')">
+                    <div class="book-cover">
+                        <img src="the-gift-cover.jpg" alt="The Gift Book Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.parentElement.innerHTML='🎁'; this.parentElement.style.fontSize='4rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+                    </div>
+                    <h3 class="book-title">The Gift</h3>
+                    <p class="book-tagline">"The Story I Was Once Too Afraid to Tell"</p>
+                    <span class="book-status status-coming-soon">Coming 2025</span>
+                </div>
+                
+                <div class="book-card" onclick="window.open('what-matters-to-me-now.html', '_blank')">
+                    <div class="book-cover">
+                        <img src="what-matters-to-me-now-cover.jpg" alt="What Matters to Me Now Book Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.parentElement.innerHTML='💭'; this.parentElement.style.fontSize='4rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
+                    </div>
+                    <h3 class="book-title">What Matters to Me Now</h3>
+                    <p class="book-tagline">"A Journey of Reflection and Purpose"</p>
+                    <span class="book-status status-published">Available Now</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author's Note Section -->
+    <section class="authors-note">
+        <div class="container">
+            <div class="note-content">
+                <h2>Author's Note</h2>
+                <p class="note-text">
+                    "Writing has always been my way of crystallizing the lessons learned from each chapter of my journey. From the precision required in medical practice to the strategic thinking demanded in banking, from the innovation mindset needed in entrepreneurship to the wisdom required for effective coaching—each experience has shaped my perspective on leadership and success.
+                </p>
+                <p class="note-text">
+                    I write not just to share knowledge, but to create practical tools that leaders can use immediately. Every framework, every case study, every insight in my books comes from real-world application. My hope is that these works serve as both mirror and map—helping you see your current capabilities clearly while charting a path to even greater impact.
+                </p>
+                <p class="note-text">
+                    Leadership is not a destination; it's a continuous journey of growth, adaptation, and service to others. Through these books, I invite you to join me on that journey."
+                </p>
+                <p class="note-signature">— Dr. Anderson Uvie-Emegbo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Endorsements Carousel -->
+    <section class="endorsements-section">
+        <div class="container">
+            <h2>What Leaders Are Saying</h2>
+            <div class="endorsements-carousel">
+                <div class="endorsement-slide active">
+                    <p class="endorsement-text">"A masterclass in modern leadership. This book should be required reading for every C-suite executive navigating digital transformation."</p>
+                    <div class="endorser-info">
+                        <div class="endorser-photo">MJ</div>
+                        <div class="endorser-details">
+                            <h4>Dr. Michael Johnson</h4>
+                            <p>CEO, Global Tech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="endorsement-slide">
+                    <p class="endorsement-text">"Practical wisdom that bridges the gap between traditional business education and the realities of today's entrepreneurial landscape."</p>
+                    <div class="endorser-info">
+                        <div class="endorser-photo">SA</div>
+                        <div class="endorser-details">
+                            <h4>Sarah Anderson</h4>
+                            <p>Founder, Innovation Capital</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="endorsement-slide">
+                    <p class="endorsement-text">"An authentic voice that combines deep experience with actionable insights. These frameworks have transformed how our leadership team operates."</p>
+                    <div class="endorser-info">
+                        <div class="endorser-photo">DK</div>
+                        <div class="endorser-details">
+                            <h4>David Kim</h4>
+                            <p>Managing Director, Fortune 500 Company</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-controls">
+                <span class="carousel-dot active" onclick="showEndorsement(0)"></span>
+                <span class="carousel-dot" onclick="showEndorsement(1)"></span>
+                <span class="carousel-dot" onclick="showEndorsement(2)"></span>
+            </div>
+        </div>
+    </section>
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 50px;
+            min-height: 400px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #ecf0f1;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: #bdc3c7;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #e74c3c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #34495e;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #e74c3c;
+            transform: translateY(-2px);
+        }
+
+        .footer-newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+
+        .footer-newsletter-form button {
+            padding: 12px 24px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-newsletter-form button:hover {
+            background-color: #c0392b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .books-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-newsletter-form {
+                flex-direction: column;
+            }
+
+            .endorser-info {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Dr. Anderson Uvie-Emegbo</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="coaching.html" class="nav-link">Executive Coaching</a></li>
+                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneurship</a></li>
+                <li><a href="academia.html" class="nav-link">Academia</a></li>
+                <li><a href="books.html" class="nav-link active">Books</a></li>
+                <li><a href="insights.html" class="nav-link">Insights</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Modern Books Showcase -->
+        <section class="modern-books-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Published Works</h1>
+                    <p class="hero-subtitle">Transformative insights for leaders, entrepreneurs, and change-makers</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Books Section -->
+        <section class="featured-books">
+            <div class="container">
+                <h2>Available Titles</h2>
+                <div class="featured-grid">
+                    <div class="featured-book">
+                        <div class="book-cover-large">
+                            <img src="the-gift-cover.jpg" alt="The Gift by Dr. Anderson Uvie-Emegbo">
+                        </div>
+                        <div class="book-info">
+                            <h3>The Gift</h3>
+                            <p class="book-subtitle">The Story I Was Once Too Afraid to Tell</p>
+                            <p class="book-description">A powerful memoir of silence, struggle, and ultimate self-reclamation. Dr. Anderson's journey from fear to freedom offers a blueprint for authentic leadership and personal transformation.</p>
+                            <div class="book-meta">
+                                <span class="status coming-soon">Coming December 2024</span>
+                            </div>
+                            <button class="buy-btn pre-order" onclick="window.open('the-gift.html', '_blank')">
+                                Pre-Order Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="featured-book">
+                        <div class="book-cover-large">
+                            <img src="what-matters-to-me-now-cover.jpg" alt="What Matters to Me Now by Dr. Anderson Uvie-Emegbo">
+                        </div>
+                        <div class="book-info">
+                            <h3>What Matters to Me Now</h3>
+                            <p class="book-subtitle">50 Life Lessons on Identity, Healing, Courage, Becoming and Legacy</p>
+                            <p class="book-description">A contemplative exploration of evolving priorities and authentic living. Discover what truly matters through reflective insights on purpose, relationships, and legacy.</p>
+                            <div class="book-meta">
+                                <span class="status available">Available Now</span>
+                            </div>
+                            <button class="buy-btn available" onclick="window.open('what-matters-to-me-now.html', '_blank')">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classics Collection Preview -->
+        <section class="classics-preview">
+            <div class="container">
+                <h2>Upcoming Classics</h2>
+                <p class="section-subtitle">Future publications in development</p>
+                <div class="classics-grid">
+                    <div class="classic-book">
+                        <div class="book-cover-small">
+                            <div class="placeholder-cover leadership">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                        </div>
+                        <h4>Leadership Excellence</h4>
+                        <p>Coming 2025</p>
+                    </div>
+                    
+                    <div class="classic-book">
+                        <div class="book-cover-small">
+                            <div class="placeholder-cover entrepreneurship">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                        </div>
+                        <h4>The Entrepreneurial Mind</h4>
+                        <p>Coming 2025</p>
+                    </div>
+                    
+                    <div class="classic-book">
+                        <div class="book-cover-small">
+                            <div class="placeholder-cover coaching">
+                                <i class="fas fa-compass"></i>
+                            </div>
+                        </div>
+                        <h4>Coaching Frameworks</h4>
+                        <p>Coming 2026</p>
+                    </div>
+                    
+                    <div class="classic-book">
+                        <div class="book-cover-small">
+                            <div class="placeholder-cover innovation">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                        </div>
+                        <h4>Innovation in Africa</h4>
+                        <p>Coming 2026</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Author's Note Section -->
+        <section class="authors-note">
+            <div class="container">
+                <div class="note-content">
+                    <h2>Author's Note</h2>
+                    <p class="note-text">
+                        "Writing has always been my way of crystallizing the lessons learned from each chapter of my journey. From the precision required in medical practice to the strategic thinking demanded in banking, from the innovation mindset needed in entrepreneurship to the wisdom required for effective coaching—each experience has shaped my perspective on leadership and success.
+                    </p>
+                    <p class="note-text">
+                        I write not just to share knowledge, but to create practical tools that leaders can use immediately. Every framework, every case study, every insight in my books comes from real-world application. My hope is that these works serve as both mirror and map—helping you see your current capabilities clearly while charting a path to even greater impact.
+                    </p>
+                    <p class="note-text">
+                        Leadership is not a destination; it's a continuous journey of growth, adaptation, and service to others. Through these books, I invite you to join me on that journey."
+                    </p>
+                    <p class="note-signature">— Dr. Anderson Uvie-Emegbo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Endorsements Carousel -->
+        <section class="endorsements-section">
+            <div class="container">
+                <h2>What Leaders Are Saying</h2>
+                <div class="endorsements-carousel">
+                    <div class="endorsement-slide active">
+                        <p class="endorsement-text">"A masterclass in modern leadership. This book should be required reading for every C-suite executive navigating digital transformation."</p>
+                        <div class="endorser-info">
+                            <div class="endorser-photo">MJ</div>
+                            <div class="endorser-details">
+                                <h4>Dr. Michael Johnson</h4>
+                                <p>CEO, Global Tech Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="endorsement-slide">
+                        <p class="endorsement-text">"Practical wisdom that bridges the gap between traditional business education and the realities of today's entrepreneurial landscape."</p>
+                        <div class="endorser-info">
+                            <div class="endorser-photo">SA</div>
+                            <div class="endorser-details">
+                                <h4>Sarah Anderson</h4>
+                                <p>Founder, Innovation Capital</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="endorsement-slide">
+                        <p class="endorsement-text">"An authentic voice that combines deep experience with actionable insights. These frameworks have transformed how our leadership team operates."</p>
+                        <div class="endorser-info">
+                            <div class="endorser-photo">DK</div>
+                            <div class="endorser-details">
+                                <h4>David Kim</h4>
+                                <p>Managing Director, Fortune 500 Company</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="endorsement-slide">
+                        <p class="endorsement-text">"A rare combination of academic rigor and practical application. Essential reading for anyone serious about leadership development."</p>
+                        <div class="endorser-info">
+                            <div class="endorser-photo">ER</div>
+                            <div class="endorser-details">
+                                <h4>Prof. Elizabeth Roberts</h4>
+                                <p>Harvard Business School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-controls">
+                    <span class="carousel-dot active" onclick="showEndorsement(0)"></span>
+                    <span class="carousel-dot" onclick="showEndorsement(1)"></span>
+                    <span class="carousel-dot" onclick="showEndorsement(2)"></span>
+                    <span class="carousel-dot" onclick="showEndorsement(3)"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Be the first to know about new book releases, exclusive insights, and special offers.</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Professional Focus</h3>
+                    <p>Executive coaching, leadership development, and business transformation across healthcare, finance, education, and entrepreneurship sectors.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Medium"><i class="fab fa-medium-m"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="coaching.html">Executive Coaching</a></li>
+                        <li><a href="academia.html">Academic Programs</a></li>
+                        <li><a href="entrepreneurship.html">Venco Africa</a></li>
+                        <li><a href="books.html">Published Works</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Global Reach</h3>
+                    <ul>
+                        <li>80+ Countries Served</li>
+                        <li>1000+ Executives Coached</li>
+                        <li>Nova Business School</li>
+                        <li>International Speaker</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Stay Connected</h3>
+                    <p>Subscribe for insights on leadership, innovation, and business transformation.</p>
+                    <div class="footer-newsletter-form">
+                        <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dr. Anderson Uvie-Emegbo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentEndorsement = 0;
+        const endorsements = document.querySelectorAll('.endorsement-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function showEndorsement(index) {
+            // Hide all endorsements
+            endorsements.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show selected endorsement
+            endorsements[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentEndorsement = index;
+        }
+
+        // Auto-rotate endorsements
+        setInterval(() => {
+            currentEndorsement = (currentEndorsement + 1) % endorsements.length;
+            showEndorsement(currentEndorsement);
+        }, 5000);
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('.newsletter-input').value;
+            if (email) {
+                alert('Thank you for subscribing! You will receive our latest book updates and insights.');
+                event.target.querySelector('.newsletter-input').value = '';
+            }
+        }
+
+        // Footer newsletter form submission
+        document.querySelector('.footer-newsletter-form button').addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = document.querySelector('.footer-newsletter-form input').value;
+            if (email) {
+                alert('Thank you for subscribing! You will receive our latest insights and updates.');
+                document.querySelector('.footer-newsletter-form input').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
+</body>
+</html>

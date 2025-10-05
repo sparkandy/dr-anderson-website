@@ -13,17 +13,11 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background: #ffffff;
-            color: #333333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f8f9fa;
+            color: #333;
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            min-height: 100vh;
         }
 
         /* Navigation */
@@ -68,266 +62,240 @@
             color: #3498db;
         }
 
-        /* Books Hero Section */
-        .books-hero {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 120px 0 80px;
+        /* Main Content */
+        .main-content {
+            padding-top: 120px;
+            min-height: 100vh;
+            background: #f8f9fa;
+        }
+
+        /* Hero Section */
+        .hero-section {
             text-align: center;
+            padding: 60px 20px;
+            background: white;
+            margin-bottom: 60px;
         }
-        
-        .author-photo {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: #f0f0f0;
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: #666;
-            border: 8px solid rgba(255,255,255,0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        
-        .books-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+
+        .hero-section h1 {
+            font-size: 2.5rem;
             font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
         }
-        
-        .books-hero .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #666;
             max-width: 600px;
             margin: 0 auto;
         }
-        
-        /* Library Section */
-        .library-section {
-            padding: 80px 0;
-            background: #f8f9fa;
+
+        /* Books Section */
+        .books-section {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 40px 60px;
         }
-        
-        .library-section h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: #2c3e50;
+
+        .books-container {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
-        
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
+
+        .books-container::-webkit-scrollbar {
+            display: none;
         }
-        
+
         .book-card {
+            flex: 0 0 600px;
             background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
             cursor: pointer;
+            display: flex;
+            height: 280px;
+        }
+
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .book-cover-section {
+            flex: 0 0 200px;
             position: relative;
             overflow: hidden;
         }
-        
-        .book-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+
+        .book-cover-image {
             width: 100%;
-            height: 5px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
+            height: 100%;
+            object-fit: cover;
         }
-        
-        .book-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-        
-        .book-cover {
-            width: 180px;
-            height: 270px;
+
+        .book-cover-placeholder {
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0 auto 1.5rem;
-            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
             color: white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            position: relative;
         }
-        
-        .book-cover::after {
-            content: '';
+
+        .book-badge {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 5px;
-        }
-        
-        .book-title {
-            font-size: 1.4rem;
+            top: 12px;
+            right: 12px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
             font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        
-        .book-tagline {
-            color: #718096;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-        
-        .book-status {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        .status-published {
-            background: #d4edda;
-            color: #155724;
-        }
-        
-        .status-coming-soon {
-            background: #fff3cd;
-            color: #856404;
-        }
-        
-        /* Author's Note Section */
-        .authors-note {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .note-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .note-content h2 {
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-        }
-        
-        .note-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #555;
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
-        
-        .note-signature {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-        
-        /* Endorsements Section */
-        .endorsements-section {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-        
-        .endorsements-section h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: #2c3e50;
-        }
-        
-        .endorsements-carousel {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 20px;
-        }
-        
-        .endorsement-slide {
-            background: white;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            display: none;
-        }
-        
-        .endorsement-slide.active {
-            display: block;
-        }
-        
-        .endorsement-text {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            color: #555;
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
-        
-        .endorser-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .endorser-photo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .badge-new {
+            background: #ff9500;
             color: white;
-            font-weight: bold;
         }
-        
-        .endorser-details h4 {
-            color: #2c3e50;
-            margin-bottom: 0.25rem;
+
+        .badge-bestseller {
+            background: #ff3b30;
+            color: white;
         }
-        
-        .endorser-details p {
-            color: #718096;
+
+        .badge-coming-soon {
+            background: #007aff;
+            color: white;
+        }
+
+        .book-info {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-content-top {
+            flex: 1;
+        }
+
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .book-author {
+            font-size: 0.85rem;
+            color: #86868b;
+            margin-bottom: 10px;
+        }
+
+        .book-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+
+        .rating-stars {
+            color: #ffcc00;
+            font-size: 0.8rem;
+        }
+
+        .book-description {
+            font-size: 0.85rem;
+            color: #515154;
+            line-height: 1.4;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .book-content-bottom {
+            margin-top: auto;
+        }
+
+        .book-price-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .current-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+
+        .original-price {
             font-size: 0.9rem;
+            color: #86868b;
+            text-decoration: line-through;
         }
-        
-        .carousel-controls {
-            text-align: center;
-            margin-top: 2rem;
-        }
-        
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ddd;
-            display: inline-block;
-            margin: 0 0.5rem;
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 10px;
+            background: #1d1d1f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
-        
-        .carousel-dot.active {
-            background: #3498db;
+
+        .add-to-cart-btn:hover {
+            background: #424245;
+            transform: translateY(-1px);
+        }
+
+        .add-to-cart-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #86868b;
         }
 
         /* Footer Styles */
@@ -436,35 +404,45 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
+            .books-section {
+                padding: 0 20px 60px;
             }
-
-            .books-hero h1 {
+            
+            .book-card {
+                flex: 0 0 280px;
+            }
+            
+            .hero-section h1 {
                 font-size: 2rem;
             }
-
-            .author-photo {
-                width: 150px;
-                height: 150px;
+            
+            .books-container {
+                gap: 20px;
             }
 
-            .books-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .endorsement-slide {
-                padding: 2rem;
-            }
-
-            .endorser-info {
-                flex-direction: column;
-                gap: 0.5rem;
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
             }
 
             .newsletter-form {
                 flex-direction: column;
             }
+        }
+
+        @media (max-width: 480px) {
+            .book-card {
+                flex: 0 0 260px;
+            }
+            
+            .books-container {
+                gap: 16px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -475,479 +453,248 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="coaching.html" class="nav-link">Executive Coaching</a></li>
-                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneurship</a></li>
-                <li><a href="academia.html" class="nav-link">Academia</a></li>
+                <li><a href="coaching.html" class="nav-link">Executive Coach</a></li>
+                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneur</a></li>
+                <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
                 <li><a href="books.html" class="nav-link active">Books</a></li>
-                <li><a href="insights.html" class="nav-link">Insights</a></li>
+                <!-- <li><a href="insights.html" class="nav-link">Insights</a></li> -->
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Author Hero Section -->
-    <section class="books-hero">
-        <div class="container">
-            <div class="author-photo">👨‍💼</div>
-            <h1>Published Works</h1>
-            <p class="subtitle">Insights from decades of leadership experience, distilled into practical wisdom for today's business leaders and entrepreneurs.</p>
-        </div>
-    </section>
-
-    <!-- The Library Section -->
-    <section class="library-section">
-        <div class="container">
-            <h2>The Library</h2>
-            <div class="books-grid">
-                <div class="book-card" onclick="window.open('the-gift.html', '_blank')">
-                    <div class="book-cover">
-                        <img src="the-gift-cover.jpg" alt="The Gift Book Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.parentElement.innerHTML='🎁'; this.parentElement.style.fontSize='4rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
-                    </div>
-                    <h3 class="book-title">The Gift</h3>
-                    <p class="book-tagline">"The Story I Was Once Too Afraid to Tell"</p>
-                    <span class="book-status status-coming-soon">Coming 2025</span>
-                </div>
-                
-                <div class="book-card" onclick="window.open('what-matters-to-me-now.html', '_blank')">
-                    <div class="book-cover">
-                        <img src="what-matters-to-me-now-cover.jpg" alt="What Matters to Me Now Book Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'; this.parentElement.innerHTML='💭'; this.parentElement.style.fontSize='4rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
-                    </div>
-                    <h3 class="book-title">What Matters to Me Now</h3>
-                    <p class="book-tagline">"A Journey of Reflection and Purpose"</p>
-                    <span class="book-status status-published">Available Now</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Author's Note Section -->
-    <section class="authors-note">
-        <div class="container">
-            <div class="note-content">
-                <h2>Author's Note</h2>
-                <p class="note-text">
-                    "Writing has always been my way of crystallizing the lessons learned from each chapter of my journey. From the precision required in medical practice to the strategic thinking demanded in banking, from the innovation mindset needed in entrepreneurship to the wisdom required for effective coaching—each experience has shaped my perspective on leadership and success.
-                </p>
-                <p class="note-text">
-                    I write not just to share knowledge, but to create practical tools that leaders can use immediately. Every framework, every case study, every insight in my books comes from real-world application. My hope is that these works serve as both mirror and map—helping you see your current capabilities clearly while charting a path to even greater impact.
-                </p>
-                <p class="note-text">
-                    Leadership is not a destination; it's a continuous journey of growth, adaptation, and service to others. Through these books, I invite you to join me on that journey."
-                </p>
-                <p class="note-signature">— Dr. Anderson Uvie-Emegbo</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Endorsements Carousel -->
-    <section class="endorsements-section">
-        <div class="container">
-            <h2>What Leaders Are Saying</h2>
-            <div class="endorsements-carousel">
-                <div class="endorsement-slide active">
-                    <p class="endorsement-text">"A masterclass in modern leadership. This book should be required reading for every C-suite executive navigating digital transformation."</p>
-                    <div class="endorser-info">
-                        <div class="endorser-photo">MJ</div>
-                        <div class="endorser-details">
-                            <h4>Dr. Michael Johnson</h4>
-                            <p>CEO, Global Tech Solutions</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="endorsement-slide">
-                    <p class="endorsement-text">"Practical wisdom that bridges the gap between traditional business education and the realities of today's entrepreneurial landscape."</p>
-                    <div class="endorser-info">
-                        <div class="endorser-photo">SA</div>
-                        <div class="endorser-details">
-                            <h4>Sarah Anderson</h4>
-                            <p>Founder, Innovation Capital</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="endorsement-slide">
-                    <p class="endorsement-text">"An authentic voice that combines deep experience with actionable insights. These frameworks have transformed how our leadership team operates."</p>
-                    <div class="endorser-info">
-                        <div class="endorser-photo">DK</div>
-                        <div class="endorser-details">
-                            <h4>David Kim</h4>
-                            <p>Managing Director, Fortune 500 Company</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="carousel-controls">
-                <span class="carousel-dot active" onclick="showEndorsement(0)"></span>
-                <span class="carousel-dot" onclick="showEndorsement(1)"></span>
-                <span class="carousel-dot" onclick="showEndorsement(2)"></span>
-            </div>
-        </div>
-    </section>
-
-        /* Footer */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 60px 0 30px;
-            margin-top: 50px;
-            min-height: 400px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            color: #ecf0f1;
-            font-size: 1.2rem;
-        }
-
-        .footer-section p,
-        .footer-section li {
-            color: #bdc3c7;
-            line-height: 1.8;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #e74c3c;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #34495e;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: #e74c3c;
-            transform: translateY(-2px);
-        }
-
-        .footer-newsletter-form {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .footer-newsletter-form input {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-        }
-
-        .footer-newsletter-form button {
-            padding: 12px 24px;
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-
-        .footer-newsletter-form button:hover {
-            background-color: #c0392b;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #34495e;
-            padding-top: 2rem;
-            text-align: center;
-            color: #bdc3c7;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .books-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .books-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .footer-newsletter-form {
-                flex-direction: column;
-            }
-
-            .endorser-info {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Dr. Anderson Uvie-Emegbo</div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="coaching.html" class="nav-link">Executive Coaching</a></li>
-                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneurship</a></li>
-                <li><a href="academia.html" class="nav-link">Academia</a></li>
-                <li><a href="books.html" class="nav-link active">Books</a></li>
-                <li><a href="insights.html" class="nav-link">Insights</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    <!-- Main Content -->
     <main class="main-content">
-        <!-- Modern Books Showcase -->
-        <section class="modern-books-hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Published Works</h1>
-                    <p class="hero-subtitle">Transformative insights for leaders, entrepreneurs, and change-makers</p>
-                </div>
-            </div>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1>Published Works</h1>
+            <p>Transformative insights from decades of leadership experience, distilled into practical wisdom for today's business leaders and entrepreneurs.</p>
         </section>
 
         <!-- Featured Books Section -->
-        <section class="featured-books">
-            <div class="container">
-                <h2>Available Titles</h2>
-                <div class="featured-grid">
-                    <div class="featured-book">
-                        <div class="book-cover-large">
-                            <img src="the-gift-cover.jpg" alt="The Gift by Dr. Anderson Uvie-Emegbo">
-                        </div>
-                        <div class="book-info">
-                            <h3>The Gift</h3>
-                            <p class="book-subtitle">The Story I Was Once Too Afraid to Tell</p>
-                            <p class="book-description">A powerful memoir of silence, struggle, and ultimate self-reclamation. Dr. Anderson's journey from fear to freedom offers a blueprint for authentic leadership and personal transformation.</p>
-                            <div class="book-meta">
-                                <span class="status coming-soon">Coming December 2024</span>
-                            </div>
-                            <button class="buy-btn pre-order" onclick="window.open('the-gift.html', '_blank')">
-                                Pre-Order Now
-                            </button>
-                        </div>
+        <section class="books-section">
+            <div class="section-header">
+                <h2 class="section-title">Featured Books</h2>
+                <p class="section-subtitle">Essential reading for modern leaders</p>
+            </div>
+            
+            <div class="books-container">
+                <!-- Book 1: The Gift -->
+                <div class="book-card" onclick="openBook('the-gift')">
+                    <div class="book-cover-section">
+                        <div class="book-badge badge-new">New</div>
+                        <img src="images/The-Gift.jpg" alt="The Gift Book Cover" class="book-cover-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="book-cover-placeholder" style="display: none;">🎁</div>
                     </div>
-
-                    <div class="featured-book">
-                        <div class="book-cover-large">
-                            <img src="what-matters-to-me-now-cover.jpg" alt="What Matters to Me Now by Dr. Anderson Uvie-Emegbo">
+                    <div class="book-info">
+                        <h3 class="book-title">The Gift</h3>
+                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
+                        <div class="book-rating">
+                            <span class="rating-stars">★★★★★</span>
                         </div>
-                        <div class="book-info">
-                            <h3>What Matters to Me Now</h3>
-                            <p class="book-subtitle">50 Life Lessons on Identity, Healing, Courage, Becoming and Legacy</p>
-                            <p class="book-description">A contemplative exploration of evolving priorities and authentic living. Discover what truly matters through reflective insights on purpose, relationships, and legacy.</p>
-                            <div class="book-meta">
-                                <span class="status available">Available Now</span>
+                        <p class="book-description">The story I was once too afraid to tell - a powerful memoir about resilience, transformation, and finding your voice in leadership.</p>
+                        <div class="book-price-section">
+                            <div class="price-container">
+                                <span class="current-price">$24.99</span>
+                                <span class="original-price">$29.99</span>
                             </div>
-                            <button class="buy-btn available" onclick="window.open('what-matters-to-me-now.html', '_blank')">
-                                Buy Now
-                            </button>
                         </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(event, 'The Gift')">Pre-Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Book 2: Leadership Excellence -->
+                <div class="book-card" onclick="openBook('leadership-excellence')">
+                    <div class="book-cover-section">
+                        <div class="book-badge badge-bestseller">Bestseller</div>
+                        <div class="book-cover-placeholder">📚</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Leadership Excellence in the Digital Age</h3>
+                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
+                        <div class="book-rating">
+                            <span class="rating-stars">★★★★★</span>
+                        </div>
+                        <p class="book-description">Navigate complexity with clarity and purpose. Essential strategies for modern leaders transforming organizations in an increasingly digital world.</p>
+                        <div class="book-price-section">
+                            <div class="price-container">
+                                <span class="current-price">$19.99</span>
+                                <span class="original-price">$24.99</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Leadership Excellence in the Digital Age')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Book 3: What Matters to Me Now -->
+                <div class="book-card" onclick="openBook('what-matters-to-me-now')">
+                    <div class="book-cover-section">
+                        <div class="book-badge badge-coming-soon">Coming Soon</div>
+                        <img src="images/What-Matters-to-Me-Now-Cover.jpg" alt="What Matters to Me Now Book Cover" class="book-cover-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="book-cover-placeholder" style="display: none;">💭</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">What Matters to Me Now</h3>
+                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
+                        <div class="book-rating">
+                            <span class="rating-stars">★★★★★</span>
+                        </div>
+                        <p class="book-description">Reflections on leadership and purpose. A thoughtful exploration of what truly matters in building lasting impact and meaningful success.</p>
+                        <div class="book-price-section">
+                            <div class="price-container">
+                                <span class="current-price">$22.99</span>
+                                <span class="original-price">$27.99</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(event, 'What Matters to Me Now')">Notify Me</button>
+                    </div>
+                </div>
+
+                <!-- Book 4: Executive Coaching Frameworks -->
+                <div class="book-card" onclick="openBook('coaching-frameworks')">
+                    <div class="book-cover-section">
+                        <div class="book-cover-placeholder">🎯</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Executive Coaching Frameworks</h3>
+                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
+                        <div class="book-rating">
+                            <span class="rating-stars">★★★★★</span>
+                        </div>
+                        <p class="book-description">Proven methodologies for leadership development. Comprehensive frameworks for coaching executives to achieve breakthrough performance.</p>
+                        <div class="book-price-section">
+                            <div class="price-container">
+                                <span class="current-price">$26.99</span>
+                                <span class="original-price">$31.99</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Executive Coaching Frameworks')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Book 5: The Entrepreneurial Mindset -->
+                <div class="book-card" onclick="openBook('entrepreneurial-mindset')">
+                    <div class="book-cover-section">
+                        <div class="book-cover-placeholder">🚀</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">The Entrepreneurial Mindset</h3>
+                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
+                        <div class="book-rating">
+                            <span class="rating-stars">★★★★★</span>
+                        </div>
+                        <p class="book-description">From healthcare to fintech: A journey of transformation. Learn how to develop the mindset needed for entrepreneurial success.</p>
+                        <div class="book-price-section">
+                            <div class="price-container">
+                                <span class="current-price">$23.99</span>
+                                <span class="original-price">$28.99</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(event, 'The Entrepreneurial Mindset')">Add to Cart</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Classics Collection Preview -->
-        <section class="classics-preview">
-            <div class="container">
-                <h2>Upcoming Classics</h2>
-                <p class="section-subtitle">Future publications in development</p>
-                <div class="classics-grid">
-                    <div class="classic-book">
-                        <div class="book-cover-small">
-                            <div class="placeholder-cover leadership">
-                                <i class="fas fa-crown"></i>
-                            </div>
-                        </div>
-                        <h4>Leadership Excellence</h4>
-                        <p>Coming 2025</p>
-                    </div>
-                    
-                    <div class="classic-book">
-                        <div class="book-cover-small">
-                            <div class="placeholder-cover entrepreneurship">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                        </div>
-                        <h4>The Entrepreneurial Mind</h4>
-                        <p>Coming 2025</p>
-                    </div>
-                    
-                    <div class="classic-book">
-                        <div class="book-cover-small">
-                            <div class="placeholder-cover coaching">
-                                <i class="fas fa-compass"></i>
-                            </div>
-                        </div>
-                        <h4>Coaching Frameworks</h4>
-                        <p>Coming 2026</p>
-                    </div>
-                    
-                    <div class="classic-book">
-                        <div class="book-cover-small">
-                            <div class="placeholder-cover innovation">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                        </div>
-                        <h4>Innovation in Africa</h4>
-                        <p>Coming 2026</p>
-                    </div>
-                </div>
+        <!-- Leadership Classics Section -->
+        <section class="books-section">
+            <div class="section-header">
+                <h2 class="section-title">Leadership Classics</h2>
+                <p class="section-subtitle">Timeless insights for effective leadership</p>
             </div>
-        </section>
-
-        <!-- Author's Note Section -->
-        <section class="authors-note">
-            <div class="container">
-                <div class="note-content">
-                    <h2>Author's Note</h2>
-                    <p class="note-text">
-                        "Writing has always been my way of crystallizing the lessons learned from each chapter of my journey. From the precision required in medical practice to the strategic thinking demanded in banking, from the innovation mindset needed in entrepreneurship to the wisdom required for effective coaching—each experience has shaped my perspective on leadership and success.
-                    </p>
-                    <p class="note-text">
-                        I write not just to share knowledge, but to create practical tools that leaders can use immediately. Every framework, every case study, every insight in my books comes from real-world application. My hope is that these works serve as both mirror and map—helping you see your current capabilities clearly while charting a path to even greater impact.
-                    </p>
-                    <p class="note-text">
-                        Leadership is not a destination; it's a continuous journey of growth, adaptation, and service to others. Through these books, I invite you to join me on that journey."
-                    </p>
-                    <p class="note-signature">— Dr. Anderson Uvie-Emegbo</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Endorsements Carousel -->
-        <section class="endorsements-section">
-            <div class="container">
-                <h2>What Leaders Are Saying</h2>
-                <div class="endorsements-carousel">
-                    <div class="endorsement-slide active">
-                        <p class="endorsement-text">"A masterclass in modern leadership. This book should be required reading for every C-suite executive navigating digital transformation."</p>
-                        <div class="endorser-info">
-                            <div class="endorser-photo">MJ</div>
-                            <div class="endorser-details">
-                                <h4>Dr. Michael Johnson</h4>
-                                <p>CEO, Global Tech Solutions</p>
-                            </div>
-                        </div>
+            
+            <div class="books-container">
+                <!-- Additional Books -->
+                <div class="book-card" onclick="openBook('global-leadership')">
+                    <div class="book-cover-section">
+                        <div class="book-cover-placeholder">🌍</div>
                     </div>
-                    
-                    <div class="endorsement-slide">
-                        <p class="endorsement-text">"Practical wisdom that bridges the gap between traditional business education and the realities of today's entrepreneurial landscape."</p>
-                        <div class="endorser-info">
-                            <div class="endorser-photo">SA</div>
-                            <div class="endorser-details">
-                                <h4>Sarah Anderson</h4>
-                                <p>Founder, Innovation Capital</p>
+                    <div class="book-info">
+                        <h3 class="book-title">Global Leadership Perspectives</h3>
+                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
+                        <div class="book-rating">
+                            <span class="rating-stars">★★★★★</span>
+                        </div>
+                        <p class="book-description">Insights from 80+ countries and diverse cultures. A comprehensive guide to leading in a globalized world.</p>
+                        <div class="book-price-section">
+                            <div class="price-container">
+                                <span class="current-price">$25.99</span>
+                                <span class="original-price">$30.99</span>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="endorsement-slide">
-                        <p class="endorsement-text">"An authentic voice that combines deep experience with actionable insights. These frameworks have transformed how our leadership team operates."</p>
-                        <div class="endorser-info">
-                            <div class="endorser-photo">DK</div>
-                            <div class="endorser-details">
-                                <h4>David Kim</h4>
-                                <p>Managing Director, Fortune 500 Company</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="endorsement-slide">
-                        <p class="endorsement-text">"A rare combination of academic rigor and practical application. Essential reading for anyone serious about leadership development."</p>
-                        <div class="endorser-info">
-                            <div class="endorser-photo">ER</div>
-                            <div class="endorser-details">
-                                <h4>Prof. Elizabeth Roberts</h4>
-                                <p>Harvard Business School</p>
-                            </div>
-                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Global Leadership Perspectives')">Add to Cart</button>
                     </div>
                 </div>
-                
-                <div class="carousel-controls">
-                    <span class="carousel-dot active" onclick="showEndorsement(0)"></span>
-                    <span class="carousel-dot" onclick="showEndorsement(1)"></span>
-                    <span class="carousel-dot" onclick="showEndorsement(2)"></span>
-                    <span class="carousel-dot" onclick="showEndorsement(3)"></span>
-                </div>
-            </div>
-        </section>
 
-        <!-- Newsletter Section -->
-        <section class="newsletter-section">
-            <div class="container">
-                <div class="newsletter-content">
-                    <h2>Stay Updated</h2>
-                    <p>Be the first to know about new book releases, exclusive insights, and special offers.</p>
-                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                        <button type="submit" class="newsletter-btn">Subscribe</button>
-                    </form>
+                <div class="book-card" onclick="openBook('digital-transformation')">
+                    <div class="book-cover-section">
+                        <div class="book-cover-placeholder">💻</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Digital Transformation Playbook</h3>
+                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
+                        <div class="book-rating">
+                            <span class="rating-stars">★★★★★</span>
+                        </div>
+                        <p class="book-description">A practical guide for legacy organizations. Step-by-step strategies for successful digital transformation initiatives.</p>
+                        <div class="book-price-section">
+                            <div class="price-container">
+                                <span class="current-price">$27.99</span>
+                                <span class="original-price">$32.99</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Digital Transformation Playbook')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="book-card" onclick="openBook('innovation-africa')">
+                    <div class="book-cover-section">
+                        <div class="book-cover-placeholder">🏆</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Innovation in African Markets</h3>
+                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
+                        <div class="book-rating">
+                            <span class="rating-stars">★★★★★</span>
+                        </div>
+                        <p class="book-description">Building sustainable businesses across the continent. Unlock the potential of African markets through innovation.</p>
+                        <div class="book-price-section">
+                            <div class="price-container">
+                                <span class="current-price">$24.99</span>
+                                <span class="original-price">$29.99</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Innovation in African Markets')">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="book-card" onclick="openBook('strategic-growth')">
+                    <div class="book-cover-section">
+                        <div class="book-cover-placeholder">📈</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Strategic Growth Frameworks</h3>
+                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
+                        <div class="book-rating">
+                            <span class="rating-stars">★★★★★</span>
+                        </div>
+                        <p class="book-description">Proven frameworks for sustainable business growth. Learn how to scale your organization effectively and efficiently.</p>
+                        <div class="book-price-section">
+                            <div class="price-container">
+                                <span class="current-price">$26.99</span>
+                                <span class="original-price">$31.99</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Strategic Growth Frameworks')">Add to Cart</button>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
+    </main>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -985,7 +732,7 @@
                 <div class="footer-section">
                     <h3>Stay Connected</h3>
                     <p>Subscribe for insights on leadership, innovation, and business transformation.</p>
-                    <div class="footer-newsletter-form">
+                    <div class="newsletter-form">
                         <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
                         <button type="submit">Subscribe</button>
                     </div>
@@ -999,66 +746,56 @@
     </footer>
 
     <script>
-        let currentEndorsement = 0;
-        const endorsements = document.querySelectorAll('.endorsement-slide');
-        const dots = document.querySelectorAll('.carousel-dot');
+        function openBook(bookId) {
+            switch(bookId) {
+                case 'the-gift':
+                    window.location.href = 'the-gift.html';
+                    break;
+                case 'what-matters-to-me-now':
+                    window.location.href = 'what-matters-to-me-now.html';
+                    break;
+                default:
+                    alert(`Opening: ${bookId}\n\nThis would navigate to the individual book page.`);
+            }
+        }
 
-        function showEndorsement(index) {
-            // Hide all endorsements
-            endorsements.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
+        function addToCart(event, bookTitle) {
+            event.stopPropagation();
+            const button = event.target;
+            const originalText = button.textContent;
             
-            // Show selected endorsement
-            endorsements[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentEndorsement = index;
+            button.textContent = 'Added!';
+            button.style.background = '#27ae60';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '#1d1d1f';
+            }, 2000);
+            
+            console.log(`Added to cart: ${bookTitle}`);
         }
 
-        // Auto-rotate endorsements
-        setInterval(() => {
-            currentEndorsement = (currentEndorsement + 1) % endorsements.length;
-            showEndorsement(currentEndorsement);
-        }, 5000);
-
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                const navLinks = document.getElementById('navLinks');
-                navLinks.classList.remove('active');
+        // Smooth scrolling for books container
+        document.addEventListener('DOMContentLoaded', function() {
+            const containers = document.querySelectorAll('.books-container');
+            containers.forEach(container => {
+                container.addEventListener('wheel', function(e) {
+                    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                        return;
+                    }
+                    e.preventDefault();
+                    container.scrollLeft += e.deltaY;
+                });
             });
         });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const nav = document.querySelector('nav');
-            const navLinks = document.getElementById('navLinks');
-            
-            if (!nav.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-
-        function subscribeNewsletter(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('.newsletter-input').value;
-            if (email) {
-                alert('Thank you for subscribing! You will receive our latest book updates and insights.');
-                event.target.querySelector('.newsletter-input').value = '';
-            }
-        }
-
         // Footer newsletter form submission
-        document.querySelector('.footer-newsletter-form button').addEventListener('click', (e) => {
+        document.querySelector('.newsletter-form button').addEventListener('click', (e) => {
             e.preventDefault();
-            const email = document.querySelector('.footer-newsletter-form input').value;
+            const email = document.querySelector('.newsletter-form input').value;
             if (email) {
                 alert('Thank you for subscribing! You will receive our latest insights and updates.');
-                document.querySelector('.footer-newsletter-form input').value = '';
+                document.querySelector('.newsletter-form input').value = '';
             } else {
                 alert('Please enter a valid email address.');
             }

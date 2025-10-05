@@ -37,6 +37,16 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
         
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
         .nav-container {
             display: flex;
             justify-content: space-between;
@@ -48,7 +58,6 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: #2c3e50;
-            text-decoration: none;
         }
         
         .nav-menu {
@@ -57,16 +66,15 @@
             gap: 2rem;
         }
         
-        .nav-item a {
+        .nav-link {
             text-decoration: none;
-            color: #2c3e50;
+            color: #333;
             font-weight: 500;
             transition: color 0.3s ease;
             cursor: pointer;
         }
         
-        .nav-item a:hover,
-        .nav-item a.active {
+        .nav-link:hover, .nav-link.active {
             color: #3498db;
         }
 
@@ -373,11 +381,11 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link active">About</a></li>
-                <li><a href="coaching.html" class="nav-link">Executive Coaching</a></li>
-                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneurship</a></li>
-                <li><a href="academia.html" class="nav-link">Academia</a></li>
+                <li><a href="coaching.html" class="nav-link">Executive Coach</a></li>
+                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneur</a></li>
+                <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
                 <li><a href="books.html" class="nav-link">Books</a></li>
-                <li><a href="insights.html" class="nav-link">Insights</a></li>
+                <!-- <li><a href="insights.html" class="nav-link">Insights</a></li> -->
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>

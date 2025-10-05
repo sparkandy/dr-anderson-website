@@ -56,16 +56,15 @@
             gap: 2rem;
         }
         
-        .nav-item a {
+        .nav-link {
             text-decoration: none;
-            color: #2c3e50;
+            color: #333;
             font-weight: 500;
             transition: color 0.3s ease;
             cursor: pointer;
         }
         
-        .nav-item a:hover,
-        .nav-item a.active {
+        .nav-link:hover, .nav-link.active {
             color: #3498db;
         }
 
@@ -380,14 +379,14 @@
         <div class="nav-container">
             <div class="logo">Dr. Anderson Uvie-Emegbo</div>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html">Home</a></li>
-                <li class="nav-item"><a href="about.html">About</a></li>
-                <li class="nav-item"><a href="coaching.html" class="active">Executive Coaching</a></li>
-                <li class="nav-item"><a href="entrepreneurship.html">Entrepreneurship</a></li>
-                <li class="nav-item"><a href="academia.html">Academia</a></li>
-                <li class="nav-item"><a href="books.html">Books</a></li>
-                <li class="nav-item"><a href="insights.html">Insights</a></li>
-                <li class="nav-item"><a href="contact.html">Contact</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="coaching.html" class="nav-link active">Executive Coach</a></li>
+                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneur</a></li>
+                <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
+                <li><a href="books.html" class="nav-link">Books</a></li>
+                <!-- <li><a href="insights.html" class="nav-link">Insights</a></li> -->
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
