@@ -2874,44 +2874,54 @@
             const giftLaunchDate = new Date('2025-12-15T00:00:00'); // The Gift launch date
             const mattersLaunchDate = new Date('2025-12-15T00:00:00'); // What Matters to Me Now launch date
             
-            // Update countdown every second
-            setInterval(() => {
+            // Function to update both countdowns
+            function updateAllCountdowns() {
                 updateCountdown('gift', giftLaunchDate);
                 updateCountdown('matters', mattersLaunchDate);
-            }, 1000);
+            }
+            
+            // Update immediately when page loads
+            updateAllCountdowns();
+            
+            // Then update every second
+            setInterval(updateAllCountdowns, 1000);
         }
 
         function updateCountdown(bookType, targetDate) {
+            // Get current time in milliseconds
             const now = new Date().getTime();
-            const timeLeft = targetDate.getTime() - now;
+            const target = targetDate.getTime();
+            const timeLeft = target - now;
+            
+            // Get DOM elements
+            const daysElement = document.getElementById(`${bookType}-days`);
+            const hoursElement = document.getElementById(`${bookType}-hours`);
+            const minutesElement = document.getElementById(`${bookType}-mins`);
+            const secondsElement = document.getElementById(`${bookType}-secs`);
             
             if (timeLeft > 0) {
+                // Calculate time units
                 const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
                 
-                // Update display
-                const daysElement = document.getElementById(`${bookType}-days`);
-                const hoursElement = document.getElementById(`${bookType}-hours`);
-                const minutesElement = document.getElementById(`${bookType}-mins`);
-                const secondsElement = document.getElementById(`${bookType}-secs`);
+                // Update display with proper formatting
+                if (daysElement) daysElement.textContent = String(days).padStart(2, '0');
+                if (hoursElement) hoursElement.textContent = String(hours).padStart(2, '0');
+                if (minutesElement) minutesElement.textContent = String(minutes).padStart(2, '0');
+                if (secondsElement) secondsElement.textContent = String(seconds).padStart(2, '0');
                 
-                if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
-                if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
-                if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
-                if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+                // Debug log (can be removed in production)
+                console.log(`${bookType}: ${days}d ${hours}h ${minutes}m ${seconds}s remaining`);
             } else {
-                // Book has launched
-                const daysElement = document.getElementById(`${bookType}-days`);
-                const hoursElement = document.getElementById(`${bookType}-hours`);
-                const minutesElement = document.getElementById(`${bookType}-mins`);
-                const secondsElement = document.getElementById(`${bookType}-secs`);
-                
+                // Target date has passed - show zeros
                 if (daysElement) daysElement.textContent = '00';
                 if (hoursElement) hoursElement.textContent = '00';
                 if (minutesElement) minutesElement.textContent = '00';
                 if (secondsElement) secondsElement.textContent = '00';
+                
+                console.log(`${bookType}: Launch date has passed!`);
             }
         }
     </script>

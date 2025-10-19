@@ -137,25 +137,31 @@
             z-index: 0;
         }
 
-        .hero-image-section img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         .hero-image-placeholder {
             width: 100%;
             height: 100%;
+            position: relative;
+        }
+
+        /* Show placeholder styling only when no image is present */
+        .hero-image-placeholder:empty {
             background: rgba(74, 85, 104, 0.1);
             border: 2px dashed rgba(74, 85, 104, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            position: relative;
         }
 
-        .hero-image-placeholder::before {
+        .hero-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .hero-image-placeholder:empty::before {
             content: '📷';
             font-size: 48px;
             opacity: 0.6;
@@ -163,7 +169,7 @@
             margin-bottom: 10px;
         }
 
-        .hero-image-placeholder::after {
+        .hero-image-placeholder:empty::after {
             content: 'Professional Photo Placeholder';
             font-size: 14px;
             opacity: 0.7;
@@ -613,7 +619,9 @@
     <main class="main-content">
         <section class="hero">
             <div class="hero-image-section">
-                <div class="hero-image-placeholder"></div>
+                <div class="hero-image-placeholder">
+                    <img src="images/dr-anderson-educator.jpeg" alt="Dr. Anderson Uvie-Emegbo - Executive Educator at Nova Business School">
+                </div>
             </div>
             
             <div class="diagonal-bg"></div>
