@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Coach | Entrepreneur | Educator | Author</title>
+    <title>Dr. Anderson Uvie-Emegbo | Executive Coach | Leadership Development | Business Transformation</title>
+    <meta name="description" content="Transform your leadership impact with Dr. Anderson Uvie-Emegbo. Executive coaching, business transformation, and leadership development across 80+ countries. Join 1000+ executives who've elevated their leadership.">
+    <meta name="keywords" content="executive coach, leadership development, business transformation, entrepreneur, global leadership, executive coaching, leadership training, business coach, organizational development">
+    <meta name="author" content="Dr. Anderson Uvie-Emegbo">
+    <meta property="og:title" content="Dr. Anderson Uvie-Emegbo | Executive Coach & Leadership Expert">
+    <meta property="og:description" content="From Medicine to Finance to Global Leadership Excellence. Transform your leadership impact through proven methodologies refined across 80+ countries.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://andersonuvie.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dr. Anderson Uvie-Emegbo | Executive Coach & Leadership Expert">
+    <meta name="twitter:description" content="Transform your leadership impact through proven methodologies refined across 80+ countries.">
+    <link rel="canonical" href="https://andersonuvie.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -83,26 +94,45 @@
         .hero {
             background: #f8f9fa;
             color: #333;
-            padding: 20px 0;
+            padding: 40px 0 60px 0;
             position: relative;
-            overflow: hidden;
-            min-height: calc(100vh - 80px);
+            overflow: visible;
+            min-height: calc(100vh - 40px);
             display: flex;
+            flex-direction: column;
             align-items: flex-start;
             /* padding-top: 100px; */
             padding-top: 50px;
         }
         
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: start;
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             width: 100%;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero-top-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+            width: 100%;
+        }
+
+        .hero-bottom-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-top: 2rem;
+            max-width: 100%;
+            margin: 0 auto;
+            width: 100%;
         }
         
         .hero-left {
@@ -188,8 +218,15 @@
         .book-tagline {
             color: #718096;
             font-style: italic;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
             font-size: 0.9rem;
+        }
+        
+        .book-description {
+            color: #555;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
         }
         
         .book-status {
@@ -295,11 +332,12 @@
         }
         
         .hero-description {
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 1.1rem;
+            line-height: 1.6;
             color: #555;
-            max-width: 380px;
+            max-width: 800px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
         
         /* Key Pillars */
@@ -357,6 +395,7 @@
         /* Bio Section */
         .bio {
             padding: 80px 0;
+            background: white;
         }
         
         .bio-content {
@@ -428,6 +467,7 @@
         .cta-section {
             padding: 80px 0;
             text-align: center;
+            background: white;
         }
         
         .cta-buttons {
@@ -1496,11 +1536,15 @@
             }
             
             .hero-content {
-                grid-template-columns: 1fr;
                 gap: 1.5rem;
                 max-width: 100%;
                 padding: 0 1rem;
                 height: auto;
+            }
+
+            .hero-top-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
             
             .hero-left {
@@ -1511,6 +1555,12 @@
             .hero-right {
                 order: 1;
                 height: auto;
+            }
+
+            .hero-bottom-row {
+                order: 3;
+                padding-top: 1.5rem;
+                max-width: 100%;
             }
             
             .hero-photo {
@@ -1530,9 +1580,10 @@
             }
             
             .hero-description {
-                font-size: 0.9rem;
+                font-size: 1rem;
                 max-width: 100%;
                 margin-bottom: 1.5rem;
+                padding: 0 1rem;
             }
             
             .book-item {
@@ -1702,39 +1753,83 @@
     <div id="home" class="page active">
         <section class="hero">
             <div class="hero-content">
-                <div class="hero-left">
-                    <!-- The Gift Book -->
-                    <div class="book-item" onclick="window.open('the-gift.html', '_blank')">
-                        <div class="book-content">
-                            <div class="book-cover-section">
-                                <div class="book-cover-large">
-                                    <img src="images/The-Gift.jpg" alt="The Gift Book Cover" onerror="this.style.display='none'; this.parentElement.innerHTML='🎁'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white';">
+                <!-- Top row with books and image -->
+                <div class="hero-top-row">
+                    <div class="hero-left">
+                        <!-- The Gift Book -->
+                        <div class="book-item" onclick="window.open('the-gift.html', '_blank')">
+                            <div class="book-content">
+                                <div class="book-cover-section">
+                                    <div class="book-cover-large">
+                                        <img src="images/The-Gift.jpg" alt="The Gift Book Cover" onerror="this.style.display='none'; this.parentElement.innerHTML='🎁'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white';">
+                                    </div>
+                                </div>
+                                <div class="book-details">
+                                    <div class="book-header">
+                                        <h3 class="book-title">The Gift</h3>
+                                        <p class="book-tagline">"The Story I Was Once Too Afraid to Tell"</p>
+                                        <p class="book-description">A deeply personal narrative that explores vulnerability in leadership and the courage to share authentic stories that inspire transformation.</p>
+                                        <span class="book-status">Coming 2025</span>
+                                    </div>
+                                    <div class="countdown-timer">
+                                        <div class="countdown-label">Pre-Order Starts In:</div>
+                                        <div class="countdown-display" id="gift-countdown">
+                                            <div class="countdown-unit">
+                                                <div class="countdown-number" id="gift-days">000</div>
+                                                <div class="countdown-text">Days</div>
+                                            </div>
+                                            <div class="countdown-unit">
+                                                <div class="countdown-number" id="gift-hours">00</div>
+                                                <div class="countdown-text">Hours</div>
+                                            </div>
+                                            <div class="countdown-unit">
+                                                <div class="countdown-number" id="gift-mins">00</div>
+                                                <div class="countdown-text">Minutes</div>
+                                            </div>
+                                            <div class="countdown-unit">
+                                                <div class="countdown-number" id="gift-secs">00</div>
+                                                <div class="countdown-text">Seconds</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="book-details">
-                                <div class="book-header">
-                                    <h3 class="book-title">The Gift</h3>
-                                    <p class="book-tagline">"The Story I Was Once Too Afraid to Tell"</p>
-                                    <span class="book-status">Coming 2025</span>
+                        </div>
+
+                        <!-- What Matters to Me Now Book -->
+                        <div class="book-item" onclick="window.open('what-matters-to-me-now.html', '_blank')">
+                            <div class="book-content">
+                                <div class="book-cover-section">
+                                    <div class="book-cover-large">
+                                        <img src="images/What-Matters-to-Me-Now-Cover.jpg" alt="What Matters to Me Now Book Cover" onerror="this.style.display='none'; this.parentElement.innerHTML='📖'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white';">
+                                    </div>
                                 </div>
-                                <div class="countdown-timer">
-                                    <div class="countdown-label">Pre-Order Starts In:</div>
-                                    <div class="countdown-display" id="gift-countdown">
-                                        <div class="countdown-unit">
-                                            <div class="countdown-number" id="gift-days">000</div>
-                                            <div class="countdown-text">Days</div>
-                                        </div>
-                                        <div class="countdown-unit">
-                                            <div class="countdown-number" id="gift-hours">00</div>
-                                            <div class="countdown-text">Hours</div>
-                                        </div>
-                                        <div class="countdown-unit">
-                                            <div class="countdown-number" id="gift-mins">00</div>
-                                            <div class="countdown-text">Minutes</div>
-                                        </div>
-                                        <div class="countdown-unit">
-                                            <div class="countdown-number" id="gift-secs">00</div>
-                                            <div class="countdown-text">Seconds</div>
+                                <div class="book-details">
+                                    <div class="book-header">
+                                        <h3 class="book-title">What Matters to Me Now</h3>
+                                        <p class="book-tagline">"Reflections on Leadership and Purpose"</p>
+                                        <p class="book-description">Insights on what truly drives effective leadership in today's rapidly changing business landscape.</p>
+                                        <span class="book-status">Coming 2025</span>
+                                    </div>
+                                    <div class="countdown-timer">
+                                        <div class="countdown-label">Pre-Order Starts In:</div>
+                                        <div class="countdown-display" id="matters-countdown">
+                                            <div class="countdown-unit">
+                                                <div class="countdown-number" id="matters-days">000</div>
+                                                <div class="countdown-text">Days</div>
+                                            </div>
+                                            <div class="countdown-unit">
+                                                <div class="countdown-number" id="matters-hours">00</div>
+                                                <div class="countdown-text">Hours</div>
+                                            </div>
+                                            <div class="countdown-unit">
+                                                <div class="countdown-number" id="matters-mins">00</div>
+                                                <div class="countdown-text">Minutes</div>
+                                            </div>
+                                            <div class="countdown-unit">
+                                                <div class="countdown-number" id="matters-secs">00</div>
+                                                <div class="countdown-text">Seconds</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1742,55 +1837,24 @@
                         </div>
                     </div>
 
-                    <!-- What Matters to Me Now Book -->
-                    <div class="book-item" onclick="window.open('what-matters-to-me-now.html', '_blank')">
-                        <div class="book-content">
-                            <div class="book-cover-section">
-                                <div class="book-cover-large">
-                                    <img src="images/What-Matters-to-Me-Now-Cover.jpg" alt="What Matters to Me Now Book Cover" onerror="this.style.display='none'; this.parentElement.innerHTML='📖'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white';">
-                                </div>
-                            </div>
-                            <div class="book-details">
-                                <div class="book-header">
-                                    <h3 class="book-title">What Matters to Me Now</h3>
-                                    <p class="book-tagline">"Reflections on Leadership and Purpose"</p>
-                                    <span class="book-status">Coming 2025</span>
-                                </div>
-                                <div class="countdown-timer">
-                                    <div class="countdown-label">Pre-Order Starts In:</div>
-                                    <div class="countdown-display" id="matters-countdown">
-                                        <div class="countdown-unit">
-                                            <div class="countdown-number" id="matters-days">000</div>
-                                            <div class="countdown-text">Days</div>
-                                        </div>
-                                        <div class="countdown-unit">
-                                            <div class="countdown-number" id="matters-hours">00</div>
-                                            <div class="countdown-text">Hours</div>
-                                        </div>
-                                        <div class="countdown-unit">
-                                            <div class="countdown-number" id="matters-mins">00</div>
-                                            <div class="countdown-text">Minutes</div>
-                                        </div>
-                                        <div class="countdown-unit">
-                                            <div class="countdown-number" id="matters-secs">00</div>
-                                            <div class="countdown-text">Seconds</div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="hero-right">
+                        <div class="hero-profile">
+                            <div class="hero-photo">
+                                <img src="images/dr-anderson-uvie-emegbo-size.jpg" alt="Dr. Anderson Uvie-Emegbo Professional Photo">
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="hero-right">
-                    <div class="hero-profile">
-                        <div class="hero-photo">
-                            <img src="images/dr-anderson-uvie-emegbo-size.jpg" alt="Dr. Anderson Uvie-Emegbo Professional Photo">
-                        </div>
-                        <h1 class="hero-title">Dr. Anderson Uvie-Emegbo</h1>
-                        <p class="hero-tagline">Executive Coach | Entrepreneur | Educator | Author</p>
-                        <p class="hero-description">Build a business you love with the freedom and funds you desire. Whether you want to start freelancing, or learn how to make 6-figures as a creative entrepreneur, let's create a business that is kinder to you.</p>
-                    </div>
+                <!-- Bottom row with text content -->
+                <div class="hero-bottom-row">
+                    <h1 class="hero-title">Dr. Anderson Uvie-Emegbo</h1>
+                    <p class="hero-tagline">Executive Coach | Entrepreneur | Educator | Author</p>
+                    <p class="hero-description">From Medicine to Finance to Global Leadership Excellence. Transform your leadership impact
+                        through proven methodologies refined across 80+ countries. Whether you're scaling your organization, launching an
+                        innovation initiative, or developing your executive presence, discover the strategic clarity and authentic
+                        confidence that defines exceptional leaders. Join 1000+ executives who have elevated their leadership through
+                        personalized coaching that delivers measurable results.</p>
                 </div>
             </div>
         </section>

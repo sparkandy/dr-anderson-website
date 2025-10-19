@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Coaching - Dr. Anderson Uvie-Emegbo</title>
+    <title>Executive Coaching Services | Leadership Development | Dr. Anderson Uvie-Emegbo</title>
+    <meta name="description" content="Transform your leadership with expert executive coaching. Holistic leadership development, practical application focus, and sustainable growth architecture. Book your discovery call today.">
+    <meta name="keywords" content="executive coaching, leadership development, coaching methodology, leadership philosophy, executive development, holistic leadership, senior executives, leadership transformation">
+    <meta name="author" content="Dr. Anderson Uvie-Emegbo">
+    <meta property="og:title" content="Executive Coaching Services | Dr. Anderson Uvie-Emegbo">
+    <meta property="og:description" content="Transforming Leaders, Transforming Organizations. Develop leadership capabilities for sustainable growth and organizational success.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://andersonuvie.com/coaching">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -70,21 +77,181 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 120px 0 80px;
+            position: relative;
+            height: 55vh;
+            min-height: 420px;
+            overflow: hidden;
+            background: #e8e8e8;
+        }
+
+        .diagonal-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 100%;
+            background: #4a5568;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+            z-index: 1;
+        }
+
+        .hero-image-section {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: rgba(74, 85, 104, 0.1);
+            border: 2px dashed rgba(74, 85, 104, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .hero-image-placeholder::before {
+            content: '📷';
+            font-size: 48px;
+            opacity: 0.6;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .hero-image-placeholder::after {
+            content: 'Professional Photo Placeholder';
+            font-size: 14px;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #4a5568;
+        }
+
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            max-width: 450px;
+            padding-left: 20px;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 600;
+            line-height: 1.3;
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
 
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .hero-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 16px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .hero-cta:hover {
+            background: white;
+            color: #4a5568;
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 1024px) {
+            .diagonal-bg {
+                width: 70%;
+            }
+
+            .hero-image-section {
+                left: 60%;
+                width: 40%;
+            }
+
+            .hero-content-wrapper {
+                padding: 0 40px;
+            }
+
+            .hero-content {
+                padding-left: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .diagonal-bg {
+                width: 100%;
+                clip-path: polygon(0 0, 100% 0, 100% 70%, 0 85%);
+            }
+
+            .hero-image-section {
+                left: 0;
+                top: 70%;
+                width: 100%;
+                height: 30%;
+            }
+
+            .hero-content-wrapper {
+                padding: 0 24px;
+                padding-top: 40px;
+                align-items: flex-start;
+            }
+
+            .hero-content {
+                padding-left: 10px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
         }
 
         /* Coaching Philosophy Section */
@@ -393,28 +560,39 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Executive Coaching Excellence</h1>
-            <p class="tagline">Transforming leaders across 80+ countries with evidence-based methodologies</p>
+        <div class="hero-image-section">
+            <div class="hero-image-placeholder"></div>
+        </div>
+        
+        <div class="diagonal-bg"></div>
+        
+        <div class="hero-content-wrapper">
+            <div class="hero-content">
+                <h1>Executive Coaching Excellence</h1>
+                <p class="hero-description">
+                    Transforming leaders across 80+ countries with evidence-based methodologies. Develop authentic leadership presence, drive organizational change, and unlock your full potential with personalized coaching strategies.
+                </p>
+                <a href="#coaching-philosophy" class="hero-cta">Explore My Approach</a>
+            </div>
         </div>
     </section>
 
     <!-- Coaching Philosophy Section -->
-    <section class="coaching-philosophy">
+    <section class="coaching-philosophy" id="coaching-philosophy">
         <div class="container">
             <h2>Coaching Philosophy</h2>
             <div class="philosophy-grid">
                 <div class="philosophy-card">
-                    <h3>Evidence-Based Approach</h3>
-                    <p>Utilizing proven methodologies from behavioral science, neuroscience, and organizational psychology to create lasting transformation in leadership effectiveness.</p>
+                    <h3>Holistic Leadership Development</h3>
+                    <p>True leadership transformation requires more than skill acquisition—it demands integration of emotional intelligence, strategic thinking, and authentic communication. My approach addresses the whole leader, examining how personal values align with professional objectives, how cognitive patterns influence decision-making, and how leadership presence impacts organizational culture. We explore the intersection of vulnerability and strength, helping you lead with both confidence and humility.</p>
                 </div>
                 <div class="philosophy-card">
-                    <h3>Cultural Intelligence</h3>
-                    <p>Deep understanding of cross-cultural dynamics, enabling effective coaching across diverse global business environments and leadership contexts.</p>
+                    <h3>Practical Application Focus</h3>
+                    <p>Every coaching session is designed to bridge the gap between insight and action. You'll leave with specific strategies you can implement immediately—whether it's restructuring difficult conversations, designing innovation processes, or building high-performance team dynamics. I believe in coaching that creates tangible results, not just awareness. Each framework and tool is tested in real-world executive environments and adapted to your unique context and challenges.</p>
                 </div>
                 <div class="philosophy-card">
-                    <h3>Holistic Development</h3>
-                    <p>Focusing on the complete leader - cognitive capabilities, emotional intelligence, strategic thinking, and authentic leadership presence.</p>
+                    <h3>Sustainable Growth Architecture</h3>
+                    <p>Rather than quick fixes or surface-level improvements, we build lasting leadership capabilities that serve you throughout your career evolution. This means developing internal systems for continuous learning, creating personal boards of advisors, establishing reflection practices, and designing accountability structures that support ongoing growth. The goal is to make you your own best coach while providing the external perspective that accelerates your development.</p>
                 </div>
             </div>
         </div>
