@@ -246,7 +246,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            height: 320px;
+            /* height: 320px; */
+            height: 350px;
             display: flex;
             align-items: stretch;
         }
@@ -395,7 +396,8 @@
         .hero-photo {
             /* width: 420px; */
             /* height: 520px; */
-            height: 650px;
+            /* height: 650px; */
+            height: 690px;
             border-radius: 25px;
             background: #f0f0f0;
             margin: 0 auto 1.5rem;
@@ -434,11 +436,121 @@
             font-size: 1.1rem;
             line-height: 1.6;
             color: #555;
-            max-width: 800px;
+            /* max-width: 800px; */
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 2rem;
         }
         
+        /* Hero Stats and CTA Section */
+        .hero-stats-cta {
+            /* background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); */
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+            border-radius: 20px;
+        }
+
+        .hero-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stat-box {
+            /* background: rgba(255, 255, 255, 0.05); */
+            background: rgba(128, 128, 128, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .hero-stat-box:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .hero-stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #6c8eef;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            color: #cbd5e0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .hero-cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: nowrap;
+        }
+
+        .hero-cta-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, #6c8eef 0%, #8b7fe8 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(108, 142, 239, 0.3);
+            white-space: nowrap;
+        }
+
+        .hero-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(108, 142, 239, 0.4);
+        }
+
+        .hero-credentials {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero-stat-number {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-cta-btn {
+                width: 100%;
+            }
+
+            .hero-stats-cta {
+                padding: 2rem 1rem;
+            }
+        }
+
         /* Key Pillars */
         .pillars {
             padding: 80px 0;
@@ -540,7 +652,7 @@
         
         /* Testimonial */
         .testimonial {
-            background: #f8f9fa;
+            /* background: #f8f9fa; */
             padding: 60px 0;
         }
         
@@ -584,28 +696,32 @@
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #6c8eef 0%, #8b7fe8 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(108, 142, 239, 0.3);
+            white-space: nowrap;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #3498db, #2980b9);
+            background: linear-gradient(135deg, #6c8eef 0%, #8b7fe8 100%);
             color: white;
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(108, 142, 239, 0.4);
         }
         
         .btn-secondary {
-            background: transparent;
-            color: #3498db;
-            border: 2px solid #3498db;
+            background: linear-gradient(135deg, #6c8eef 0%, #8b7fe8 100%);
+            color: white;
+            border: none;
         }
         
         .btn-secondary:hover {
-            background: #3498db;
-            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(108, 142, 239, 0.4);
         }
         
         /* About Page */
@@ -1902,9 +2018,10 @@
                                     <div class="book-header">
                                         <h3 class="book-title">The Gift</h3>
                                         <p class="book-tagline">"The Story I Was Once Too Afraid to Tell"</p>
-                                        <p class="book-description">A deeply personal narrative that explores vulnerability in leadership and the courage to share authentic stories that inspire transformation.</p>
+                                        <p class="book-description">chronicles my journey from trauma to transformation—revealing how purpose, resilience, and faith can turn even the hardest beginnings into strength.</p>
                                         <span class="book-status">Coming 2025</span>
                                     </div>
+
                                     <div class="countdown-timer">
                                         <div class="countdown-label">Pre-Order Starts In:</div>
                                         <div class="countdown-display" id="gift-countdown">
@@ -1942,7 +2059,7 @@
                                     <div class="book-header">
                                         <h3 class="book-title">What Matters to Me Now</h3>
                                         <p class="book-tagline">"Reflections on Leadership and Purpose"</p>
-                                        <p class="book-description">Insights on what truly drives effective leadership in today's rapidly changing business landscape.</p>
+                                        <p class="book-description">From the pages of 'The Gift' emerged 'What Matters to Me Now' — a collection of 50 hard-won truths about identity, healing, courage, becoming, and legacy.</p>
                                         <span class="book-status">Coming 2025</span>
                                     </div>
                                     <div class="countdown-timer">
@@ -1983,12 +2100,45 @@
                 <!-- Bottom row with text content -->
                 <div class="hero-bottom-row">
                     <h1 class="hero-title">Dr. Anderson Uvie-Emegbo</h1>
-                    <p class="hero-tagline">Executive Coach | Entrepreneur | Educator | Author</p>
-                    <p class="hero-description">From Medicine to Finance to Global Leadership Excellence. Transform your leadership impact
-                        through proven methodologies refined across 80+ countries. Whether you're scaling your organization, launching an
-                        innovation initiative, or developing your executive presence, discover the strategic clarity and authentic
-                        confidence that defines exceptional leaders. Join 1000+ executives who have elevated their leadership through
-                        personalized coaching that delivers measurable results.</p>
+                    <p class="hero-tagline">Executive Coach | Board-Level Advisor | Executive Educator | Author</p>
+                    <p class="hero-description">From medicine to management, from Lagos to the world — I've spent two decades at the intersection of transformation, innovation, and human potential.<br><br>
+
+As Vice-President, Academic Director & COO at Nova Business School Africa, I bridge the worlds of rigorous academia and strategic enterprise - helping leaders and boards navigate complexity, shape culture, and drive sustainable growth.<br><br>
+
+My career has spanned advising founders, scaling early-stage ventures, and guiding executives across industries through seasons of rapid change. I've coached hundreds of senior leaders, taught thousands of professionals in over 80 countries, and led transformation programmes within some of Africa's most influential institutions.<br><br>
+
+My writing reveals the courage behind the credentials. The Gift — The Story I Was Once Too Afraid to Tell — is a memoir of vulnerability, resilience, and the transformative power of truth. What Matters to Me Now distills 50 reflections from that journey - wisdom for leaders who choose authenticity over appearance.<br><br>
+
+Whether you're a CEO rethinking strategy, a board seeking renewal, or a founder navigating scale - I bring governance insight, leadership science, and a deep commitment to measurable transformation.<br><br>
+
+This is where strategy meets soul, and where leadership becomes legacy.</p>
+                    
+                    <!-- Stats and CTA Section -->
+                    <div class="hero-stats-cta">
+                        <div class="hero-stats-grid">
+                            <div class="hero-stat-box">
+                                <div class="hero-stat-number">500+</div>
+                                <div class="hero-stat-label">Leaders Coached</div>
+                            </div>
+                            <div class="hero-stat-box">
+                                <div class="hero-stat-number">80+</div>
+                                <div class="hero-stat-label">Countries Reached</div>
+                            </div>
+                            <div class="hero-stat-box">
+                                <div class="hero-stat-number">10M+</div>
+                                <div class="hero-stat-label">Content Views</div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-cta-buttons">
+                            <a href="contact.html" class="hero-cta-btn">Work With Me</a>
+                            <a href="insights.html" class="hero-cta-btn">Explore Insights</a>
+                        </div>
+                        
+                        <div class="hero-credentials">
+                            MBChB • MBA (Distinction) • MSc • FHEA • Certified Professional Coach
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2000,28 +2150,28 @@
                     <div class="pillar-card" onclick="location.href='coaching.html'">
                         <div class="pillar-icon">🎯</div>
                         <h3>Executive Coaching</h3>
-                        <p>Transforming leaders through personalized coaching and strategic guidance</p>
+                        <p>Transforming how leaders think, decide, and lead — from the boardroom to the world stage.</p>
                     </div>
                     <div class="pillar-card" onclick="location.href='entrepreneurship.html'">
                         <div class="pillar-icon">🚀</div>
-                        <h3>Venco Africa</h3>
-                        <p>Redefining urban living through innovative entrepreneurship</p>
+                        <h3>Advisory & Venture Experience</h3>
+                        <p>Partnered with startups, family offices, and founders — from Lagos to San Francisco.</p>
                     </div>
                     <div class="pillar-card" onclick="location.href='academia.html'">
                         <div class="pillar-icon">🎓</div>
-                        <h3>Nova Business School</h3>
-                        <p>Delivering world-class business education and corporate training</p>
+                        <h3>Executive Education</h3>
+                        <p>Professor of Strategy, Leadership, and Governance at Nova Business School, Lisbon.</p>
                     </div>
                     <div class="pillar-card" onclick="location.href='books.html'">
                         <div class="pillar-icon">📚</div>
                         <h3>Books & Insights</h3>
-                        <p>Sharing knowledge through published works and thought leadership</p>
+                        <p>Author of The Gift and What Matters to Me Now — truth, courage, and what it means to lead.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="bio">
+        <!-- <section class="bio">
             <div class="container">
                 <div class="bio-content">
                     <div class="stats">
@@ -2044,19 +2194,44 @@
                     </div>
                     <div class="bio-text">
                         <h2>About Me</h2>
-                        <p>With a unique blend of medical training, banking expertise, and academic leadership, I bring a multifaceted approach to executive coaching and business transformation. My journey from healthcare to finance, and ultimately to education and entrepreneurship, has equipped me with deep insights into leadership, strategy, and innovation.</p>
-                        <p>As VP, Academic Director & COO at Nova Business School and Co-Founder of Venco Africa, I'm passionate about developing leaders who can navigate complexity and drive meaningful change. My work spans continents, touching the lives of executives, entrepreneurs, and students across 80+ countries.</p>
-                        <p>Through personalized coaching, innovative educational programs, and entrepreneurial ventures, I help leaders unlock their potential and create lasting impact in their organizations and communities.</p>
+                        <p>From Medicine to Finance to Global Leadership Excellence. Transform your leadership impact
+                        through proven methodologies refined across 80+ countries. Whether you're scaling your organization, launching an
+                        innovation initiative, or developing your executive presence, discover the strategic clarity and authentic
+                        confidence that defines exceptional leaders. Join 1000+ executives who have elevated their leadership through
+                        personalized coaching that delivers measurable results.</p>
                     </div>
                 </div>
+                
+            
             </div>
-        </section>
+        </section> -->
 
         <section class="testimonial">
             <div class="container">
+                <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color);">Voices from the Field</h2>
                 <div class="testimonial-content">
-                    <blockquote>"Working with [Your Name] has been transformational for both my leadership style and our company's performance. His unique blend of strategic insight and practical wisdom helped us navigate our most challenging growth phase successfully."</blockquote>
-                    <div class="testimonial-author">- CEO, Fortune 500 Company</div>
+                    <blockquote>"Anderson's depth of experience and ability to connect the dots across industries is exceptional. He challenges you to think differently."</blockquote>
+                    <div class="testimonial-author">- Tony Elumelu, Founder, Tony Elumelu Foundation</div>
+                </div>
+                <div class="testimonial-content">
+                    <blockquote>"His coaching helped me navigate one of the most critical transitions in my leadership journey."</blockquote>
+                    <div class="testimonial-author">- Dr Kayode Fayemi, Former Governor of Ekiti State, Nigeria</div>
+                </div>
+                <div class="testimonial-content">
+                    <blockquote>"Anderson brings a rare combination of strategic clarity and deep empathy to his work."</blockquote>
+                    <div class="testimonial-author">- Chris Kirubi, Industrialist & Entrepreneur (posthumous)</div>
+                </div>
+                <div class="testimonial-content">
+                    <blockquote>"He doesn't just teach leadership — he embodies it."</blockquote>
+                    <div class="testimonial-author">- C-Suite Executive, Financial Services</div>
+                </div>
+                <div class="testimonial-content">
+                    <blockquote>"Working with Anderson transformed how I show up as a founder and a leader."</blockquote>
+                    <div class="testimonial-author">- Tech Founder, Lagos</div>
+                </div>
+                <div class="testimonial-content">
+                    <blockquote>"His ability to see what others miss is what sets him apart."</blockquote>
+                    <div class="testimonial-author">- Board Chair, Pan-African Organization</div>
                 </div>
             </div>
         </section>
@@ -2065,7 +2240,7 @@
             <div class="container">
                 <h2>Ready to Transform Your Leadership?</h2>
                 <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary">Schedule a Consultation</a>
+                    <a href="contact.html" class="btn btn-primary">Start the Conversation</a>
                     <!-- <a href="coaching.html" class="btn btn-secondary">Explore My Programs</a>
                     <a href="#" class="btn btn-secondary">Read My Insights</a> -->
                 </div>
