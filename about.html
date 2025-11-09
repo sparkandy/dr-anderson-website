@@ -75,6 +75,100 @@
             color: #3498db;
         }
 
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #2c3e50;
+            padding: 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+        }
+
+        .mobile-nav-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 9999;
+            padding-top: 80px;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-nav-menu.active {
+            display: block;
+            transform: translateX(0);
+        }
+
+        .mobile-nav-menu ul {
+            list-style: none;
+            padding: 40px 0;
+            margin: 0;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .mobile-nav-menu li {
+            margin: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .mobile-nav-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-nav-menu a {
+            display: block;
+            padding: 20px 30px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 5px 20px;
+        }
+
+        .mobile-nav-menu a:hover,
+        .mobile-nav-menu a.active {
+            background-color: #3498db;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        /* Mobile menu close button */
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-close:hover {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -353,6 +447,11 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
+            .timeline h2 {
+                font-size: 2rem !important;
+                margin-bottom: 40px !important;
+            }
+            
             .journey-table,
             .journey-table tbody,
             .journey-table tr,
@@ -364,13 +463,76 @@
             .timeline-content,
             .timeline-image {
                 width: 100%;
-                padding: 20px 0;
+                padding: 15px 20px;
             }
             
             .journey-table td {
                 border: none;
                 border-bottom: 1px solid #ddd;
+            }
+            
+            /* Reset text alignment for mobile */
+            .journey-table tr:nth-child(odd) .timeline-content,
+            .journey-table tr:nth-child(even) .timeline-content {
                 text-align: center;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .timeline-year {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+            
+            .timeline-content p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .timeline-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+                margin: 10px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timeline {
+                padding: 40px 0;
+            }
+            
+            .timeline h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 30px !important;
+            }
+            
+            .timeline-content,
+            .timeline-image {
+                padding: 10px 15px;
+            }
+            
+            .timeline-year {
+                font-size: 1.3rem;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .timeline-content p {
+                font-size: 0.85rem;
+            }
+            
+            .timeline-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
             }
         }
 
@@ -510,27 +672,58 @@
             color: #bdc3c7;
         }
 
-        /* Responsive Design */
+        /* General Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .timeline-container {
+                max-width: 900px;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.8rem 1rem;
+                justify-content: space-between;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+                flex: 1;
+            }
+            
             .nav-menu {
-                display: none;
+                display: none !important;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
             }
             
             .hero h1 {
                 font-size: 2rem;
             }
             
-            .timeline-container::before {
-                left: 20px;
+            .hero-description {
+                font-size: 0.9rem;
+                padding: 0 1rem;
             }
             
-            .timeline-item {
-                width: calc(100% - 60px);
-                left: 40px !important;
+            .hero-cta {
+                padding: 12px 30px;
+                font-size: 0.8rem;
             }
             
-            .timeline-item::before {
-                left: -38px !important;
+            .container {
+                padding: 0 10px;
             }
             
             .footer-content {
@@ -542,19 +735,43 @@
                 flex-direction: column;
                 text-align: center;
             }
-            
-            .footer-links {
-                justify-content: center;
-            }
-            
-            .footer-newsletter-form {
-                flex-direction: column;
-            }
         }
 
         @media (max-width: 480px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-toggle {
+                font-size: 1.6rem;
+            }
+            
+            .mobile-nav-menu ul {
+                padding: 20px 0;
+            }
+            
+            .mobile-nav-menu a {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        /* Landscape mobile orientation */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .mobile-nav-menu ul {
+                padding: 20px 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                max-width: 500px;
+            }
+            
+            .mobile-nav-menu a {
+                padding: 15px 20px;
             }
         }
 
@@ -586,6 +803,25 @@
                 <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
                 <li><a href="books.html" class="nav-link">Books</a></li>
                 <!-- <li><a href="insights.html" class="nav-link">Insights</a></li> -->
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu" id="mobileNavMenu">
+            <button class="mobile-nav-close" onclick="toggleMobileMenu()" aria-label="Close navigation menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="coaching.html" class="nav-link">Executive Coach</a></li>
+                <li><a href="entrepreneurship.html" class="nav-link">Entrepreneur</a></li>
+                <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
+                <li><a href="books.html" class="nav-link">Books</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -958,6 +1194,51 @@
     </footer>
 
     <script>
+        // Mobile navigation toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileNavMenu');
+            const menuToggle = document.querySelector('.mobile-menu-toggle i');
+            const body = document.body;
+            
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                menuToggle.classList.remove('fa-times');
+                menuToggle.classList.add('fa-bars');
+                body.style.overflow = 'auto';
+            } else {
+                mobileMenu.classList.add('active');
+                menuToggle.classList.remove('fa-bars');
+                menuToggle.classList.add('fa-times');
+                body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                const mobileMenu = document.getElementById('mobileNavMenu');
+                const menuToggle = document.querySelector('.mobile-menu-toggle i');
+                mobileMenu.classList.remove('active');
+                menuToggle.classList.remove('fa-times');
+                menuToggle.classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobileNavMenu');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navContainer = document.querySelector('.nav-container');
+            
+            if (!navContainer.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                document.querySelector('.mobile-menu-toggle i').classList.remove('fa-times');
+                document.querySelector('.mobile-menu-toggle i').classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
         // Add fade-in animation on scroll
         const observerOptions = {
             threshold: 0.1,
@@ -973,9 +1254,9 @@
             });
         }, observerOptions);
 
-        // Observe timeline items
-        document.querySelectorAll('.timeline-item').forEach((item, index) => {
-            item.style.animationDelay = `${index * 0.2}s`;
+        // Observe timeline items (updated for table structure)
+        document.querySelectorAll('.journey-table tr').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
             observer.observe(item);
         });
 

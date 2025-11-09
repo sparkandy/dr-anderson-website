@@ -75,6 +75,74 @@
             color: #3498db;
         }
 
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1002;
+            position: relative;
+        }
+
+        .mobile-nav-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 1001;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-nav-menu.active {
+            display: flex;
+            transform: translateX(0);
+        }
+
+        .mobile-nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .mobile-nav-menu li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-nav-menu a {
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-menu a:hover, .mobile-nav-menu a.active {
+            color: #3498db;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #333;
+            cursor: pointer;
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -525,7 +593,13 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-menu {
-                display: none;
+                display: none !important;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
             }
             
             .hero h1 {
@@ -558,7 +632,27 @@
                 <!-- <li><a href="insights.html" class="nav-link">Insights</a></li> -->
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobileNavMenu" class="mobile-nav-menu">
+        <button class="mobile-nav-close" onclick="toggleMobileMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="coaching.html" class="nav-link active">Executive Coach</a></li>
+            <li><a href="entrepreneurship.html" class="nav-link">Entrepreneur</a></li>
+            <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
+            <li><a href="books.html" class="nav-link">Books</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
     </nav>
 
     <!-- Hero Section -->
@@ -736,6 +830,53 @@
     </footer>
 
     <script>
+        // Mobile navigation toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileNavMenu');
+            const menuToggle = document.querySelector('.mobile-menu-toggle i');
+            const body = document.body;
+            
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                menuToggle.classList.remove('fa-times');
+                menuToggle.classList.add('fa-bars');
+                body.style.overflow = 'auto';
+            } else {
+                mobileMenu.classList.add('active');
+                menuToggle.classList.remove('fa-bars');
+                menuToggle.classList.add('fa-times');
+                body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close mobile menu when clicking on a link
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    const mobileMenu = document.getElementById('mobileNavMenu');
+                    const menuToggle = document.querySelector('.mobile-menu-toggle i');
+                    mobileMenu.classList.remove('active');
+                    menuToggle.classList.remove('fa-times');
+                    menuToggle.classList.add('fa-bars');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                const mobileMenu = document.getElementById('mobileNavMenu');
+                const menuToggle = document.querySelector('.mobile-menu-toggle');
+                const navContainer = document.querySelector('.nav-container');
+                
+                if (!navContainer.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    document.querySelector('.mobile-menu-toggle i').classList.remove('fa-times');
+                    document.querySelector('.mobile-menu-toggle i').classList.add('fa-bars');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
         // Footer newsletter form submission
         document.querySelector('.newsletter-form button').addEventListener('click', (e) => {
             e.preventDefault();
