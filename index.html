@@ -824,30 +824,132 @@
             line-height: 1.8;
         }
         
-        /* Testimonial */
+        /* Testimonial Carousel */
         .testimonial {
             /* background: #f8f9fa; */
             padding: 60px 0;
+            overflow: hidden;
+        }
+        
+        .testimonial-carousel {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 60px;
+        }
+        
+        .testimonial-track {
+            position: relative;
+            min-height: 200px;
         }
         
         .testimonial-content {
-            max-width: 800px;
-            margin: 0 auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             text-align: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+        
+        .testimonial-content.active {
+            opacity: 1;
+            visibility: visible;
+            position: relative;
         }
         
         .testimonial blockquote {
             font-size: 1.3rem;
             font-style: italic;
-            /* margin-bottom: 1.5rem; */
             margin-bottom: 0.5rem;
             color: #555;
+            line-height: 1.8;
         }
         
         .testimonial-author {
             font-weight: 600;
             color: #2c3e50;
             margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(108, 142, 239, 0.9);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel-nav:hover {
+            background: rgba(108, 142, 239, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-nav.prev {
+            left: 0;
+        }
+        
+        .carousel-nav.next {
+            right: 0;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+        
+        .carousel-dot.active {
+            background: #6c8eef;
+            width: 30px;
+            border-radius: 6px;
+        }
+        
+        .carousel-dot:hover {
+            background: #8b7fe8;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonial-carousel {
+                padding: 0 50px;
+            }
+            
+            .carousel-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+            
+            .testimonial blockquote {
+                font-size: 1.1rem;
+            }
         }
         
         /* CTA Section */
@@ -2385,89 +2487,106 @@ This is where strategy meets soul, and where leadership becomes legacy.</p>
 
         <section class="testimonial">
             <div class="container">
-                <!-- <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color);">Voices from the Field</h2> -->
                 <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-color);">What People Say</h2>
-                <div class="testimonial-content">
-                    <blockquote>"Your insights on 'Social Media: Developing a Competitive Edge' were inspiring and thought provoking. The presentation
-                    style was very engaging. Thank you for taking time to speak to us and we look forward to more engagements in the future."</blockquote>
-                    <div class="testimonial-author">- Tony Elumelu, Founder, Tony Elumelu Foundation</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"You have not just met our requirements, you have surpassed it. You have introduced new ideas. You have done it in record
-                    time. You have done it on cost. You have done it in an amazingly powerful manner that I believe can only present our
-                    state in the best light possible. I want to solicit for your continued involvement..."</blockquote>
-                    <div class="testimonial-author">- Dr Kayode Fayemi, Former Governor of Ekiti State, Nigeria</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"Kenya is lucky to have you come here and participate more often. Sitting in that conference, I saw the Kenyan chief
-                    executive officers appreciating and wondering where they have been. You are way ahead of this new media and you can be a
-                    disciple for the rest of Africa – to transform Africa to quickly understand and adapt to the new media."</blockquote>
-                    <div class="testimonial-author">- Chris Kirubi (1941-2021), Former Chairman, DHL Express Kenya Limited | Former Director, Centum Investment Company |
-                    Former Chairman, 98.4 Capital FM Kenya | Former Chairman, Haco Industries Kenya Limited</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"Your tutelage of strategy during the CEIBS/WELA programme was WOW. It was our first topic and I must say CEIBS indeed
-                    put their best foot forward. It brought a feeling of excitement for the program and made me look forward to it. I thank
-                    God our paths crossed because of the impact of your audacious teaching in my life."</blockquote>
-                    <div class="testimonial-author">- Chinyere Nwobilor, Ph.D</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"I was in your class in Accra and the session you led showed exceptional mastery and class. Your engagements were clearly
-                    beyond words to express in terms of depth of insights and conviction. You are truly great."</blockquote>
-                    <div class="testimonial-author">- Anthony Alozie, MBA, CSCP</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"Your insights on strategy and technological disruptions were truly inspiring and played a key role in shaping my
-                    understanding of re-engineering for greater effectiveness."</blockquote>
-                    <div class="testimonial-author">- Nwando S Chukwurah, FCIoD, MRICS</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"First your one on one session even before the main Module kicked off and sitting under your tutorship for 3 days lighted my business paths. You have been a great part of my CEIBS memories and success."</blockquote>
-                    <div class="testimonial-author">- Bisi Sotunde, MD Busy Bee Events</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"I am glad you teach our AMP students at CEIBS Ghana and their feedback is always very good. Stay focused and scale more heights."</blockquote>
-                    <div class="testimonial-author">- James Wambugu, Director Safaricom</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"Your lectures were engaging. You should have heard from the Spektra Global Team as we completed our CEIBS training programme. Everyone mentioned how engaging your lectures were."</blockquote>
-                    <div class="testimonial-author">- William Evans Halm, CEO/Principal Architect @ Spektra Global</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"I want to particularly salute you for introducing me to the CEIBS GEMBA programme and following up with me for another 2 years to ensure that I enrolled into the prestigious programme. Keep up the good work across the continent of Africa!"</blockquote>
-                    <div class="testimonial-author">- Ukandu Eme Ukandu</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"Since we met at CEIBS GEMBA class, you have never stopped at hand holding me which is impacting my career in no small way."</blockquote>
-                    <div class="testimonial-author">- Semiu Lamidi</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"Your passion to always ensure your mentees are at their best is highly commendable. You are always straightforward with your business analysis and decisions even when it is tough and hurts."</blockquote>
-                    <div class="testimonial-author">- Rui O.</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"I always admired your go-get attitude even as we went through our Masters programme together. I couldn't get over the fact that you walked away from medicine... but it is clear, you only left physiological medicine but you continued with intellectual medicine. Well done for your boldness. There is much about your journey that inspires."</blockquote>
-                    <div class="testimonial-author">- Cathy Kamau</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"As an investor in Venco and someone who's worked with you for years, I'm excited for this new phase for Venco."</blockquote>
-                    <div class="testimonial-author">- Opeyemi Awoyemi</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"You are a towering intellectual with a strong appetite for transformative initiatives."</blockquote>
-                    <div class="testimonial-author">- Henry Nzekwu</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"Your intellect, industry, infectious, and inspiring enthusiasm will see you through this assignment. After years of knowing you, and all you have achieved, I am glad that you still have great zest for new challenges."</blockquote>
-                    <div class="testimonial-author">- Ikeddy ISIGUZO</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"Last night I was going through @andyemegbo's notes on Digital Channels & this morning I was full of ideas. #winning"</blockquote>
-                    <div class="testimonial-author">- Toyan Adeniji-Adele</div>
-                </div>
-                <div class="testimonial-content">
-                    <blockquote>"I still remember your class at PAU-SMC, that ignited the whole digital everything I'm involved in."</blockquote>
-                    <div class="testimonial-author">- Omamuzo Udiomuno</div>
+                <div class="testimonial-carousel">
+                    <button class="carousel-nav prev" onclick="changeTestimonial(-1)" aria-label="Previous testimonial">‹</button>
+                    <button class="carousel-nav next" onclick="changeTestimonial(1)" aria-label="Next testimonial">›</button>
+                    
+                    <div class="testimonial-track">
+                        <div class="testimonial-content active">
+                            <blockquote>"Your insights on 'Social Media: Developing a Competitive Edge' were inspiring and thought provoking. The presentation style was very engaging. Thank you for taking time to speak to us and we look forward to more engagements in the future."</blockquote>
+                            <div class="testimonial-author">- Tony Elumelu, Founder, Tony Elumelu Foundation</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"You have not just met our requirements, you have surpassed it. You have introduced new ideas. You have done it in record time. You have done it on cost. You have done it in an amazingly powerful manner that I believe can only present our state in the best light possible. I want to solicit for your continued involvement..."</blockquote>
+                            <div class="testimonial-author">- Dr Kayode Fayemi, Former Governor of Ekiti State, Nigeria</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"Kenya is lucky to have you come here and participate more often. Sitting in that conference, I saw the Kenyan chief executive officers appreciating and wondering where they have been. You are way ahead of this new media and you can be a disciple for the rest of Africa – to transform Africa to quickly understand and adapt to the new media."</blockquote>
+                            <div class="testimonial-author">- Chris Kirubi (1941-2021), Former Chairman, DHL Express Kenya Limited | Former Director, Centum Investment Company | Former Chairman, 98.4 Capital FM Kenya | Former Chairman, Haco Industries Kenya Limited</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"Your tutelage of strategy during the CEIBS/WELA programme was WOW. It was our first topic and I must say CEIBS indeed put their best foot forward. It brought a feeling of excitement for the program and made me look forward to it. I thank God our paths crossed because of the impact of your audacious teaching in my life."</blockquote>
+                            <div class="testimonial-author">- Chinyere Nwobilor, Ph.D</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"I was in your class in Accra and the session you led showed exceptional mastery and class. Your engagements were clearly beyond words to express in terms of depth of insights and conviction. You are truly great."</blockquote>
+                            <div class="testimonial-author">- Anthony Alozie, MBA, CSCP</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"Your insights on strategy and technological disruptions were truly inspiring and played a key role in shaping my understanding of re-engineering for greater effectiveness."</blockquote>
+                            <div class="testimonial-author">- Nwando S Chukwurah, FCIoD, MRICS</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"First your one on one session even before the main Module kicked off and sitting under your tutorship for 3 days lighted my business paths. You have been a great part of my CEIBS memories and success."</blockquote>
+                            <div class="testimonial-author">- Bisi Sotunde, MD Busy Bee Events</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"I am glad you teach our AMP students at CEIBS Ghana and their feedback is always very good. Stay focused and scale more heights."</blockquote>
+                            <div class="testimonial-author">- James Wambugu, Director Safaricom</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"Your lectures were engaging. You should have heard from the Spektra Global Team as we completed our CEIBS training programme. Everyone mentioned how engaging your lectures were."</blockquote>
+                            <div class="testimonial-author">- William Evans Halm, CEO/Principal Architect @ Spektra Global</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"I want to particularly salute you for introducing me to the CEIBS GEMBA programme and following up with me for another 2 years to ensure that I enrolled into the prestigious programme. Keep up the good work across the continent of Africa!"</blockquote>
+                            <div class="testimonial-author">- Ukandu Eme Ukandu</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"Since we met at CEIBS GEMBA class, you have never stopped at hand holding me which is impacting my career in no small way."</blockquote>
+                            <div class="testimonial-author">- Semiu Lamidi</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"Your passion to always ensure your mentees are at their best is highly commendable. You are always straightforward with your business analysis and decisions even when it is tough and hurts."</blockquote>
+                            <div class="testimonial-author">- Rui O.</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"I always admired your go-get attitude even as we went through our Masters programme together. I couldn't get over the fact that you walked away from medicine... but it is clear, you only left physiological medicine but you continued with intellectual medicine. Well done for your boldness. There is much about your journey that inspires."</blockquote>
+                            <div class="testimonial-author">- Cathy Kamau</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"As an investor in Venco and someone who's worked with you for years, I'm excited for this new phase for Venco."</blockquote>
+                            <div class="testimonial-author">- Opeyemi Awoyemi</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"You are a towering intellectual with a strong appetite for transformative initiatives."</blockquote>
+                            <div class="testimonial-author">- Henry Nzekwu</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"Your intellect, industry, infectious, and inspiring enthusiasm will see you through this assignment. After years of knowing you, and all you have achieved, I am glad that you still have great zest for new challenges."</blockquote>
+                            <div class="testimonial-author">- Ikeddy ISIGUZO</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"Last night I was going through @andyemegbo's notes on Digital Channels & this morning I was full of ideas. #winning"</blockquote>
+                            <div class="testimonial-author">- Toyan Adeniji-Adele</div>
+                        </div>
+                        <div class="testimonial-content">
+                            <blockquote>"I still remember your class at PAU-SMC, that ignited the whole digital everything I'm involved in."</blockquote>
+                            <div class="testimonial-author">- Omamuzo Udiomuno</div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-indicators">
+                        <button class="carousel-dot active" onclick="goToTestimonial(0)" aria-label="Go to testimonial 1"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(1)" aria-label="Go to testimonial 2"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(2)" aria-label="Go to testimonial 3"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(3)" aria-label="Go to testimonial 4"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(4)" aria-label="Go to testimonial 5"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(5)" aria-label="Go to testimonial 6"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(6)" aria-label="Go to testimonial 7"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(7)" aria-label="Go to testimonial 8"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(8)" aria-label="Go to testimonial 9"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(9)" aria-label="Go to testimonial 10"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(10)" aria-label="Go to testimonial 11"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(11)" aria-label="Go to testimonial 12"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(12)" aria-label="Go to testimonial 13"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(13)" aria-label="Go to testimonial 14"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(14)" aria-label="Go to testimonial 15"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(15)" aria-label="Go to testimonial 16"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(16)" aria-label="Go to testimonial 17"></button>
+                        <button class="carousel-dot" onclick="goToTestimonial(17)" aria-label="Go to testimonial 18"></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -3314,6 +3433,53 @@ This is where strategy meets soul, and where leadership becomes legacy.</p>
         function startCarousel() {
             setInterval(nextEndorsement, 5000); // Change slide every 5 seconds
         }
+
+        // Testimonial carousel functionality
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-content');
+        const testimonialDots = document.querySelectorAll('.carousel-indicators .carousel-dot');
+
+        function showTestimonial(index) {
+            // Hide all testimonials
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show selected testimonial
+            if (testimonials[index]) {
+                testimonials[index].classList.add('active');
+                testimonialDots[index].classList.add('active');
+                currentTestimonial = index;
+            }
+        }
+
+        function changeTestimonial(direction) {
+            currentTestimonial = currentTestimonial + direction;
+            
+            // Loop around if we go past the edges
+            if (currentTestimonial < 0) {
+                currentTestimonial = testimonials.length - 1;
+            } else if (currentTestimonial >= testimonials.length) {
+                currentTestimonial = 0;
+            }
+            
+            showTestimonial(currentTestimonial);
+        }
+
+        function goToTestimonial(index) {
+            showTestimonial(index);
+        }
+
+        // Auto-advance testimonials every 7 seconds
+        function startTestimonialCarousel() {
+            setInterval(() => {
+                changeTestimonial(1);
+            }, 7000);
+        }
+
+        // Initialize testimonial carousel on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            startTestimonialCarousel();
+        });
 
         // Book page navigation
         function openBookPage(bookId) {
