@@ -452,26 +452,6 @@
                 margin-bottom: 40px !important;
             }
             
-            .press-tabs {
-                flex-direction: column;
-                gap: 0.75rem;
-                padding: 0 1rem;
-            }
-            
-            .tab-button {
-                width: 100%;
-                padding: 12px 20px;
-            }
-            
-            .tab-content {
-                padding: 1.5rem;
-                margin: 0 1rem;
-            }
-            
-            .tab-content h3 {
-                font-size: 1.2rem;
-            }
-            
             .journey-table,
             .journey-table tbody,
             .journey-table tr,
@@ -567,107 +547,6 @@
             margin-bottom: 50px;
             color: #2c3e50;
             font-size: 2rem;
-        }
-
-        .press-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .tab-button {
-            padding: 15px 30px;
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            color: #666;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        
-        .tab-button:hover {
-            border-color: #3498db;
-            color: #3498db;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
-        }
-        
-        .tab-button.active {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.3);
-        }
-        
-        .tab-content {
-            display: none;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: left;
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .tab-content h3 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 0.5rem;
-        }
-        
-        .tab-content ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .tab-content li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .tab-content li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-            font-weight: bold;
-        }
-        
-        .tab-content a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .tab-content a:hover {
-            color: #2980b9;
-            text-decoration: underline;
         }
 
         .logos-grid {
@@ -1258,76 +1137,13 @@
     <section class="press-logos">
         <div class="container">
             <h2>Featured In</h2>
-            
-            <div class="press-tabs">
-                <button class="tab-button active" onclick="showTab('press-publications')">Press & Publications</button>
-                <button class="tab-button" onclick="showTab('academic-leadership')">Academic Leadership</button>
-                <button class="tab-button" onclick="showTab('video-interviews')">Video & Interviews</button>
-            </div>
-            
-            <div id="press-publications" class="tab-content active">
-                <h3>International News Media Association (INMA)</h3>
-                <ul>
-                    <li><a href="https://www.inma.org/modules/event/2021africamediasummit/replay/Africa_Wednesday_Emegbo.pdf" target="_blank">Profitable Digital Transformation of Africa Media (Speaker)</a></li>
-                    <li><a href="https://www.inma.org/webinars/unpacking-2023-how-african-media-companies-can-thrive-in-uncertain-times" target="_blank">Unpacking 2023: How African Media Companies Can Thrive in Uncertain Times (Webinar)</a></li>
-                    <li><a href="https://www.inma.org/webinars/reader-revenue-and-africa-s-publishers-are-paywalls-the-answer" target="_blank">Reader Revenue and Africa's Publishers: Are Paywalls the Answer? (Webinar)</a></li>
-                    <li><a href="https://www.inma.org/blogs/conference/post.cfm/african-newsrooms-delve-into-ai-for-engagement-marketing-journalism" target="_blank">African newsrooms delve into AI for engagement, marketing, journalism</a></li>
-                </ul>
-                
-                <h3>Premium Times Nigeria</h3>
-                <ul>
-                    <li><a href="https://opinion.premiumtimesng.com/2017/03/05/177229/?tztc=1" target="_blank">Five CEOs Transforming Business Leadership in Africa</a></li>
-                </ul>
-                
-                <h3>Ekiti State Government</h3>
-                <ul>
-                    <li><a href="http://ekitistate.gov.ng/archives/1612" target="_blank">Ekiti: Driving Governance With Digital Media Technology</a></li>
-                    <li><a href="https://www.ekitistate.gov.ng/archives/1465" target="_blank">e-Governance: Automating Govt Activities For Economic Gains</a></li>
-                </ul>
-                
-                <h3>Capital FM Kenya</h3>
-                <ul>
-                    <li><a href="https://www.capitalfm.co.ke/business/2013/08/the-10hs-of-sticky-digital-content/" target="_blank">The 10Hs Of Sticky Digital Content</a></li>
-                </ul>
-                
-                <h3>The Nation</h3>
-                <ul>
-                    <li><a href="https://thenationonlineng.net/ignore-the-social-media-at-your-own-risk/" target="_blank">Ignore the social media at your own risk</a></li>
-                </ul>
-                
-                <h3>Financial Nigeria</h3>
-                <ul>
-                    <li><a href="https://www.financialnigeria.com/market-leadership-in-an-era-of-disruption-blog-30.html" target="_blank">Market leadership in an era of disruption</a></li>
-                    <li><a href="https://www.financialnigeria.com/a-preventative-approach-to-navigating-corporate-digital-landmines-blog-40.html" target="_blank">A preventative approach to navigating corporate digital landmines</a></li>
-                    <li><a href="https://www.financialnigeria.com/why-consistent-service-delivery-is-so-hard-blog-49.html" target="_blank">Why consistent service delivery is so hard</a></li>
-                    <li><a href="https://www.financialnigeria.com/taking-a-bigger-bite-out-of-the-nigerian-qsr-industry-blog-17.html" target="_blank">Taking a bigger bite out of the Nigerian QSR industry</a></li>
-                </ul>
-            </div>
-            
-            <div id="academic-leadership" class="tab-content">
-                <h3>CEIBS (China Europe International Business School)</h3>
-                <ul>
-                    <li><a href="https://www.ceibs.edu/media/news/mba/17914" target="_blank">Featured Faculty: MBAs Wrap up Overseas Module on Doing Business in Africa</a></li>
-                </ul>
-                
-                <h3>University of Cumbria</h3>
-                <ul>
-                    <li><a href="https://www.cumbria.ac.uk/student-life/student-stories/business/anderson-uvie-emegbo.html" target="_blank">Featured Alumni Story</a></li>
-                    <li><a href="https://www.cumbria.ac.uk/media/UOC-PG-Prospectus-web.pdf" target="_blank">Postgraduate Prospectus (Featured Quote)</a></li>
-                    <li><a href="https://www.youtube.com/shorts/eJEt3UDbjA8" target="_blank">10 Reasons To Study In The UK (Video)</a></li>
-                </ul>
-            </div>
-            
-            <div id="video-interviews" class="tab-content">
-                <h3>Video & Interviews</h3>
-                <ul>
-                    <li><a href="https://youtu.be/t0-nYTjw-Ag" target="_blank">GAPS Academy on NTA</a></li>
-                    <li><a href="https://youtu.be/wd3T6d0yebQ" target="_blank">Digital Media & Good Governance: Interview with Governor Kayode Fayemi</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=7iIox0R2lrE" target="_blank">Dr Kayode Fayemi Commends Dr Anderson Uvie-Emegbo</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=UTZi_zwzPGo&t=10s" target="_blank">#Dare2Dream - Dr Anderson Uvie Emegbo</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=MEk1bv5rLAg" target="_blank">5 minutes on Digital Disruption and Branding (Part I)</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=gPZC63ApIug" target="_blank">5 minutes on Digital Disruption and Branding (Part II)</a></li>
-                </ul>
+            <div class="logos-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; align-items: center; text-align: center;">
+                <div class="logo-item"><a href="https://www.inma.org/blogs/earl/post.cfm/fireside-chat-with-anderson-nwankwo-on-the-transformation-of-nigerian-news-media" target="_blank" style="color: inherit; text-decoration: none;">INMA</a></div>
+                <div class="logo-item"><a href="https://www.premiumtimesng.com/news/headlines/557849-lagos-business-school-to-partner-nova-sbe-for-executive-education.html" target="_blank" style="color: inherit; text-decoration: none;">Premium Times Nigeria</a></div>
+                <div class="logo-item"><a href="https://www.capitalfm.co.ke/thesauce/ceo-anderson-nwankwo-is-man-with-a-plan/" target="_blank" style="color: inherit; text-decoration: none;">Capital FM Kenya</a></div>
+                <div class="logo-item"><a href="https://www.financialnigeria.com/anderson-nwankwo-on-why-i-am-leaving-medicine-583.html" target="_blank" style="color: inherit; text-decoration: none;">Financial Nigeria</a></div>
+                <div class="logo-item"><a href="https://www.ceibs.edu/africa/news/anderson-nwankwo-the-next-five-years-will-be-phenomenal" target="_blank" style="color: inherit; text-decoration: none;">CEIBS</a></div>
+                <div class="logo-item"><a href="https://www.youtube.com/watch?v=example" target="_blank" style="color: inherit; text-decoration: none;">Video Interviews</a></div>
             </div>
         </div>
     </section>
@@ -1461,26 +1277,6 @@
                 alert('Please enter a valid email address.');
             }
         });
-
-        // Tab switching functionality for Featured In section
-        function showTab(tabId) {
-            // Hide all tab contents
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // Remove active class from all buttons
-            const tabButtons = document.querySelectorAll('.tab-button');
-            tabButtons.forEach(button => button.classList.remove('active'));
-            
-            // Show selected tab content
-            const selectedTab = document.getElementById(tabId);
-            if (selectedTab) {
-                selectedTab.classList.add('active');
-            }
-            
-            // Add active class to clicked button
-            event.target.classList.add('active');
-        }
     </script>
 </body>
 </html>
