@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow backup files
+Disallow: /about-backup.html
+Disallow: /about-backup-*.html
+Disallow: /about-broken.html
+Disallow: /books-old.html
+Disallow: /books-modern.html
+Disallow: /books-new.html
+
+# Sitemap
+Sitemap: https://andersonuvieemegbo.com/sitemap.xml

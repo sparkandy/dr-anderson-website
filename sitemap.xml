@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- About Page -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/about.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- My Journey -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/my-journey.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Books Section -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/books.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- The Gift Book -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/the-gift.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- What Matters to Me Now Book -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/what-matters-to-me-now.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Coaching Page -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/coaching.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Academia -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/academia.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Entrepreneurship -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/entrepreneurship.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Insights -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/insights.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Contact -->
+    <url>
+        <loc>https://andersonuvieemegbo.com/contact.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+</urlset>
