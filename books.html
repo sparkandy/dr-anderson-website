@@ -876,34 +876,11 @@
                                 <span class="original-price">$29.99</span>
                             </div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(event, 'The Gift')">Pre-Order Now</button>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation(); window.location.href='the-gift.html'">View Details</button>
                     </div>
                 </div>
 
-                <!-- Book 2: Leadership Excellence -->
-                <div class="book-card" onclick="openBook('leadership-excellence')">
-                    <div class="book-cover-section">
-                        <div class="book-badge badge-bestseller">Bestseller</div>
-                        <div class="book-cover-placeholder">📚</div>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">Leadership Excellence in the Digital Age</h3>
-                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
-                        <div class="book-rating">
-                            <span class="rating-stars">★★★★★</span>
-                        </div>
-                        <p class="book-description">Navigate complexity with clarity and purpose. Essential strategies for modern leaders transforming organizations in an increasingly digital world.</p>
-                        <div class="book-price-section">
-                            <div class="price-container">
-                                <span class="current-price">$19.99</span>
-                                <span class="original-price">$24.99</span>
-                            </div>
-                        </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Leadership Excellence in the Digital Age')">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Book 3: What Matters to Me Now -->
+                <!-- Book 2: What Matters to Me Now -->
                 <div class="book-card" onclick="openBook('what-matters-to-me-now')">
                     <div class="book-cover-section">
                         <div class="book-badge badge-coming-soon">Coming Soon</div>
@@ -923,153 +900,14 @@
                                 <span class="original-price">$27.99</span>
                             </div>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(event, 'What Matters to Me Now')">Notify Me</button>
-                    </div>
-                </div>
-
-                <!-- Book 4: Executive Coaching Frameworks -->
-                <div class="book-card" onclick="openBook('coaching-frameworks')">
-                    <div class="book-cover-section">
-                        <div class="book-cover-placeholder">🎯</div>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">Executive Coaching Frameworks</h3>
-                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
-                        <div class="book-rating">
-                            <span class="rating-stars">★★★★★</span>
-                        </div>
-                        <p class="book-description">Proven methodologies for leadership development. Comprehensive frameworks for coaching executives to achieve breakthrough performance.</p>
-                        <div class="book-price-section">
-                            <div class="price-container">
-                                <span class="current-price">$26.99</span>
-                                <span class="original-price">$31.99</span>
-                            </div>
-                        </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Executive Coaching Frameworks')">Add to Cart</button>
-                    </div>
-                </div>
-
-                <!-- Book 5: The Entrepreneurial Mindset -->
-                <div class="book-card" onclick="openBook('entrepreneurial-mindset')">
-                    <div class="book-cover-section">
-                        <div class="book-cover-placeholder">🚀</div>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">The Entrepreneurial Mindset</h3>
-                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
-                        <div class="book-rating">
-                            <span class="rating-stars">★★★★★</span>
-                        </div>
-                        <p class="book-description">From healthcare to fintech: A journey of transformation. Learn how to develop the mindset needed for entrepreneurial success.</p>
-                        <div class="book-price-section">
-                            <div class="price-container">
-                                <span class="current-price">$23.99</span>
-                                <span class="original-price">$28.99</span>
-                            </div>
-                        </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(event, 'The Entrepreneurial Mindset')">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Leadership Classics Section -->
-        <section class="books-section">
-            <div class="section-header">
-                <h2 class="section-title">Leadership Classics</h2>
-                <p class="section-subtitle">Timeless insights for effective leadership</p>
-            </div>
-            
-            <div class="books-container">
-                <!-- Additional Books -->
-                <div class="book-card" onclick="openBook('global-leadership')">
-                    <div class="book-cover-section">
-                        <div class="book-cover-placeholder">🌍</div>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">Global Leadership Perspectives</h3>
-                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
-                        <div class="book-rating">
-                            <span class="rating-stars">★★★★★</span>
-                        </div>
-                        <p class="book-description">Insights from 80+ countries and diverse cultures. A comprehensive guide to leading in a globalized world.</p>
-                        <div class="book-price-section">
-                            <div class="price-container">
-                                <span class="current-price">$25.99</span>
-                                <span class="original-price">$30.99</span>
-                            </div>
-                        </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Global Leadership Perspectives')">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="book-card" onclick="openBook('digital-transformation')">
-                    <div class="book-cover-section">
-                        <div class="book-cover-placeholder">💻</div>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">Digital Transformation Playbook</h3>
-                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
-                        <div class="book-rating">
-                            <span class="rating-stars">★★★★★</span>
-                        </div>
-                        <p class="book-description">A practical guide for legacy organizations. Step-by-step strategies for successful digital transformation initiatives.</p>
-                        <div class="book-price-section">
-                            <div class="price-container">
-                                <span class="current-price">$27.99</span>
-                                <span class="original-price">$32.99</span>
-                            </div>
-                        </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Digital Transformation Playbook')">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="book-card" onclick="openBook('innovation-africa')">
-                    <div class="book-cover-section">
-                        <div class="book-cover-placeholder">🏆</div>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">Innovation in African Markets</h3>
-                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
-                        <div class="book-rating">
-                            <span class="rating-stars">★★★★★</span>
-                        </div>
-                        <p class="book-description">Building sustainable businesses across the continent. Unlock the potential of African markets through innovation.</p>
-                        <div class="book-price-section">
-                            <div class="price-container">
-                                <span class="current-price">$24.99</span>
-                                <span class="original-price">$29.99</span>
-                            </div>
-                        </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Innovation in African Markets')">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="book-card" onclick="openBook('strategic-growth')">
-                    <div class="book-cover-section">
-                        <div class="book-cover-placeholder">📈</div>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">Strategic Growth Frameworks</h3>
-                        <p class="book-author">by Dr. Anderson Uvie-Emegbo</p>
-                        <div class="book-rating">
-                            <span class="rating-stars">★★★★★</span>
-                        </div>
-                        <p class="book-description">Proven frameworks for sustainable business growth. Learn how to scale your organization effectively and efficiently.</p>
-                        <div class="book-price-section">
-                            <div class="price-container">
-                                <span class="current-price">$26.99</span>
-                                <span class="original-price">$31.99</span>
-                            </div>
-                        </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(event, 'Strategic Growth Frameworks')">Add to Cart</button>
+                        <button class="add-to-cart-btn" onclick="event.stopPropagation(); window.location.href='what-matters-to-me-now.html'">View Details</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Author's Note Section -->
-        <section class="authors-note">
+        <!-- <section class="authors-note">
             <div class="container">
                 <div class="note-content">
                     <h2>From the Author's Desk</h2>
@@ -1085,7 +923,7 @@
                     <p class="note-signature">— Dr. Anderson Uvie-Emegbo</p>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
 
     <!-- Footer -->
