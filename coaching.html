@@ -489,9 +489,9 @@
         footer {
             background: #2c3e50;
             color: white;
-            padding: 60px 0 20px;
+            padding: 30px 0 20px;
             margin-top: 50px;
-            min-height: 400px;
+            min-height: auto;
         }
 
         .footer-content {
@@ -590,6 +590,271 @@
             color: #95a5a6;
         }
 
+        /* BECOME Programme Sections */
+        .about-programme,
+        .programme-works,
+        .themes-section,
+        .experience-section,
+        .for-whom-section,
+        .invitation-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-programme h2,
+        .programme-works h2,
+        .themes-section h2,
+        .experience-section h2,
+        .for-whom-section h2,
+        .invitation-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .about-programme p {
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Programme Works Steps */
+        .works-steps {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .work-step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+
+        .work-step .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .work-step h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .work-step p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .work-step ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .work-step ul li {
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        /* Themes Tabs */
+        .themes-tabs {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .theme-tab {
+            padding: 15px 30px;
+            background: #ecf0f1;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-tab:hover {
+            background: #bdc3c7;
+        }
+
+        .theme-tab.active {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Themes Content */
+        .themes-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .theme-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .theme-content.active {
+            display: block;
+        }
+
+        .theme-content h3 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .theme-question {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #3498db;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .reflections-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reflections-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .reflections-list li strong {
+            color: #3498db;
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        /* Who This Is For Section */
+        .for-whom-section {
+            background: #f8f9fa;
+        }
+
+        .for-whom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .for-whom-item {
+            padding: 15px 20px;
+            background: white;
+            border-left: 4px solid #27ae60;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        /* Invitation Section */
+        .invitation-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .invitation-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #3498db;
+            border: 2px solid #3498db;
+        }
+
+        .btn-secondary:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-menu {
@@ -614,6 +879,30 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+
+            .work-step {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .themes-tabs {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .theme-tab {
+                width: 100%;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -625,6 +914,7 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="my-journey.html" class="nav-link">My Journey</a></li>
                 <li><a href="coaching.html" class="nav-link active">Executive Coach</a></li>
                 <!-- <li><a href="entrepreneurship.html" class="nav-link">Entrepreneur</a></li> -->
                 <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
@@ -665,17 +955,31 @@
         
         <div class="hero-content-wrapper">
             <div class="hero-content">
+                <h1>BECOME</h1>
+                <p class="hero-description">
+                    A 5-Month Journey Into Identity, Healing, Courage, Becoming & Legacy
+                    
+                    <br/>
+
+                    Discover who you are, what you’ve carried, what you’re ready to release, and who you’re becoming next.
+                    This is a structured, supported, deeply personal programme built on the 50 reflections in What Matters to Me Now.
+                    A journey of clarity. A path of healing.
+                    A commitment to rise.
+                </p>
+                <a href="#coaching-philosophy" class="hero-cta">Apply to join the Program</a>
+            </div>
+            <!-- <div class="hero-content">
                 <h1>Executive Coaching Excellence</h1>
                 <p class="hero-description">
                     Transforming leaders across 80+ countries with evidence-based methodologies. Develop authentic leadership presence, drive organizational change, and unlock your full potential with personalized coaching strategies.
                 </p>
                 <a href="#coaching-philosophy" class="hero-cta">Explore My Approach</a>
-            </div>
+            </div> -->
         </div>
     </section>
 
     <!-- Press & Media Coverage Section -->
-    <section class="coaching-philosophy" id="coaching-philosophy">
+    <!-- <section class="coaching-philosophy" id="coaching-philosophy">
         <div class="container">
             <h2>Featured In</h2>
             <div class="philosophy-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
@@ -705,86 +1009,230 @@
                 </div>
             </div>
         </div>
+    </section> -->
+
+    <!-- About the Programme Section -->
+    <section class="about-programme">
+        <div class="container">
+            <h2>ABOUT THE PROGRAMME</h2>
+            <p><strong>BECOME</strong> is a 5-month life coaching experience designed to help you gain clarity, heal deeply, strengthen your courage, grow into your next version, and define the legacy you want to leave.</p>
+            
+            <p>Rooted in the themes and reflections from <em>What Matters to Me Now</em>, this programme guides you step-by-step through the work of self-awareness, emotional growth, alignment, transformation, and purpose.</p>
+            
+            <p><strong>This is not a quick fix.</strong><br>
+            It is a guided journey — structured, intentional, and life-shaping.</p>
+            
+            <p>By the end of the programme, you will have created your own personalised version of <em>What Matters to Me Now</em>: your blueprint, your insights, your next chapter.</p>
+        </div>
     </section>
 
-    <!-- Coaching Process Section -->
-    <section class="coaching-process">
+    <!-- How the Programme Works -->
+    <section class="programme-works">
         <div class="container">
-            <h2>Coaching Process</h2>
-            <div class="process-steps">
-                <div class="step-card">
+            <h2>HOW THE PROGRAMME WORKS</h2>
+            <div class="works-steps">
+                <div class="work-step">
                     <div class="step-number">1</div>
-                    <h3>Assessment & Discovery</h3>
-                    <p>Comprehensive 360-degree assessment including leadership competencies, behavioral patterns, and organizational context analysis.</p>
+                    <h3>One Theme per Month</h3>
+                    <p>Over 5 months, you will work through each of the book's five themes: <strong>Identity</strong>, <strong>Healing</strong>, <strong>Courage</strong>, <strong>Becoming</strong>, and <strong>Legacy</strong>.</p>
                 </div>
-                <div class="step-card">
+                <div class="work-step">
                     <div class="step-number">2</div>
-                    <h3>Goal Setting & Planning</h3>
-                    <p>Collaborative development of specific, measurable objectives aligned with both personal growth and organizational strategic priorities.</p>
+                    <h3>Ten Reflections per Theme</h3>
+                    <p>Each theme contains 10 reflections. At the start of the month, you review all ten.</p>
                 </div>
-                <div class="step-card">
+                <div class="work-step">
                     <div class="step-number">3</div>
-                    <h3>Active Coaching Sessions</h3>
-                    <p>Structured coaching conversations using proven frameworks, practical exercises, and real-time leadership challenges as learning opportunities.</p>
+                    <h3>Choose One Reflection That Resonates</h3>
+                    <p>You select the reflection that meets you where you are right now — the one calling for attention, clarity, or healing.</p>
                 </div>
-                <div class="step-card">
+                <div class="work-step">
                     <div class="step-number">4</div>
-                    <h3>Implementation & Support</h3>
-                    <p>Ongoing guidance for applying new skills and behaviors in actual leadership scenarios with continuous feedback and adjustment.</p>
+                    <h3>Work Through the Monthly Workbook</h3>
+                    <p>You complete guided exercises, prompts, and practices designed for depth, honesty, and transformation.</p>
                 </div>
-                <div class="step-card">
+                <div class="work-step">
                     <div class="step-number">5</div>
-                    <h3>Evaluation & Sustainability</h3>
-                    <p>Measuring progress against defined metrics and establishing systems for continued growth beyond the formal coaching engagement.</p>
+                    <h3>Monthly Group Debrief With Me</h3>
+                    <p>At the end of each month, we meet for a virtual group session:</p>
+                    <ul>
+                        <li>Insight sharing</li>
+                        <li>Deeper coaching</li>
+                        <li>Accountability</li>
+                        <li>Integration of your learning</li>
+                    </ul>
+                    <p>Then we begin the next theme.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem; font-weight: 500;">By month five, you will have created your own lived, personalised <strong>BECOME Blueprint</strong>.</p>
+        </div>
+    </section>
+
+    <!-- The 5 Themes - Tabbed Section -->
+    <section class="themes-section">
+        <div class="container">
+            <h2>THE 5 THEMES OF BECOME</h2>
+            
+            <div class="themes-tabs">
+                <button class="theme-tab active" onclick="showTheme('identity')">IDENTITY</button>
+                <button class="theme-tab" onclick="showTheme('healing')">HEALING</button>
+                <button class="theme-tab" onclick="showTheme('courage')">COURAGE</button>
+                <button class="theme-tab" onclick="showTheme('becoming')">BECOMING</button>
+                <button class="theme-tab" onclick="showTheme('legacy')">LEGACY</button>
+            </div>
+
+            <div class="themes-content">
+                <!-- Identity Theme -->
+                <div id="identity" class="theme-content active">
+                    <h3>MONTH 1 — IDENTITY</h3>
+                    <p class="theme-question"><em>Who am I becoming, and what shaped me?</em></p>
+                    <ul class="reflections-list">
+                        <li><strong>Significance</strong> — Your Voice Still Matters</li>
+                        <li><strong>Liberation</strong> — You Are Not Your Childhood</li>
+                        <li><strong>Authenticity</strong> — Your Story Is Sacred</li>
+                        <li><strong>Connection</strong> — Not All Families Hurt</li>
+                        <li><strong>Purpose</strong> — Your Identity Isn't a Mistake</li>
+                        <li><strong>Evolution</strong> — Who You Were Isn't Who You Have to Be</li>
+                        <li><strong>Fulfilment</strong> — You Are the Answer to Someone's Prayer</li>
+                        <li><strong>Embodiment</strong> — Let Your Life Speak</li>
+                        <li><strong>Uniqueness</strong> — The World Needs What Only You Carry</li>
+                        <li><strong>Authorship</strong> — You Get to Define the Rest of the Story</li>
+                    </ul>
+                </div>
+
+                <!-- Healing Theme -->
+                <div id="healing" class="theme-content">
+                    <h3>MONTH 2 — HEALING</h3>
+                    <p class="theme-question"><em>What must be released, forgiven, or honoured?</em></p>
+                    <ul class="reflections-list">
+                        <li><strong>Release</strong> — Forgiveness Is for You</li>
+                        <li><strong>Expression</strong> — Let the Silence Break</li>
+                        <li><strong>Generosity</strong> — Kindness Is Never Wasted</li>
+                        <li><strong>Perseverance</strong> — Healing Is Messy—and Worth It</li>
+                        <li><strong>Resilience</strong> — Grief Doesn't Cancel Growth</li>
+                        <li><strong>Compassion</strong> — Forgive Yourself First</li>
+                        <li><strong>Reconciliation</strong> — Make Peace with Your Past</li>
+                        <li><strong>Insight</strong> — There's Wisdom in the Wound</li>
+                        <li><strong>Detachment</strong> — Unlearning Is Part of Healing</li>
+                        <li><strong>Acknowledgement</strong> — What You've Survived Deserves to Be Honoured</li>
+                    </ul>
+                </div>
+
+                <!-- Courage Theme -->
+                <div id="courage" class="theme-content">
+                    <h3>MONTH 3 — COURAGE</h3>
+                    <p class="theme-question"><em>Where do I need to be braver with myself and my life?</em></p>
+                    <ul class="reflections-list">
+                        <li><strong>Boundaries</strong> — It's Okay to Leave</li>
+                        <li><strong>Affirmation</strong> — One Yes Can Change Everything</li>
+                        <li><strong>Determination</strong> — Fear Doesn't Get the Final Say</li>
+                        <li><strong>Vulnerability</strong> — Stay Soft, Even If You've Been Hardened</li>
+                        <li><strong>Imperfection</strong> — You Don't Need to Be Whole to Help</li>
+                        <li><strong>Persistence</strong> — Your Courage Counts—Even Quietly</li>
+                        <li><strong>Tenacity</strong> — Grit Comes from the Grind</li>
+                        <li><strong>Optimism</strong> — Hope Isn't Naive. It's Necessary</li>
+                        <li><strong>Transformation</strong> — Even Betrayal Can Birth Breakthroughs</li>
+                        <li><strong>Redirection</strong> — Rejection Can Be Redirection</li>
+                    </ul>
+                </div>
+
+                <!-- Becoming Theme -->
+                <div id="becoming" class="theme-content">
+                    <h3>MONTH 4 — BECOMING</h3>
+                    <p class="theme-question"><em>What am I growing into, and what will it take?</em></p>
+                    <ul class="reflections-list">
+                        <li><strong>Fortitude</strong> — Resilience Is Learnt, Not Inherited</li>
+                        <li><strong>Self-Governance</strong> — Leadership Begins with Self</li>
+                        <li><strong>Timeliness</strong> — You're Not Too Late</li>
+                        <li><strong>Restoration</strong> — Rest Is Revolutionary</li>
+                        <li><strong>Expansion</strong> — You Were Not Meant to Shrink</li>
+                        <li><strong>Transparency</strong> — Don't Let Shame Silence You</li>
+                        <li><strong>Meaning</strong> — Purpose Can Be Found in Pain</li>
+                        <li><strong>Self-Preservation</strong> — You Are Worth Protecting</li>
+                        <li><strong>Receptivity</strong> — Grace Will Meet You Where You Are</li>
+                        <li><strong>Transition</strong> — Not Every Ending Is a Failure</li>
+                    </ul>
+                </div>
+
+                <!-- Legacy Theme -->
+                <div id="legacy" class="theme-content">
+                    <h3>MONTH 5 — LEGACY</h3>
+                    <p class="theme-question"><em>What will remain because I lived?</em></p>
+                    <ul class="reflections-list">
+                        <li><strong>Mindfulness</strong> — Legacy Is Built in the Ordinary</li>
+                        <li><strong>Transcendence</strong> — Be the Ancestor You Needed</li>
+                        <li><strong>Patience</strong> — Impact Is Not Always Immediate</li>
+                        <li><strong>Resonance</strong> — Legacy Is Who Remembers You and Why</li>
+                        <li><strong>Ownership</strong> — Tell Your Story Before Others Tell It</li>
+                        <li><strong>Congruence</strong> — Legacy Is Rooted in Integrity</li>
+                        <li><strong>Illumination</strong> — Teach What You've Survived</li>
+                        <li><strong>Generativity</strong> — Legacy Is What You Give Away</li>
+                        <li><strong>Reverence</strong> — Honour Your Elders While You Can</li>
+                        <li><strong>Testimony</strong> — Your Life Is the Curriculum</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Executive Focus Areas -->
-    <section class="executive-focus">
+    <!-- What You Experience Section -->
+    <section class="experience-section">
         <div class="container">
-            <h2>Executive Focus Areas</h2>
-            <div class="focus-areas">
-                <div class="focus-card">
-                    <h3>Strategic Leadership</h3>
-                    <ul>
-                        <li>Vision Development & Communication</li>
-                        <li>Strategic Thinking & Planning</li>
-                        <li>Change Management Leadership</li>
-                        <li>Innovation & Digital Transformation</li>
-                        <li>Market Analysis & Competitive Strategy</li>
-                    </ul>
-                </div>
-                <div class="focus-card">
-                    <h3>Team & Organizational Development</h3>
-                    <ul>
-                        <li>High-Performance Team Building</li>
-                        <li>Talent Development & Succession</li>
-                        <li>Culture Transformation</li>
-                        <li>Conflict Resolution & Mediation</li>
-                        <li>Communication & Influence Skills</li>
-                    </ul>
-                </div>
-                <div class="focus-card">
-                    <h3>Personal Leadership Mastery</h3>
-                    <ul>
-                        <li>Executive Presence & Gravitas</li>
-                        <li>Emotional Intelligence Development</li>
-                        <li>Decision-Making Under Pressure</li>
-                        <li>Work-Life Integration</li>
-                        <li>Authentic Leadership Style</li>
-                    </ul>
-                </div>
-                <div class="focus-card">
-                    <h3>Business Performance</h3>
-                    <ul>
-                        <li>Financial Leadership & Acumen</li>
-                        <li>Operational Excellence</li>
-                        <li>Stakeholder Management</li>
-                        <li>Board & Investor Relations</li>
-                        <li>Crisis Leadership & Recovery</li>
-                    </ul>
+            <h2>WHAT YOU EXPERIENCE INSIDE THE PROGRAMME</h2>
+            <div class="experience-grid">
+                <div class="experience-item">Deep reflection</div>
+                <div class="experience-item">Guided self-discovery</div>
+                <div class="experience-item">Emotional clarity</div>
+                <div class="experience-item">Inner healing</div>
+                <div class="experience-item">Strengthened courage</div>
+                <div class="experience-item">Identity grounded in truth</div>
+                <div class="experience-item">Personal leadership</div>
+                <div class="experience-item">Purpose, meaning, and direction</div>
+                <div class="experience-item">A supportive community</div>
+                <div class="experience-item">Monthly live sessions with me</div>
+                <div class="experience-item">A complete BECOME Blueprint by the end</div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-style: italic;">This programme gently challenges you to grow — and supports you as you do.</p>
+        </div>
+    </section>
+
+    <!-- Who This Programme Is For Section -->
+    <section class="for-whom-section">
+        <div class="container">
+            <h2>WHO THIS PROGRAMME IS FOR</h2>
+            <p style="text-align: center; margin-bottom: 2rem;"><strong>BECOME</strong> is for you if:</p>
+            <div class="for-whom-grid">
+                <div class="for-whom-item">✓ You're at a crossroads</div>
+                <div class="for-whom-item">✓ You feel a shift happening internally</div>
+                <div class="for-whom-item">✓ You sense you're outgrowing old stories</div>
+                <div class="for-whom-item">✓ You want clarity — not confusion</div>
+                <div class="for-whom-item">✓ You're healing from disappointment or pain</div>
+                <div class="for-whom-item">✓ You want stronger boundaries and courage</div>
+                <div class="for-whom-item">✓ You're stepping into a new season of life</div>
+                <div class="for-whom-item">✓ You want meaning and alignment</div>
+                <div class="for-whom-item">✓ You're ready to grow intentionally</div>
+                <div class="for-whom-item">✓ You want a guided, structured journey — not noise</div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem;">If you want your life to mean something deeper, truer, and more aligned — this is your space.</p>
+        </div>
+    </section>
+
+    <!-- Your Invitation Section -->
+    <section class="invitation-section">
+        <div class="container">
+            <h2>YOUR INVITATION</h2>
+            <div class="invitation-content">
+                <p><strong>BECOME</strong> is more than a programme.<br>
+                It is a returning.<br>
+                A rebuilding.<br>
+                A remembering.<br>
+                A rising.</p>
+                
+                <p>And it is the beginning of your next chapter.</p>
+                
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-primary">Begin Your BECOME Journey</a>
+                    <a href="contact.html" class="btn-secondary">Apply to Join the Programme ›</a>
                 </div>
             </div>
         </div>
@@ -793,7 +1241,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <!-- <div class="footer-content">
                 <div class="footer-section">
                     <h3>Professional Focus</h3>
                     <p>Executive coaching, leadership development, and business transformation across healthcare, finance, education, and entrepreneurship sectors.</p>
@@ -833,7 +1281,7 @@
                         <button type="submit">Coming 2025</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="footer-bottom">
                 <p>&copy; 2025 Dr. Anderson Uvie-Emegbo. All rights reserved.</p>
@@ -859,6 +1307,25 @@
                 menuToggle.classList.add('fa-times');
                 body.style.overflow = 'hidden';
             }
+        }
+
+        // Theme tabs switching
+        function showTheme(themeId) {
+            // Hide all theme contents
+            document.querySelectorAll('.theme-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.theme-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected theme content
+            document.getElementById(themeId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
         }
 
         // Close mobile menu when clicking on a link
@@ -887,18 +1354,6 @@
                     document.body.style.overflow = 'auto';
                 }
             });
-        });
-
-        // Footer newsletter form submission
-        document.querySelector('.newsletter-form button').addEventListener('click', (e) => {
-            e.preventDefault();
-            const email = document.querySelector('.newsletter-form input').value;
-            if (email) {
-                alert('Thank you for subscribing! You will receive our latest insights and updates.');
-                document.querySelector('.newsletter-form input').value = '';
-            } else {
-                alert('Please enter a valid email address.');
-            }
         });
     </script>
 </body>
