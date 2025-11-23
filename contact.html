@@ -704,7 +704,7 @@
                 <li><a href="my-journey.html" class="nav-link">My Journey</a></li>
                 <li><a href="coaching.html" class="nav-link">Executive Coach</a></li>
                 <!-- <li><a href="entrepreneurship.html" class="nav-link">Entrepreneur</a></li> -->
-                <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
+                <!-- <li><a href="academia.html" class="nav-link">Executive Educator</a></li> -->
                 <li><a href="books.html" class="nav-link">Books</a></li>
                 <!-- <li><a href="insights.html" class="nav-link">Insights</a></li> -->
                 <li><a href="contact.html" class="nav-link active">Contact</a></li>
@@ -725,7 +725,7 @@
                 <li><a href="my-journey.html" class="nav-link">My Journey</a></li>
                 <li><a href="coaching.html" class="nav-link">Executive Coach</a></li>
                 <!-- <li><a href="entrepreneurship.html" class="nav-link">Entrepreneur</a></li> -->
-                <li><a href="academia.html" class="nav-link">Executive Educator</a></li>
+                <!-- <li><a href="academia.html" class="nav-link">Executive Educator</a></li> -->
                 <li><a href="books.html" class="nav-link">Books</a></li>
                 <li><a href="contact.html" class="nav-link active">Contact</a></li>
             </ul>
@@ -853,50 +853,10 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <!-- <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Professional Focus</h3>
-                    <p>Executive coaching, leadership development, and business transformation across healthcare, finance, education, and entrepreneurship sectors.</p>
-                    <div class="footer-social-links">
-                        <a href="https://www.linkedin.com/in/andersonuviemegbo/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="Medium"><i class="fab fa-medium-m"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="coaching.html">Executive Coaching</a></li>
-                        <li><a href="academia.html">Academic Programs</a></li>
-                        <li><a href="entrepreneurship.html">Venco Africa</a></li>
-                        <li><a href="books.html">Published Works</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Global Reach</h3>
-                    <ul>
-                        <li>80+ Countries Served</li>
-                        <li>1000+ Executives Coached</li>
-                        <li>Nova Business School</li>
-                        <li>International Speaker</li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Stay Connected</h3>
-                    <p>Subscribe for insights on leadership, innovation, and business transformation.</p>
-                    <div class="footer-newsletter-form">
-                        <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
-                        <button type="submit">Coming 2025</button>
-                    </div>
-                </div>
-            </div> -->
-
+            
             <div class="footer-bottom">
                 <p>&copy; 2025 Dr. Anderson Uvie-Emegbo. All rights reserved.</p>
             </div>
@@ -924,53 +884,28 @@
         }
 
         // Close mobile menu when clicking on a link
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    const mobileMenu = document.getElementById('mobileNavMenu');
-                    const menuToggle = document.querySelector('.mobile-menu-toggle i');
-                    mobileMenu.classList.remove('active');
-                    menuToggle.classList.remove('fa-times');
-                    menuToggle.classList.add('fa-bars');
-                    document.body.style.overflow = 'auto';
-                });
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                const mobileMenu = document.getElementById('mobileNavMenu');
-                const menuToggle = document.querySelector('.mobile-menu-toggle');
-                const navContainer = document.querySelector('.nav-container');
-                
-                if (!navContainer.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.remove('active');
-                    document.querySelector('.mobile-menu-toggle i').classList.remove('fa-times');
-                    document.querySelector('.mobile-menu-toggle i').classList.add('fa-bars');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
+        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                const navLinks = document.getElementById('navLinks');
-                navLinks.classList.remove('active');
+                const mobileMenu = document.getElementById('mobileNavMenu');
+                const menuToggle = document.querySelector('.mobile-menu-toggle i');
+                mobileMenu.classList.remove('active');
+                menuToggle.classList.remove('fa-times');
+                menuToggle.classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
             });
         });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
-            const nav = document.querySelector('nav');
-            const navLinks = document.getElementById('navLinks');
+            const mobileMenu = document.getElementById('mobileNavMenu');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navContainer = document.querySelector('.nav-container');
             
-            if (!nav.contains(e.target)) {
-                navLinks.classList.remove('active');
+            if (!navContainer.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                document.querySelector('.mobile-menu-toggle i').classList.remove('fa-times');
+                document.querySelector('.mobile-menu-toggle i').classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
             }
         });
 
@@ -993,18 +928,6 @@
             // Reset form
             event.target.reset();
         }
-
-        // Footer newsletter form submission
-        document.querySelector('.footer-newsletter-form button').addEventListener('click', (e) => {
-            e.preventDefault();
-            const email = document.querySelector('.footer-newsletter-form input').value;
-            if (email) {
-                alert('Thank you for subscribing! You will receive our latest insights and updates.');
-                document.querySelector('.footer-newsletter-form input').value = '';
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        });
     </script>
 </body>
 </html>
