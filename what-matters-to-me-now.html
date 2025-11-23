@@ -115,8 +115,8 @@
         }
 
         .availability-badge {
-            background: linear-gradient(45deg, #28a745, #20c997);
-            color: white;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            color: #333333;
             padding: 10px 20px;
             border-radius: 25px;
             font-weight: bold;
@@ -124,7 +124,7 @@
             margin-bottom: 20px;
             font-size: 1.1rem;
             animation: pulse 2s infinite;
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
         .book-cover {
@@ -214,6 +214,62 @@
             padding: 18px 40px;
         }
 
+        .toc {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 60px 0;
+            border: 2px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .toc h2 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .toc-list li {
+            padding: 12px 20px;
+            margin-bottom: 8px;
+            border-left: 4px solid #d4af37;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+            color: #333333;
+        }
+
+        .toc-list li:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateX(10px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+        }
+
+        .toc-theme {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-left: 6px solid #d4af37;
+        }
+
+        .toc-special {
+            font-weight: 600;
+            color: #2c3e50;
+            font-style: italic;
+        }
+
         .section {
             padding: 80px 0;
             position: relative;
@@ -244,8 +300,8 @@
         }
 
         .pre-order-banner {
-            background: linear-gradient(45deg, #28a745, #20c997);
-            color: white;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            color: #333333;
             padding: 20px;
             text-align: center;
             font-size: 1.2rem;
@@ -488,22 +544,22 @@
         }
 
         .bonus-highlight {
-            background: linear-gradient(45deg, #28a745, #20c997);
-            color: white;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            color: #333333;
             padding: 30px;
             border-radius: 20px;
             text-align: center;
             margin-top: 30px;
-            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
         }
 
         /* Footer Styles */
         footer {
             background-color: #2c3e50;
             color: white;
-            padding: 60px 0 30px;
+            padding: 30px 0 20px;
             margin-top: 50px;
-            min-height: 400px;
+            min-height: auto;
         }
 
         .footer-content {
@@ -694,7 +750,7 @@
                     </div>
                     <h1>What Matters to Me Now</h1>
                     <p class="subtitle">A Journey of Reflection and Purpose</p>
-                    <p><strong>Launching March 2025</strong> - A contemplative exploration of priorities, purpose, and authentic living by Dr. Anderson Uvie-Emegbo</p>
+                    <p><strong>Launching December 2025</strong> - A contemplative exploration of priorities, purpose, and authentic living by Dr. Anderson Uvie-Emegbo</p>
                     
                     <div class="countdown">
                         <h3><i class="fas fa-rocket"></i> Official Launch & Shipping Begins:</h3>
@@ -730,8 +786,85 @@
         </div>
     </section>
 
-    <!-- Pre-Order Incentive Counter -->
+    <!-- Table of Contents -->
     <section class="section">
+        <div class="container">
+            <div class="toc">
+                <h2>Table of Contents</h2>
+                <ul class="toc-list">
+                    <li class="toc-special">Foreword</li>
+                    <li class="toc-special">Introduction</li>
+                    <li class="toc-special">What Matters to Me Now</li>
+                    
+                    <li class="toc-theme">THEME I: IDENTITY</li>
+                    <li>1. Significance (Your Voice Still Matters)</li>
+                    <li>2. Liberation (You Are Not Your Childhood)</li>
+                    <li>3. Authenticity (Your Story Is Sacred)</li>
+                    <li>4. Connection (Not All Families Hurt)</li>
+                    <li>5. Purpose (Your Identity Isn't a Mistake)</li>
+                    <li>6. Evolution (Who You Were Isn't Who You Have to Be)</li>
+                    <li>7. Fulfilment (You Are the Answer to Someone's Prayer)</li>
+                    <li>8. Embodiment (Let Your Life Speak)</li>
+                    <li>9. Uniqueness (The World Needs What Only You Carry)</li>
+                    <li>10. Authorship (You Get to Define the Rest of the Story)</li>
+                    
+                    <li class="toc-theme">THEME II: HEALING</li>
+                    <li>11. Release (Forgiveness Is for You)</li>
+                    <li>12. Expression (Let the Silence Break)</li>
+                    <li>13. Generosity (Kindness Is Never Wasted)</li>
+                    <li>14. Perseverance (Healing Is Messy—and Worth It)</li>
+                    <li>15. Resilience (Grief Doesn't Cancel Growth)</li>
+                    <li>16. Compassion (Forgive Yourself First)</li>
+                    <li>17. Reconciliation (Make Peace with Your Past)</li>
+                    <li>18. Insight (There's Wisdom in the Wound)</li>
+                    <li>19. Detachment (Unlearning Is Part of Healing)</li>
+                    <li>20. Acknowledgement (What You've Survived Deserves to Be Honoured)</li>
+                    
+                    <li class="toc-theme">THEME III: COURAGE</li>
+                    <li>21. Boundaries (It's Okay to Leave)</li>
+                    <li>22. Affirmation (One Yes Can Change Everything)</li>
+                    <li>23. Determination (Fear Doesn't Get the Final Say)</li>
+                    <li>24. Vulnerability (Stay Soft, Even If You've Been Hardened)</li>
+                    <li>25. Imperfection (You Don't Need to Be Whole to Help)</li>
+                    <li>26. Persistence (Your Courage Counts—Even Quietly)</li>
+                    <li>27. Tenacity (Grit Comes from the Grind)</li>
+                    <li>28. Optimism (Hope Isn't Naive. It's Necessary)</li>
+                    <li>29. Transformation (Even Betrayal Can Birth Breakthroughs)</li>
+                    <li>30. Redirection (Rejection Can Be Redirection)</li>
+                    
+                    <li class="toc-theme">THEME IV: BECOMING</li>
+                    <li>31. Fortitude (Resilience Is Learnt, Not Inherited)</li>
+                    <li>32. Self-Governance (Leadership Begins with Self)</li>
+                    <li>33. Timeliness (You're Not Too Late)</li>
+                    <li>34. Restoration (Rest Is Revolutionary)</li>
+                    <li>35. Expansion (You Were Not Meant to Shrink)</li>
+                    <li>36. Transparency (Don't Let Shame Silence You)</li>
+                    <li>37. Meaning (Purpose Can Be Found in Pain)</li>
+                    <li>38. Self-Preservation (You Are Worth Protecting)</li>
+                    <li>39. Receptivity (Grace Will Meet You Where You Are)</li>
+                    <li>40. Transition (Not Every Ending Is a Failure)</li>
+                    
+                    <li class="toc-theme">THEME V: LEGACY</li>
+                    <li>41. Mindfulness (Legacy Is Built in the Ordinary)</li>
+                    <li>42. Transcendence (Be the Ancestor You Needed)</li>
+                    <li>43. Patience (Impact Is Not Always Immediate)</li>
+                    <li>44. Resonance (Legacy Is Who Remembers You and Why)</li>
+                    <li>45. Ownership (Tell Your Story Before Others Tell It for You)</li>
+                    <li>46. Congruence (Legacy Is Rooted in Integrity)</li>
+                    <li>47. Illumination (Teach What You've Survived)</li>
+                    <li>48. Generativity (Legacy Is What You Give Away)</li>
+                    <li>49. Reverence (Honour Your Elders While You Can)</li>
+                    <li>50. Testimony (Your Life Is the Curriculum)</li>
+                    
+                    <li class="toc-special">Acknowledgements</li>
+                    <li class="toc-special">About the Author</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Order Incentive Counter -->
+    <!-- <section class="section">
         <div class="container">
             <div class="pre-order-counter">
                 <h3 style="color: #d4af37; margin-bottom: 15px;">
@@ -746,10 +879,10 @@
                 <p style="font-size: 1.1rem;"><strong>Pre-order now and get immediate access to a digital bonus chapter:</strong> "The Questions That Changed Everything" - An intimate exploration of the pivotal moments that shaped Dr. Anderson's understanding of what truly matters.</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Full Synopsis -->
-    <section class="section">
+    <!-- <section class="section">
         <div class="container">
             <h2>Inside "What Matters to Me Now"</h2>
             <div class="full-synopsis">
@@ -790,14 +923,14 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Advanced Praise -->
     <section class="section">
         <div class="container">
             <h2>What Early Readers Are Saying</h2>
             <div class="testimonials">
-                <div class="testimonial">
+                <!-- <div class="testimonial">
                     <p class="testimonial-text">A beautifully written reflection on life's deepest questions. Anderson's insights will resonate with anyone seeking to live more intentionally and authentically.</p>
                     <div class="testimonial-author">Dr. Elena Rodriguez</div>
                     <div class="testimonial-title">Professor of Philosophy, Stanford University</div>
@@ -819,13 +952,19 @@
                     <p class="testimonial-text">Anderson writes with the wisdom of someone who has lived fully and reflected deeply. Every page offers insights that will stay with you long after you finish reading.</p>
                     <div class="testimonial-author">Prof. Robert Chen</div>
                     <div class="testimonial-title">Director, Center for Mindful Leadership, Harvard</div>
+                </div> -->
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">What Matters to Me Now goes straight to the spirit… From the first page, I felt like I wasn't just reading Anderson, I was meeting him—a man who has lived through fire, walked through silence, risen from ashes, and still found the grace to share what remains true. This collection of fifty reflections is gentle, clear, deeply vulnerable, and quietly powerful. In a world filled with noise, this book is a steady, grounding voice… honest, tender, brave—and yes… it is truly a gift.</p>
+                    <div class="testimonial-author">Omu Obilor</div>
+                    <div class="testimonial-title">Lead Bold. Stand Tall. Own the Room.</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Email Sign-up -->
-    <section class="section">
+    <!-- <section class="section">
         <div class="container">
             <div class="email-form">
                 <h3 style="color: #2c3e50; margin-bottom: 20px;">Stay Updated on the Launch</h3>
@@ -838,17 +977,17 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <!-- <div class="footer-content">
                 <div class="footer-section">
                     <h3>Professional Focus</h3>
                     <p>Executive coaching, leadership development, and business transformation across healthcare, finance, education, and entrepreneurship sectors.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/andersonuviemegbo/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         <a href="#" aria-label="Medium"><i class="fab fa-medium-m"></i></a>
@@ -880,10 +1019,10 @@
                     <p>Subscribe for insights on leadership, innovation, and business transformation.</p>
                     <div class="newsletter-form">
                         <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
-                        <button type="submit">Subscribe</button>
+                        <button type="submit">Coming 2025</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="footer-bottom">
                 <p>&copy; 2025 Dr. Anderson Uvie-Emegbo. All rights reserved.</p>
@@ -894,7 +1033,7 @@
     <script>
         // Countdown timer
         function updateCountdown() {
-            const launchDate = new Date('2025-03-01T00:00:00Z');
+            const launchDate = new Date('2025-12-07T00:00:00Z');
             const now = new Date();
             const timeDiff = launchDate.getTime() - now.getTime();
             
