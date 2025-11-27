@@ -202,6 +202,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 30%;
         }
 
         .hero-image-placeholder {
@@ -439,10 +440,98 @@
         }
 
         .timeline-image img {
-            max-width: 200px;
-            height: auto;
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        /* Image Modal/Lightbox */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.97);
+            animation: fadeIn 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .image-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .modal-content {
+            max-width: 85vw;
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            animation: zoomIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 25px 100px rgba(0, 0, 0, 0.8);
+            border: 3px solid rgba(193, 122, 47, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #fff;
+            font-size: 60px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(193, 122, 47, 0.2);
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            color: #C17A2F;
+            background: rgba(193, 122, 47, 0.4);
+            transform: rotate(90deg);
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0;
+                backdrop-filter: blur(0px);
+            }
+            to { 
+                opacity: 1;
+                backdrop-filter: blur(5px);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         /* Responsive adjustments */
@@ -1081,7 +1170,7 @@
     <!-- About Content -->
     <section class="hero">
         <div class="hero-image-section">
-            <div class="hero-image-placeholder"></div>
+            <img src="images/My-Journey-Dr-Anderson Uvie-Emegbo.JPG" alt="Dr. Anderson Uvie-Emegbo - My Journey">
         </div>
         
         <div class="diagonal-bg"></div>
@@ -1117,7 +1206,7 @@
                     <!-- 1975-1981 -->
                     <tr>
                         <td class="timeline-image">
-                            <div class="timeline-icon">🏠</div>
+                            <img src="images/1975 – 1981_Anderson Uvie-Emegbo-Early-Childhood.JPG" alt="Anderson Uvie-Emegbo Early Childhood 1975-1981">
                         </td>
                         <td class="timeline-content">
                             <span class="timeline-year">1975 – 1981</span>
@@ -1139,7 +1228,7 @@
                     </tr>
                     
                     <!-- 1986 -->
-                    <tr>
+                    <!-- <tr>
                         <td class="timeline-image">
                             <div class="timeline-icon">❤️</div>
                         </td>
@@ -1148,209 +1237,228 @@
                             <h3>Reunion with Mother</h3>
                             <p>Reunites with his mother after nearly six years apart — a defining emotional turning point.</p>
                         </td>
-                    </tr>
+                    </tr> -->
                     
                     <!-- 1990-1994 -->
                     <tr>
+                        <td class="timeline-image">
+                            <div class="timeline-icon">🏆</div>
+                        </td>
                         <td class="timeline-content">
                             <span class="timeline-year">1990 – 1994</span>
                             <h3>Academic Excellence</h3>
                             <p>Emerges as Delta State's top student at junior and senior secondary levels; wins state and national academic prizes and JETS competitions.</p>
                         </td>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">🏆</div>
-                        </td>
                     </tr>
                     
                     <!-- 1995 -->
                     <tr>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">�</div>
-                        </td>
+                       
                         <td class="timeline-content">
                             <span class="timeline-year">1995</span>
                             <h3>University Admission</h3>
                             <p>Gains admission to study Medicine and Surgery at Obafemi Awolowo University, Ile-Ife, Nigeria.</p>
                         </td>
+                        <td class="timeline-image">
+                            <img src="images/1995-Obafemi-Awolowo University-Nigeria-Anderson-Uvie-Emegbo.jpg" alt="Anderson Uvie-Emegbo at Obafemi Awolowo University 1995">
+                        </td>
                     </tr>
                     
                     <!-- 2004 -->
                     <tr>
+                        <td class="timeline-image">
+                            <img src="images/2004-Medical-Graduate-Anderson-Uvie-Emegbo.png" alt="Anderson Uvie-Emegbo Medical Graduate 2004">
+                        </td>
                         <td class="timeline-content">
                             <span class="timeline-year">2004</span>
                             <h3>Medical Graduate</h3>
                             <p>Graduates as a medical doctor and begins professional practice.</p>
                         </td>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">🏥</div>
-                        </td>
+                        
                     </tr>
                     
                     <!-- 2006 -->
                     <tr>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">⚡</div>
-                        </td>
+                        
                         <td class="timeline-content">
                             <span class="timeline-year">2006</span>
                             <h3>Near-Death Experience</h3>
                             <p>Contracts and survives tuberculosis, a near-death experience that reshapes his sense of purpose.</p>
                         </td>
+                        <td class="timeline-image">
+                            <img src="images/2006-Tuberculosis-Diagnosis-Anderson-Uvie-Emegbo.webp"
+                                alt="Anderson Uvie-Emegbo Tuberculosis Diagnosis 2006">
+                        </td>
                     </tr>
                     
                     <!-- 2007 -->
                     <tr>
+                        <td class="timeline-image">
+                            <img src="images/2007-Anderson-Uvie-Emegbo-in-PCL.jpg" alt="Anderson Uvie-Emegbo at Phillips Consulting 2007">
+                        </td>
                         <td class="timeline-content">
                             <span class="timeline-year">2007</span>
                             <h3>Career Pivot</h3>
                             <p>Publishes his personal manifesto, "Why I Am Leaving Medicine", marking a bold professional and personal pivot. Transitions from medicine to management consulting and joins Phillips Consulting, Lagos.</p>
                         </td>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">🔄</div>
-                        </td>
                     </tr>
                     
                     <!-- 2008 -->
                     <tr>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">🏦</div>
-                        </td>
+                       
                         <td class="timeline-content">
                             <span class="timeline-year">2008</span>
                             <h3>Banking Transition</h3>
                             <p>Joins United Bank for Africa (UBA) to lead strategic web communication and transformation initiatives.</p>
                         </td>
+                        <td class="timeline-image">
+                            <img src="images/2008-Dr-Anderson-Uvie-Emegbo-in-UBA.jpg" alt="Dr. Anderson Uvie-Emegbo at UBA 2008">
+                        </td>
                     </tr>
                     
                     <!-- 2009 -->
                     <tr>
+                        <td class="timeline-image">
+                            <div class="timeline-icon">💍</div>
+                        </td>
                         <td class="timeline-content">
                             <span class="timeline-year">2009</span>
                             <h3>Marriage & Career Change</h3>
                             <p>Marries; also leaves UBA (United Bank for Africa), marking the end of his first corporate chapter.</p>
                         </td>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">💍</div>
-                        </td>
                     </tr>
                     
                     <!-- 2010 -->
                     <tr>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">⚖️</div>
-                        </td>
+                        
                         <td class="timeline-content">
                             <span class="timeline-year">2010</span>
                             <h3>Integrity Test & First Business</h3>
                             <p>Faces a major integrity test at work — a humbling experience that sparks deep self-reflection and the pursuit of authentic leadership. Launches his first consulting business later that year. His daughter Bella is born.</p>
                         </td>
+                        <td class="timeline-image">
+                            <div class="timeline-icon">⚖️</div>
+                        </td>
                     </tr>
                     
                     <!-- 2011 -->
                     <tr>
+                        <td class="timeline-image">
+                            <img src="images/2011-Dr-Anderson-Uvie-Emegbo-in-Lagos-Business-School.jpg"
+                                alt="Dr. Anderson Uvie-Emegbo at Lagos Business School 2011">
+                        </td>
                         <td class="timeline-content">
                             <span class="timeline-year">2011</span>
                             <h3>Business Education</h3>
                             <p>Enrolls at Lagos Business School to strengthen his business and management grounding.</p>
                         </td>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">📚</div>
-                        </td>
+                        
                     </tr>
                     
                     <!-- 2012 -->
                     <tr>
-                        <td class="timeline-image">
-                            <img src="images/Joseph-Uvie-Emegbo.jpeg" alt="Joseph Uvie-Emegbo" style="max-width: 200px; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-                        </td>
+                        
                         <td class="timeline-content">
                             <span class="timeline-year">2012</span>
                             <h3>International Recognition</h3>
                             <p>His son Joseph is born. Receives an invitation from Strathmore Business School, Kenya, to co-lead their Social Media Summit for CEOs — his first international faculty appointment, marking the start of his Pan-African thought-leadership journey.</p>
                         </td>
+                        <td class="timeline-image">
+                            <img src="images/2012-International-Recognition-Anderson-Uvie-Emegbo.jpg"
+                                alt="Anderson Uvie-Emegbo International Recognition 2012">
+                        </td>
                     </tr>
                     
                     <!-- 2013 -->
                     <tr>
+                        <td class="timeline-image">
+                            <img src="images/2013-Late-Sir-Patrick-Tobore-Emegbo.JPG" alt="Late Sir Patrick Tobore Emegbo 2013">
+                        </td>
                         <td class="timeline-content">
                             <span class="timeline-year">2013</span>
                             <h3>Loss & Reflection</h3>
                             <p>Loses his father — a season of reconciliation, reflection, and renewed focus on purpose.</p>
                         </td>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">🕊️</div>
-                        </td>
+                        
                     </tr>
                     
                     <!-- 2014 -->
                     <tr>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">🌎</div>
-                        </td>
+                        
                         <td class="timeline-content">
                             <span class="timeline-year">2014</span>
                             <h3>International Expansion</h3>
                             <p>Completes an executive programme at IESE Business School, Spain, expanding his international outlook.</p>
                         </td>
+                        <td class="timeline-image">
+                            <img src="images/2014-Dr-Anderson-Uvie-Emegbo-at-IESE.JPG"
+                                alt="Dr. Anderson Uvie-Emegbo at IESE Business School 2014">
+                        </td>
                     </tr>
                     
                     <!-- 2011-2015 -->
                     <tr>
+                        <td class="timeline-image">
+                            <img src="images/2011–2015-Dr-Anderson-Uvie-Emegbo-and-GAPS-Academy.jpg" alt="Dr. Anderson Uvie-Emegbo and GAPS Academy 2011-2015">
+                        </td>
                         <td class="timeline-content">
                             <span class="timeline-year">2011 – 2015</span>
                             <h3>Entrepreneurship & Thought Leadership</h3>
                             <p>Co-founds multiple ventures in leadership, learning, and digital innovation; gains recognition as a thought leader and national columnist.</p>
                         </td>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">🚀</div>
-                        </td>
+                        
                     </tr>
                     
                     <!-- 2016 -->
                     <tr>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">�</div>
-                        </td>
+                       
                         <td class="timeline-content">
                             <span class="timeline-year">2016</span>
-                            <h3>Harvard University</h3>
+                            <h3>Harvard</h3>
                             <p>Embarks on the first of several forays to Harvard University, expanding intellectual horizons and global networks.</p>
+                        </td>
+                        <td class="timeline-image">
+                            <img src="images/2016-Dr-Anderson-Uvie-Emegbo-at-Harvard.JPG" alt="Dr. Anderson Uvie-Emegbo at Harvard University 2016">
                         </td>
                     </tr>
                     
                     <!-- 2017 -->
                     <tr>
+                        <td class="timeline-image">
+                            <img src="images/2017-Dr-Anderson-Uvie-Emegbo-at-CEIBS.jpg" alt="Dr. Anderson Uvie-Emegbo at CEIBS 2017">
+                        </td>
                         <td class="timeline-content">
                             <span class="timeline-year">2017</span>
-                            <h3>CEIBS Partnership</h3>
+                            <h3>CEIBS</h3>
                             <p>Joins CEIBS (China Europe International Business School), furthering his global academic and professional network.</p>
                         </td>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">🤝</div>
-                        </td>
+                        
                     </tr>
                     
                     <!-- 2020 -->
-                    <tr>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">🦠</div>
-                        </td>
+                    <!-- <tr>
+                       
                         <td class="timeline-content">
                             <span class="timeline-year">2020</span>
                             <h3>Pandemic & Loss</h3>
                             <p>Navigates pandemic disruptions and the loss of close friend Chimromma, deepening his commitment to mentorship and legacy.</p>
                         </td>
-                    </tr>
+                        <td class="timeline-image">
+                            <div class="timeline-icon">🦠</div>
+                        </td>
+                    </tr> -->
                     
                     <!-- 2021 -->
                     <tr>
+                       
                         <td class="timeline-content">
-                            <span class="timeline-year">2021</span>
+                            <span class="timeline-year">2022</span>
                             <h3>UK Relocation</h3>
                             <p>Relocates to the United Kingdom with his family.</p>
                         </td>
                         <td class="timeline-image">
-                            <div class="timeline-icon">✈️</div>
+                            <img src="images/2022-Dr-Anderson-Uvie-Emegbo-and-Family-in-the UK.JPG"
+                                alt="Dr. Anderson Uvie-Emegbo and Family in the UK 2022">
                         </td>
                     </tr>
                     
@@ -1368,13 +1476,13 @@
                     
                     <!-- 2025 -->
                     <tr>
+                        <td class="timeline-image">
+                            <img src="images/2025-Dr-Anderson-Uvie-Emegbo-The-Author.JPG" alt="Dr. Anderson Uvie-Emegbo - The Author 2025">
+                        </td>
                         <td class="timeline-content">
                             <span class="timeline-year">2025</span>
-                            <h3>Nova Business School & New Beginnings</h3>
-                            <p>Exits CEIBS and becomes Vice President, Academic Director & COO at Nova Business School Africa. Begins writing The Gift and its companion What Matters to Me Now. Turns 50 in December 2025, marking five decades of reinvention, courage, and purpose.</p>
-                        </td>
-                        <td class="timeline-image">
-                            <div class="timeline-icon">📖</div>
+                            <h3>New Beginnings Again</h3>
+                            <p>Exits CEIBS and becomes Vice President, Academic Director & COO at Nova Business School Africa. Publishes two books - The Gift and its companion What Matters to Me Now. Turns 50 in December 2025, marking five decades of reinvention, courage, and purpose.</p>
                         </td>
                     </tr>
                 </table>
@@ -1567,6 +1675,54 @@
             // Add active class to clicked button
             event.target.classList.add('active');
         }
+
+        // Image Modal/Lightbox Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create modal element
+            const modal = document.createElement('div');
+            modal.className = 'image-modal';
+            modal.innerHTML = `
+                <span class="modal-close">&times;</span>
+                <img class="modal-content" src="" alt="">
+            `;
+            document.body.appendChild(modal);
+
+            const modalImg = modal.querySelector('.modal-content');
+            const closeBtn = modal.querySelector('.modal-close');
+
+            // Add click event to all timeline images
+            const timelineImages = document.querySelectorAll('.timeline-image img');
+            timelineImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    modal.classList.add('active');
+                    modalImg.src = this.src;
+                    modalImg.alt = this.alt;
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close modal when clicking close button
+            closeBtn.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close modal when clicking outside the image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
     </script>
 </body>
 </html>
